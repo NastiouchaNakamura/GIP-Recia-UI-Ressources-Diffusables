@@ -1,6 +1,7 @@
-function getRessourcesDiffusablesPage(page) {
+async function getRessourcesDiffusablesPage(page) {
+    let promesseVide = new Promise(((resolve) => { resolve([]) }));
     try {
-        fetch(
+        return await fetch(
             'http://localhost:8090/mediacentre/api/ressources-diffusables?page=' + page,
             {
                 method: 'GET'
@@ -11,12 +12,12 @@ function getRessourcesDiffusablesPage(page) {
             },
             (error) => {
                 console.log('getRessourcesDiffusablesPage(' + page + '): ' + error);
-                return [];
+                return promesseVide;
             }
         )
     } catch (error) {
         console.log('getRessourcesDiffusablesPage(' + page + '): ' + error);
-        return [];
+        return promesseVide;
     }
 }
 
