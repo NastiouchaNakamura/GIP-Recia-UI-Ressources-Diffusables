@@ -1,8 +1,24 @@
-async function getRessourcesDiffusablesPage(page) {
+async function getRessourcesDiffusablesPage(
+    page, 
+    idRessource,
+    nomRessource,
+    idEditeur,
+    distributeurCom,
+    distributeurTech,
+    affichable,
+    diffusable
+) {
     let promesseVide = new Promise(((resolve) => { resolve([]) }));
     try {
         return await fetch(
-            'http://localhost:8090/mediacentre/api/ressources-diffusables?elementsParPage=100&page=' + page + '&nomElement=1234',
+            'http://localhost:8090/mediacentre/api/ressources-diffusables?elementsParPage=100&page=' + page +
+            (idRessource !== '' ? '&idRessource=' + idRessource : '') +
+            (nomRessource !== '' ? '&nomRessource=' + nomRessource : '') +
+            (idEditeur !== '' ? '&idEditeur=' + idEditeur : '') +
+            (distributeurCom !== '' ? '&distributeurCom=' + distributeurCom : '') +
+            (distributeurTech !== '' ? '&distributeurTech=' + distributeurTech : '') +
+            (affichable !== '' ? '&affichable=' + affichable : '') +
+            (diffusable !== '' ? '&diffusable=' + diffusable : ''),
             {
                 method: 'GET'
             }
