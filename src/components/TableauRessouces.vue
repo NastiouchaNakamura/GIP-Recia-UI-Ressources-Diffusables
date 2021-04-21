@@ -72,15 +72,6 @@ export default {
       } else {
         alert('done');
       }
-    },
-    scroll () {
-      window.onscroll = () => {
-        let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight;
-
-        if (bottomOfWindow) {
-          this.getPageSuivante(); // replace it with your code
-        }
-      }
     }
   }
 }
