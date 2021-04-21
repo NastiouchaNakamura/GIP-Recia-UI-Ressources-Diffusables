@@ -102,7 +102,7 @@
 </template>
 
 <script>
-import { getRessourcesDiffusablesPage } from '@/services/serviceRessourcesDiffusables'
+import { getRessourcesDiffusables } from '@/services/serviceRessourcesDiffusables'
 
 export default {
   name: 'TableauRessouces',
@@ -133,7 +133,7 @@ export default {
     getPageSuivante: function () {
       if (!this.lectureTerminee) {
         this.chargement = true;
-        getRessourcesDiffusablesPage(
+        getRessourcesDiffusables(
             this.pageSuivante++,
             this.recherche.idRessource,
             this.recherche.nomRessource,

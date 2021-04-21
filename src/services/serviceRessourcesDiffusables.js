@@ -1,4 +1,4 @@
-async function getRessourcesDiffusablesPage(
+async function getRessourcesDiffusables(
     page, 
     idRessource,
     nomRessource,
@@ -37,4 +37,4 @@ async function getRessourcesDiffusablesPage(
     }
 }
 
-export { getRessourcesDiffusablesPage }
+export { getRessourcesDiffusables }
