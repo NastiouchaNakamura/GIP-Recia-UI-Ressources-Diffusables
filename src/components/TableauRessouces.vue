@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div> <!-- @scroll="onScroll" -->
     <div>
       <button v-on:click="afficher">Logguer ressources</button>
     </div>
@@ -25,6 +25,14 @@
       </tr>
       </tbody>
     </table>
+    <div v-if="chargement">
+      <small>
+        Chargement
+      </small>
+    </div>
+    <div>
+      <button v-on:click="getPageSuivante">Page supplémentaire</button>
+    </div>
   </div>
 </template>
 
@@ -35,28 +43,48 @@ export default {
   name: 'TableauRessouces',
   data: function() {
     return {
-      ressources: [
-        {
-          idRessource: '0',
-          nomRessource: '0'
-        },
-        {
-          idRessource: '1',
-          nomRessource: '1'
-        },
-        {
-          idRessource: '2',
-          nomRessource: '2'
-        }
-      ]
+      ressources: [],
+      pageSuivante: 0,
+      lectureTerminee: false,
+      chargement: false
     };
   },
   mounted() {
-    getRessourcesDiffusablesPage(0).then(value => this.ressources = this.ressources.concat(value));
+    this.getPageSuivante();
+    this.scroll();
   },
   methods: {
     afficher: function () {
       console.log(this.ressources);
+    },
+    getPageSuivante: function () {
+      if (!this.lectureTerminee) {
+        this.chargement = true;
+        getRessourcesDiffusablesPage(this.pageSuivante++).then(
+            value => {
+              if (value.length === 0) {
+                this.lectureTerminee = true;
+              } else {
+                this.ressources = this.ressources.concat(value);
+              }
+            }
+        ).finally(
+            () => {
+              this.chargement = false;
+            }
+        )
+      } else {
+        alert('done');
+      }
+    },
+    scroll () {
+      window.onscroll = () => {
+        let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight;
+
+        if (bottomOfWindow) {
+          this.getPageSuivante(); // replace it with your code
+        }
+      }
     }
   }
 }
