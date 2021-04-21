@@ -1,8 +1,5 @@
 <template>
-  <div> <!-- @scroll="onScroll" -->
-    <div>
-      <button v-on:click="afficher">Logguer ressources</button>
-    </div>
+  <div>
     <table>
       <thead>
       <tr>
@@ -31,7 +28,7 @@
       </small>
     </div>
     <div>
-      <button v-on:click="getPageSuivante">Page supplémentaire</button>
+      <button v-on:click="getPageSuivante">Charger 100 de plus</button>
     </div>
   </div>
 </template>
@@ -51,7 +48,6 @@ export default {
   },
   mounted() {
     this.getPageSuivante();
-    this.scroll();
   },
   methods: {
     afficher: function () {
