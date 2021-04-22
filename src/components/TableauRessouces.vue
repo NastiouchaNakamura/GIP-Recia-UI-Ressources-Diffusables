@@ -83,18 +83,18 @@
           </tr>
           </tbody>
         </table>
-        <div v-if="chargement">
-          <small>
-            Chargement
-          </small>
-        </div>
         <div v-if="!lectureTerminee">
           <button v-on:click="getPageSuivante">Charger 100 de plus</button>
         </div>
       </div>
-      <div v-else>
+      <div v-else-if="!chargement">
         <p>
           Aucune ressource ne correspond à votre recherche.
+        </p>
+      </div>
+      <div v-if="chargement">
+        <p>
+          Chargement…
         </p>
       </div>
     </fieldset>
