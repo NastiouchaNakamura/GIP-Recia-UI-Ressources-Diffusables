@@ -81,9 +81,6 @@ export default {
       }
     };
   },
-  mounted() {
-    this.recommencerRecherche();
-  },
   methods: {
     reinitialiserRecherche: function () {
       for (let champ in this.recherche) {

@@ -3,7 +3,7 @@
     <header class="en-tete">
       <h1 class="titre-en-tete">Ressources diffusables</h1>
       <div class="separation"></div>
-      <p>
+      <p class="elements-affiches">
         {{ ressources.length }}/{{ nombreRessourcesTotal }} ÉLÉMENTS AFFICHÉS
       </p>
     </header>
@@ -20,7 +20,7 @@
       </div>
     </main>
     <footer>
-      <div v-if="lectureTerminee && !chargement">
+      <div v-if="ressources.length === 0">
         <p>
           Aucune ressource ne correspond à votre recherche.
         </p>
@@ -117,6 +117,36 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.en-tete {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: #d91a7b;
+  padding: 10px 20px 10px 20px;
+  border-bottom: thin solid lightgrey;
+  box-shadow: 0 2px 5px lightgrey;
+}
+
+.titre-en-tete, .separation, .elements-affiches {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.titre-en-tete {
+  color: white;
+}
+
+.separation {
+  width: 1px;
+  height: 100%;
+  background-color: white;
+  margin: 0 10px 0 10px;
+}
+
+.elements-affiches {
+  color: white;
 }
 
 .liste {
