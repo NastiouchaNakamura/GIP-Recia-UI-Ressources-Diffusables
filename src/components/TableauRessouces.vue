@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <fieldset id="selectionRecherche">
+  <div class="total">
+    <fieldset class="formulaire">
       <legend>Recherche</legend>
       <form>
         <p>
@@ -58,60 +58,18 @@
         </p>
       </form>
     </fieldset>
-    <fieldset id="table">
-      <legend>Liste des ressources</legend>
-      <div v-if="ressources.length !== 0">
-        <table>
-          <thead>
-          <tr>
-            <th>
-              ID
-            </th>
-            <th>
-              Ressource
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr v-for="ressource in ressources" :key="ressource.idRessource">
-            <td>
-              {{ ressource.idRessource }}
-            </td>
-            <td>
-              {{ ressource.nomRessource }}
-            </td>
-          </tr>
-          </tbody>
-        </table>
-        <div v-if="!lectureTerminee">
-          <button v-on:click="getPageSuivante">Charger 100 de plus</button>
-        </div>
-      </div>
-      <div v-else-if="!chargement">
-        <p>
-          Aucune ressource ne correspond à votre recherche.
-        </p>
-      </div>
-      <div v-if="chargement">
-        <p>
-          Chargement…
-        </p>
-      </div>
-    </fieldset>
+    <liste-ressources v-bind:recherche="recherche" ref="listeRessources" class="liste-ressources"></liste-ressources>
   </div>
 </template>
 
 <script>
-import { getRessourcesDiffusables } from '@/services/serviceRessourcesDiffusables'
+import ListeRessources from "@/components/ListeRessources";
 
 export default {
   name: 'TableauRessouces',
+  components: {listeRessources: ListeRessources},
   data: function() {
     return {
-      ressources: [],
-      pageSuivante: 0,
-      lectureTerminee: false,
-      chargement: false,
       recherche: {
         idRessource: '',
         nomRessource: '',
@@ -127,47 +85,14 @@ export default {
     this.recommencerRecherche();
   },
   methods: {
-    afficher: function () {
-      console.log(this.ressources);
-    },
-    getPageSuivante: function () {
-      if (!this.lectureTerminee) {
-        this.chargement = true;
-        getRessourcesDiffusables(
-            this.pageSuivante++,
-            this.recherche.idRessource,
-            this.recherche.nomRessource,
-            this.recherche.idEditeur,
-            this.recherche.distributeurCom,
-            this.recherche.distributeurTech,
-            this.recherche.affichable,
-            this.recherche.diffusable
-        ).then(
-            value => {
-              if (value.length === 0) {
-                this.lectureTerminee = true;
-              } else {
-                this.ressources = this.ressources.concat(value);
-              }
-            }
-        ).finally(
-            () => {
-              this.chargement = false;
-            }
-        )
-      }
-    },
-    recommencerRecherche: function () {
-      this.ressources = [];
-      this.pageSuivante = 0;
-      this.lectureTerminee = false;
-      this.getPageSuivante();
-    },
     reinitialiserRecherche: function () {
       for (let champ in this.recherche) {
         this.recherche[champ] = '';
       }
       this.recommencerRecherche();
+    },
+    recommencerRecherche: function () {
+      this.$refs.listeRessources.recommencerRecherche();
     }
   }
 }
@@ -186,5 +111,21 @@ table, legend {
   font-size: 75%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.total {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.formulaire {
+  max-width: 20vw;
+  flex-grow: 0;
+}
+
+.liste-ressources {
+  width: 100%;
+  flex-grow: 0;
 }
 </style>
