@@ -1,13 +1,13 @@
 <template>
-  <div class="cadre">
-    <header class="en-tete">
-      <h1 class="titre-en-tete">Ressources diffusables</h1>
-      <div class="separation"></div>
-      <p class="elements-affiches">
+  <div class="cadre-liste-ressource">
+    <header class="en-tete-liste-ressource">
+      <h1 class="titre-en-tete-liste-ressource">Ressources diffusables</h1>
+      <div class="separation-liste-ressource"></div>
+      <p class="elements-affiches-liste-ressource">
         {{ ressources.length }}/{{ nombreRessourcesTotal }} ÉLÉMENTS AFFICHÉS
       </p>
     </header>
-    <main class="liste">
+    <main class="liste-liste-ressource">
       <div v-if="ressources.length !== 0">
         <carte-ressource
             v-for="ressource in ressources"
@@ -113,13 +113,13 @@ export default {
 </script>
 
 <style scoped>
-.cadre {
+.cadre-liste-ressource {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.en-tete {
+.en-tete-liste-ressource {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -129,27 +129,27 @@ export default {
   box-shadow: 0 2px 5px lightgrey;
 }
 
-.titre-en-tete, .separation, .elements-affiches {
+.titre-en-tete-liste-ressource, .separation-liste-ressource, .elements-affiches-liste-ressource {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.titre-en-tete {
+.titre-en-tete-liste-ressource {
   color: white;
 }
 
-.separation {
+.separation-liste-ressource {
   width: 1px;
   height: 100%;
   background-color: white;
   margin: 0 10px 0 10px;
 }
 
-.elements-affiches {
+.elements-affiches-liste-ressource {
   color: white;
 }
 
-.liste {
+.liste-liste-ressource {
   overflow: scroll;
 }
 </style>

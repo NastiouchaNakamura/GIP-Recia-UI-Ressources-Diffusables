@@ -1,27 +1,27 @@
 <template>
-  <div class="cadre">
-    <h3 class="nom-ressource">
+  <div class="cadre-carte-ressource">
+    <h3 class="nom-ressource-carte-ressource">
       {{ ressource.ressource.nom }}
     </h3>
-    <ul class="liste-attributs-ressource">
-      <li class="attribut-ressource">
-        <span class="intitule-attribut-ressource">Identifiant : </span>
+    <ul class="liste-attributs-ressource-carte-ressource">
+      <li class="attribut-ressource-carte-ressource">
+        <span class="intitule-attribut-ressource-carte-ressource">Identifiant : </span>
         <span class="nom-attribut-ressource">{{ ressource.ressource.id }}</span>
       </li>
-      <li class="attribut-ressource" v-if="ressource.editeur.nom !== '' || plusInfos">
-        <span class="intitule-attribut-ressource">Éditeur : </span>
-        <span class="nom-attribut-ressource">{{ ressource.editeur.nom }} </span>
-        <span class="id-attribut-ressource" v-if="plusInfos">{{ ressource.editeur.id }}</span>
+      <li class="attribut-ressource-carte-ressource" v-if="ressource.editeur.nom !== '' || plusInfos">
+        <span class="intitule-attribut-ressource-carte-ressource">Éditeur : </span>
+        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.editeur.nom }} </span>
+        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ ressource.editeur.id }}</span>
       </li>
-      <li class="attribut-ressource" v-for="distributeurCom in distributeursComComputed" :key="distributeurCom.id">
-        <span class="intitule-attribut-ressource">Distributeur commercial : </span>
-        <span class="nom-attribut-ressource">{{ distributeurCom.nom }} </span>
-        <span class="id-attribut-ressource" v-if="plusInfos">{{ distributeurCom.id }}</span>
+      <li class="attribut-ressource-carte-ressource" v-for="distributeurCom in distributeursComComputed" :key="distributeurCom.id">
+        <span class="intitule-attribut-ressource-carte-ressource">Distributeur commercial : </span>
+        <span class="nom-attribut-ressource-carte-ressource">{{ distributeurCom.nom }} </span>
+        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ distributeurCom.id }}</span>
       </li>
-      <li class="attribut-ressource" v-if="ressource.distributeurTech.nom !== '' || plusInfos">
-        <span class="intitule-attribut-ressource">Distributeur technique : </span>
-        <span class="nom-attribut-ressource">{{ ressource.distributeurTech.nom }} </span>
-        <span class="id-attribut-ressource" v-if="plusInfos">{{ ressource.distributeurTech.id }}</span>
+      <li class="attribut-ressource-carte-ressource" v-if="ressource.distributeurTech.nom !== '' || plusInfos">
+        <span class="intitule-attribut-ressource-carte-ressource">Distributeur technique : </span>
+        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.distributeurTech.nom }} </span>
+        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ ressource.distributeurTech.id }}</span>
       </li>
     </ul>
     <button v-on:click="afficherPlusInfos" :disabled="plusInfos">Plus d'informations</button>
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style scoped>
-.cadre {
+.cadre-carte-ressource {
   border: thin solid lightgrey;
   box-shadow: 2px 2px 5px lightgrey;
   border-radius: 10px;
@@ -70,29 +70,29 @@ export default {
   margin: 5px;
 }
 
-.nom-ressource {
+.nom-ressource-carte-ressource {
   margin-top: 0;
   margin-bottom: 12px;
   color: #d91a7e;
 }
 
-.attribut-ressource {
+.attribut-ressource-carte-ressource {
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
   padding: 0;
 }
 
-.intitule-attribut-ressource {
+.intitule-attribut-ressource-carte-ressource {
   font-weight: bold;
 }
 
-.id-attribut-ressource {
+.id-attribut-ressource-carte-ressource {
   color: grey;
   font-size: smaller;
 }
 
-.liste-attributs-ressource {
+.liste-attributs-ressource-carte-ressource {
   padding-left: 0;
 }
 </style>
