@@ -1,5 +1,5 @@
 <template>
-  <div class="carte">
+  <div class="cadre">
     <h3 class="nom-ressource">
       {{ ressource.ressource.nom }}
     </h3>
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style scoped>
-.carte {
+.cadre {
   border: thin solid lightgrey;
   box-shadow: 2px 2px 5px lightgrey;
   border-radius: 10px;
