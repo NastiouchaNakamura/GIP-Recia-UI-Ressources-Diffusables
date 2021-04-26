@@ -1,73 +1,20 @@
 <template>
   <div class="total">
-    <fieldset class="formulaire">
-      <legend>Recherche</legend>
-      <form>
-        <p>
-          <label>
-            ID de la ressource :
-            <input v-model.trim="recherche.idRessource" @change="recommencerRecherche" type="text" placeholder="ID de la ressource">
-          </label>
-        </p>
-        <p>
-          <label>
-            Nom de la ressource :
-            <input v-model.trim="recherche.nomRessource" @change="recommencerRecherche" type="text" placeholder="Nom de la ressource">
-          </label>
-        </p>
-        <p>
-          <label>
-            ID de l'éditeur :
-            <input v-model.trim="recherche.idEditeur" @change="recommencerRecherche" type="text" placeholder="ID de l'éditeur">
-          </label>
-        </p>
-        <p>
-          <label>
-            Distributeur Com :
-            <input v-model.trim="recherche.distributeurCom" @change="recommencerRecherche" type="text" placeholder="Distributeur Com">
-          </label>
-        </p>
-        <p>
-          <label>
-            Distributeur Tech :
-            <input v-model.trim="recherche.distributeurTech" @change="recommencerRecherche" type="text" placeholder="Distributeur Tech">
-          </label>
-        </p>
-        <p>
-          <label>
-            Affichable :
-            <select v-model="recherche.affichable" @change="recommencerRecherche">
-              <option value="">Indifférent</option>
-              <option value="true">Affichable</option>
-              <option value="false">Non affichable</option>
-            </select>
-          </label>
-        </p>
-        <p>
-          <label>
-            Diffusable :
-            <select v-model="recherche.diffusable" @change="recommencerRecherche">
-              <option value="">Indifférent</option>
-              <option value="true">Diffusable</option>
-              <option value="false">Non diffusable</option>
-            </select>
-          </label>
-        </p>
-        <p>
-          <input type="reset" value="Réinitialiser la recherche" @click="reinitialiserRecherche">
-        </p>
-      </form>
-    </fieldset>
-    <liste-ressources v-bind:recherche="recherche" ref="listeRessources" class="liste-ressources"></liste-ressources>
+    <recherche-ressource v-bind:recherche="recherche" ref="rechercheRessource" class="recherche-ressource"></recherche-ressource>
+    <liste-ressources v-bind:recherche="recherche" ref="listeRessource" class="liste-ressource"></liste-ressources>
   </div>
 </template>
 
 <script>
 import ListeRessources from "@/components/ListeRessources";
+import RechercheRessource from "@/components/RechercheRessource";
 
 export default {
   name: 'TableauRessouces',
-  components: {listeRessources: ListeRessources},
+  components: {
+    rechercheRessource: RechercheRessource,
+    listeRessources: ListeRessources
+  },
   data: function() {
     return {
       recherche: {
@@ -82,14 +29,8 @@ export default {
     };
   },
   methods: {
-    reinitialiserRecherche: function () {
-      for (let champ in this.recherche) {
-        this.recherche[champ] = '';
-      }
-      this.recommencerRecherche();
-    },
     recommencerRecherche: function () {
-      this.$refs.listeRessources.recommencerRecherche();
+      this.$refs.listeRessource.recommencerRecherche();
     }
   }
 }
@@ -116,12 +57,12 @@ table, legend {
   padding: 0;
 }
 
-.formulaire {
+.recherche-ressource {
   max-width: 20vw;
   flex-grow: 0;
 }
 
-.liste-ressources {
+.liste-ressource {
   width: 100%;
   flex-grow: 0;
 }
