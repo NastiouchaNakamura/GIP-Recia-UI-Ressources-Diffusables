@@ -1,7 +1,7 @@
 <template>
   <div class="total">
-    <recherche-ressource v-bind:recherche="recherche" ref="rechercheRessource" class="recherche-ressource"></recherche-ressource>
-    <liste-ressources v-bind:recherche="recherche" ref="listeRessource" class="liste-ressource"></liste-ressources>
+    <recherche-ressource v-bind:recherche="recherche" ref="rechercheRessource" class="recherche-ressource"/>
+    <liste-ressources v-bind:recherche="recherche" ref="listeRessource" class="liste-ressource"/>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import ListeRessources from "@/components/ListeRessources";
 import RechercheRessource from "@/components/RechercheRessource";
 
 export default {
-  name: 'TableauRessouces',
+  name: 'page-ressource',
   components: {
     rechercheRessource: RechercheRessource,
     listeRessources: ListeRessources

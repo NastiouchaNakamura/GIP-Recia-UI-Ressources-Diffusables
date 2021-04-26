@@ -63,7 +63,7 @@
 
 <script>
 export default {
-  name: "RechercheRessource",
+  name: "recherche-ressource",
   props: {
     recherche: Object
   },

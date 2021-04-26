@@ -13,7 +13,7 @@
             v-for="ressource in ressources"
             :key="ressource.idRessource"
             v-bind:ressource="ressource"
-        ></carte-ressource>
+        />
         <div v-if="!lectureTerminee">
           <button v-on:click="getPageSuivante">Charger 20 de plus</button>
         </div>

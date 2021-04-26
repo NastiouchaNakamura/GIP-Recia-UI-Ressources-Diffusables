@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <TableauRessources/>
+    <PageRessource/>
   </div>
 </template>
 
 <script>
-import TableauRessources from './components/TableauRessouces'
+import PageRessource from './components/PageRessource'
 
 export default {
   name: 'App',
   components: {
-    TableauRessources
+    PageRessource
   }
 }
 </script>
