@@ -11,7 +11,7 @@ async function getRessourcesDiffusables(
     let promesseVide = new Promise(((resolve) => { resolve([]) }));
     try {
         return await fetch(
-            'http://localhost:8090/mediacentre/api/ressources-diffusables?elementsParPage=100&page=' + page +
+            'http://localhost:8090/mediacentre/api/ressources-diffusables?elementsParPage=20&page=' + page +
             (idRessource !== '' ? '&idRessource=' + idRessource : '') +
             (nomRessource !== '' ? '&nomRessource=' + nomRessource : '') +
             (idEditeur !== '' ? '&idEditeur=' + idEditeur : '') +

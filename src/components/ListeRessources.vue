@@ -15,7 +15,7 @@
             v-bind:ressource="ressource"
         ></carte-ressource>
         <div v-if="!lectureTerminee">
-          <button v-on:click="getPageSuivante">Charger 100 de plus</button>
+          <button v-on:click="getPageSuivante">Charger 20 de plus</button>
         </div>
       </div>
     </main>
