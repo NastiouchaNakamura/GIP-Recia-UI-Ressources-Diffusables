@@ -18,13 +18,7 @@ export default {
   data: function() {
     return {
       recherche: {
-        idRessource: '',
-        nomRessource: '',
-        idEditeur: '',
-        distributeurCom: '',
-        distributeurTech: '',
-        affichable: '',
-        diffusable: ''
+        texte: ''
       }
     };
   },

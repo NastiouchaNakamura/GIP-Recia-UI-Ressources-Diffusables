@@ -8,6 +8,14 @@
         <span class="intitule-attribut-ressource-carte-ressource">Identifiant : </span>
         <span class="nom-attribut-ressource">{{ ressource.ressource.id }}</span>
       </li>
+      <li class="attribut-ressource-carte-ressource">
+        <span class="intitule-attribut-ressource-carte-ressource">Affichable : </span>
+        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.affichable ? 'Oui' : 'Non' }}</span>
+      </li>
+      <li class="attribut-ressource-carte-ressource">
+        <span class="intitule-attribut-ressource-carte-ressource">Diffusable : </span>
+        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.diffusable ? 'Oui' : 'Non' }}</span>
+      </li>
       <li class="attribut-ressource-carte-ressource" v-if="ressource.editeur.nom !== '' || plusInfos">
         <span class="intitule-attribut-ressource-carte-ressource">Éditeur : </span>
         <span class="nom-attribut-ressource-carte-ressource">{{ ressource.editeur.nom }} </span>

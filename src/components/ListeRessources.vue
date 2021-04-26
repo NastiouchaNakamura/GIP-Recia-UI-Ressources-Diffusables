@@ -62,13 +62,7 @@ export default {
         this.chargement = true;
         getRessourcesDiffusables(
             this.pageSuivante++,
-            this.recherche.idRessource,
-            this.recherche.nomRessource,
-            this.recherche.idEditeur,
-            this.recherche.distributeurCom,
-            this.recherche.distributeurTech,
-            this.recherche.affichable,
-            this.recherche.diffusable
+            this.recherche.texte
         ).then(
             value => {
               this.ressources = this.ressources.concat(value);
@@ -88,13 +82,7 @@ export default {
       this.pageSuivante = 0;
       this.chargement = true;
       getSize(
-          this.recherche.idRessource,
-          this.recherche.nomRessource,
-          this.recherche.idEditeur,
-          this.recherche.distributeurCom,
-          this.recherche.distributeurTech,
-          this.recherche.affichable,
-          this.recherche.diffusable
+          this.recherche.texte
       ).then(
           value => {
             this.nombreRessourcesTotal = value;

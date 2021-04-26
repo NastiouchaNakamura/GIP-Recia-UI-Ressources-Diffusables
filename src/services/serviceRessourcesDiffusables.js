@@ -1,24 +1,22 @@
 async function getRessourcesDiffusables(
-    page, 
-    idRessource,
-    nomRessource,
-    idEditeur,
-    distributeurCom,
-    distributeurTech,
-    affichable,
-    diffusable
+    page,
+    recherche
 ) {
     let promesseVide = new Promise(((resolve) => { resolve([]) }));
     try {
         return await fetch(
-            'http://localhost:8090/mediacentre/api/ressources-diffusables?elementsParPage=20&page=' + page +
-            (idRessource !== '' ? '&idRessource=' + idRessource : '') +
-            (nomRessource !== '' ? '&nomRessource=' + nomRessource : '') +
-            (idEditeur !== '' ? '&idEditeur=' + idEditeur : '') +
-            (distributeurCom !== '' ? '&distributeurCom=' + distributeurCom : '') +
-            (distributeurTech !== '' ? '&distributeurTech=' + distributeurTech : '') +
-            (affichable !== '' ? '&affichable=' + affichable : '') +
-            (diffusable !== '' ? '&diffusable=' + diffusable : ''),
+            'http://localhost:8090/mediacentre/api/ressources-diffusables' +
+            '?ressourcesPerPage=20' +
+            '&page=' + page +
+            '&operator=OR' +
+            (recherche !== '' ? '&idRessource=' + recherche : '') +
+            (recherche !== '' ? '&nomRessource=' + recherche : '') +
+            (recherche !== '' ? '&idEditeur=' + recherche : '') +
+            (recherche !== '' ? '&nomEditeur=' + recherche : '') +
+            (recherche !== '' ? '&distributeurCom=' + recherche : '') +
+            (recherche !== '' ? '&nomDistributeurCom=' + recherche : '') +
+            (recherche !== '' ? '&distributeurTech=' + recherche : '') +
+            (recherche !== '' ? '&nomDistributeurTech=' + recherche : ''),
             {
                 method: 'GET'
             }
@@ -38,25 +36,21 @@ async function getRessourcesDiffusables(
 }
 
 async function getSize(
-    idRessource,
-    nomRessource,
-    idEditeur,
-    distributeurCom,
-    distributeurTech,
-    affichable,
-    diffusable
+    recherche
 ) {
     let promesseVide = new Promise(((resolve) => { resolve(0) }));
     try {
         return await fetch(
-            'http://localhost:8090/mediacentre/api/ressources-diffusables/size?dummy=0' +
-            (idRessource !== '' ? '&idRessource=' + idRessource : '') +
-            (nomRessource !== '' ? '&nomRessource=' + nomRessource : '') +
-            (idEditeur !== '' ? '&idEditeur=' + idEditeur : '') +
-            (distributeurCom !== '' ? '&distributeurCom=' + distributeurCom : '') +
-            (distributeurTech !== '' ? '&distributeurTech=' + distributeurTech : '') +
-            (affichable !== '' ? '&affichable=' + affichable : '') +
-            (diffusable !== '' ? '&diffusable=' + diffusable : ''),
+            'http://localhost:8090/mediacentre/api/ressources-diffusables/size' +
+            '?operator=OR' +
+            (recherche !== '' ? '&idRessource=' + recherche : '') +
+            (recherche !== '' ? '&nomRessource=' + recherche : '') +
+            (recherche !== '' ? '&idEditeur=' + recherche : '') +
+            (recherche !== '' ? '&nomEditeur=' + recherche : '') +
+            (recherche !== '' ? '&distributeurCom=' + recherche : '') +
+            (recherche !== '' ? '&nomDistributeurCom=' + recherche : '') +
+            (recherche !== '' ? '&distributeurTech=' + recherche : '') +
+            (recherche !== '' ? '&nomDistributeurTech=' + recherche : ''),
             {
                 method: 'GET'
             }

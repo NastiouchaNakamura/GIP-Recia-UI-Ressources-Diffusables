@@ -4,64 +4,14 @@
       <h1 class="titre-en-tete-recherche-ressource">Recherche</h1>
     </header>
     <main class="formulaire-recherche-ressource">
-      <fieldset class="formulaire">
-        <legend>Recherche</legend>
-        <form>
-          <p>
-            <label>
-              ID de la ressource :
-              <input v-model.trim="recherche.idRessource" @change="recommencerRecherche" type="text" placeholder="ID de la ressource">
-            </label>
-          </p>
-          <p>
-            <label>
-              Nom de la ressource :
-              <input v-model.trim="recherche.nomRessource" @change="recommencerRecherche" type="text" placeholder="Nom de la ressource">
-            </label>
-          </p>
-          <p>
-            <label>
-              ID de l'éditeur :
-              <input v-model.trim="recherche.idEditeur" @change="recommencerRecherche" type="text" placeholder="ID de l'éditeur">
-            </label>
-          </p>
-          <p>
-            <label>
-              Distributeur Com :
-              <input v-model.trim="recherche.distributeurCom" @change="recommencerRecherche" type="text" placeholder="Distributeur Com">
-            </label>
-          </p>
-          <p>
-            <label>
-              Distributeur Tech :
-              <input v-model.trim="recherche.distributeurTech" @change="recommencerRecherche" type="text" placeholder="Distributeur Tech">
-            </label>
-          </p>
-          <p>
-            <label>
-              Affichable :
-              <select v-model="recherche.affichable" @change="recommencerRecherche">
-                <option value="">Indifférent</option>
-                <option value="true">Affichable</option>
-                <option value="false">Non affichable</option>
-              </select>
-            </label>
-          </p>
-          <p>
-            <label>
-              Diffusable :
-              <select v-model="recherche.diffusable" @change="recommencerRecherche">
-                <option value="">Indifférent</option>
-                <option value="true">Diffusable</option>
-                <option value="false">Non diffusable</option>
-              </select>
-            </label>
-          </p>
-          <p>
-            <input type="reset" value="Réinitialiser la recherche" @click="reinitialiserRecherche">
-          </p>
-        </form>
-      </fieldset>
+      <ul class="liste-champs-recherche-ressource">
+        <li class="champ-recherche-ressource">
+          <input v-model.trim="recherche.texte" @change="recommencerRecherche" type="text" placeholder="Recherche">
+        </li>
+        <li class="champ-recherche-ressource">
+          <button @click="reinitialiserRecherche">Réinitialiser la recherche</button>
+        </li>
+      </ul>
     </main>
   </div>
 </template>
@@ -77,9 +27,7 @@ export default {
   },
   methods: {
     reinitialiserRecherche: function () {
-      for (let champ in this.recherche) {
-        this.recherche[champ] = '';
-      }
+      this.recherche.texte = '';
       this.recommencerRecherche();
     },
     recommencerRecherche: function () {
@@ -109,5 +57,13 @@ export default {
   margin-top: 0;
   margin-bottom: 0;
   color: white;
+}
+
+.liste-champs-recherche-ressource {
+  padding-left: 0;
+}
+
+.champ-recherche-ressource {
+  list-style-type: none;
 }
 </style>
