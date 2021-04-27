@@ -8,7 +8,7 @@ async function getRessourcesDiffusables(
             'http://localhost:8090/mediacentre/api/ressources-diffusables' +
             '?ressourcesPerPage=20' +
             '&page=' + page +
-            '&operator=OR' +
+            (recherche !== '' ? '&operator=OR' : '') +
             (recherche !== '' ? '&idRessource=' + recherche : '') +
             (recherche !== '' ? '&nomRessource=' + recherche : '') +
             (recherche !== '' ? '&idEditeur=' + recherche : '') +
@@ -42,7 +42,7 @@ async function getSize(
     try {
         return await fetch(
             'http://localhost:8090/mediacentre/api/ressources-diffusables/size' +
-            '?operator=OR' +
+            (recherche !== '' ? '&operator=OR' : '') +
             (recherche !== '' ? '&idRessource=' + recherche : '') +
             (recherche !== '' ? '&nomRessource=' + recherche : '') +
             (recherche !== '' ? '&idEditeur=' + recherche : '') +
