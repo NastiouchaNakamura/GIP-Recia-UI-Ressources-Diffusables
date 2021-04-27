@@ -41,7 +41,7 @@ async function getSize(
     let promesseVide = new Promise(((resolve) => { resolve(0) }));
     try {
         return await fetch(
-            'http://localhost:8090/mediacentre/api/ressources-diffusables/size' +
+            'http://localhost:8090/mediacentre/api/ressources-diffusables/size?dummy=0' +
             (recherche !== '' ? '&operator=OR' : '') +
             (recherche !== '' ? '&idRessource=' + recherche : '') +
             (recherche !== '' ? '&nomRessource=' + recherche : '') +
