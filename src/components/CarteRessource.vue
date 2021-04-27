@@ -32,7 +32,7 @@
         <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ ressource.distributeurTech.id }}</span>
       </li>
     </ul>
-    <button v-on:click="afficherPlusInfos" :disabled="plusInfos">Plus d'informations</button>
+    <button class="plus-infos-carte-ressource" v-on:click="afficherPlusInfos" :disabled="plusInfos">Plus d'informations</button>
   </div>
 </template>
 
@@ -102,5 +102,26 @@ export default {
 
 .liste-attributs-ressource-carte-ressource {
   padding-left: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.plus-infos-carte-ressource {
+  width: 100%;
+  height: 30px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 4px 0 4px;
+  background-color: #303364;
+  color: white;
+  font-size: small;
+  font-weight: bold;
+}
+
+.plus-infos-carte-ressource:disabled {
+  background-color: #30336480;
+  color: #FFFFFF80;
 }
 </style>

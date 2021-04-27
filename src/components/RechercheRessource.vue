@@ -4,14 +4,8 @@
       <h1 class="titre-en-tete-recherche-ressource">Recherche</h1>
     </header>
     <main class="formulaire-recherche-ressource">
-      <ul class="liste-champs-recherche-ressource">
-        <li class="champ-recherche-ressource">
-          <input v-model.trim="recherche.texte" @change="recommencerRecherche" type="text" placeholder="Recherche">
-        </li>
-        <li class="champ-recherche-ressource">
-          <button @click="reinitialiserRecherche">Réinitialiser la recherche</button>
-        </li>
-      </ul>
+      <input class="champ-recherche-ressource" v-model.trim="recherche.texte" @change="recommencerRecherche" type="text" placeholder="Recherche">
+      <button class="reinitialiser-recherche-ressource" @click="reinitialiserRecherche">Réinitialiser la recherche</button>
     </main>
   </div>
 </template>
@@ -41,6 +35,8 @@ export default {
 .cadre-recherche-ressource {
   display: flex;
   flex-direction: column;
+  border: thin solid lightgrey;
+  box-shadow: 2px 2px 5px lightgrey;
 }
 
 .en-tete-recherche-ressource {
@@ -59,11 +55,33 @@ export default {
   color: white;
 }
 
-.liste-champs-recherche-ressource {
-  padding-left: 0;
+.formulaire-recherche-ressource {
+  padding: 10px;
 }
 
 .champ-recherche-ressource {
-  list-style-type: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 5px;
+  border: thin solid lightgrey;
+  padding: 0 4px 0 4px;
+  font-size: small;
+  font-weight: bold;
+}
+
+.reinitialiser-recherche-ressource {
+  width: 100%;
+  height: 30px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 5px;
+  padding: 0 4px 0 4px;
+  background-color: #303364;
+  color: white;
+  font-size: small;
+  font-weight: bold;
 }
 </style>
