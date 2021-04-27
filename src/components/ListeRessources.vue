@@ -107,6 +107,7 @@ export default {
   height: 100vh;
   border: thin solid lightgrey;
   box-shadow: 2px 2px 5px lightgrey;
+  box-sizing: border-box;
 }
 
 .en-tete-liste-ressource {
