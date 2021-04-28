@@ -20,7 +20,7 @@
       </div>
     </main>
     <footer>
-      <div v-if="ressources.length === 0">
+      <div v-if="ressources.length === 0 && !chargement">
         <p>
           Aucune ressource ne correspond à votre recherche.
         </p>
