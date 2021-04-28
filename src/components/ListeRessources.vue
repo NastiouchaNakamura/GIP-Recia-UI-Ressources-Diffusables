@@ -104,7 +104,6 @@ export default {
 .cadre-liste-ressource {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   border: thin solid lightgrey;
   box-shadow: 2px 2px 5px lightgrey;
   box-sizing: border-box;

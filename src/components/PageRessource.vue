@@ -37,20 +37,18 @@ export default {
   flex-direction: row;
   margin: 0;
   padding: 0;
+  height: 100vh;
+  max-height: 100vh;
 }
 
 .recherche-ressource-page-ressource {
   max-width: 20vw;
   width: 100%;
-  flex-grow: 0;
-  flex-shrink: 0;
 }
 
 .liste-ressource-page-ressource {
   max-width: 80vw;
   width: 100%;
-  flex-grow: 0;
-  flex-shrink: 0;
 }
 
 @media (max-width: 1080px) {
@@ -60,10 +58,12 @@ export default {
 
   .recherche-ressource-page-ressource {
     max-width: 100vw;
+    height: 160px;
   }
 
   .liste-ressource-page-ressource {
     max-width: 100vw;
+    height: calc(100% - 160px);
   }
 }
 </style>
