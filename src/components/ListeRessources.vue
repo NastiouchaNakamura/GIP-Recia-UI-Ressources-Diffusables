@@ -14,8 +14,8 @@
             :key="ressource.idRessource"
             v-bind:ressource="ressource"
         />
-        <div v-if="!lectureTerminee">
-          <button v-on:click="getPageSuivante">Charger 20 de plus</button>
+        <div class="div-page-suivante-liste-ressource" v-if="!lectureTerminee">
+          <button class="page-suivante-liste-ressource" v-on:click="getPageSuivante">Charger 20 de plus</button>
         </div>
       </div>
     </main>
@@ -141,5 +141,23 @@ export default {
 
 .liste-liste-ressource {
   overflow: scroll;
+}
+
+.page-suivante-liste-ressource {
+  width: 100%;
+  height: 50px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 5px;
+  padding: 0 4px 0 4px;
+  background-color: #303364;
+  color: white;
+  font-size: small;
+  font-weight: bold;
+}
+
+.div-page-suivante-liste-ressource {
+  padding: 10px;
+  margin: 5px;
 }
 </style>
