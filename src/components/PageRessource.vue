@@ -37,8 +37,8 @@ export default {
   flex-direction: row;
   margin: 0;
   padding: 0;
-  height: 100vh;
-  max-height: 100vh;
+  height: calc(100vh - 180px);
+  max-height: calc(100vh - 180px);
 }
 
 .recherche-ressource-page-ressource {
