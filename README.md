@@ -1,24 +1,9 @@
-# ui-mediacentre
+# ui-ressouces-gar
 
-## Project setup
-```
-npm install
-```
+UI des ressources du GAR en Vue.js.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Commandes
+- Setup : `npm install`
+- Lancer le serveur : `npm run serve`
+- Version de développement (pour package NPM) : `npm buildDev`
+- Publication sur NPM (changer la version dans [`package.json`](package.json)) : `npm publish`
