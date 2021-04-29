@@ -1,13 +1,13 @@
 {
-  "name": "ui-ressouces-gar",
-  "version": "0.2.1c",
+  "name": "ui-ressources-gar",
+  "version": "0.2.2",
   "private": false,
   "main": "dist/ui-ressouces-gar.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name ui-ressouces-gar --target wc 'src/components/*.vue'",
-    "buildDev": "vue-cli-service build --mode development --name ui-ressouces-gar --target wc 'src/components/*.vue'",
+    "build": "vue-cli-service build --name ui-ressources-gar --target wc 'src/components/*.vue'",
+    "buildDev": "vue-cli-service build --mode development --name ui-ressources-gar --target wc 'src/components/*.vue'",
     "lint": "vue-cli-service lint",
     "publish": "npm publish"
   },
