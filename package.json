@@ -1,7 +1,8 @@
 {
   "name": "ui-ressouces-gar",
-  "version": "0.2.1b",
+  "version": "0.2.1c",
   "private": false,
+  "main": "dist/ui-ressouces-gar.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
@@ -42,8 +43,7 @@
     "last 2 versions",
     "not dead"
   ],
-  "description": "## Project setup ``` npm install ```",
-  "main": "src/main.js",
+  "description": "UI des ressources du GAR en Vue.js.",
   "author": "Anaël",
   "license": "ISC"
 }
