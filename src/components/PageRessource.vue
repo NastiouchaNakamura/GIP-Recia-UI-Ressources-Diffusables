@@ -13,6 +13,7 @@
       />
       <liste-ressources
           v-bind:ressources="ressources"
+          v-bind:erreur="erreur"
           v-bind:lectureTerminee="lectureTerminee"
           v-bind:chargement="chargement"
           ref="listeRessource"
@@ -36,6 +37,7 @@ export default {
   data: function() {
     return {
       ressources: [],
+      erreur: '',
       nombreRessourcesTotal: 0,
       pageSuivante: 0,
       lectureTerminee: false,
@@ -72,6 +74,11 @@ export default {
               this.getPageSuivante();
             }
           }
+      ).catch(
+          error => {
+            this.erreur = error.toString();
+            this.chargement = false;
+          }
       );
     },
     getPageSuivante: function () {
@@ -86,6 +93,10 @@ export default {
               if (this.ressources.length === this.nombreRessourcesTotal) {
                 this.lectureTerminee = true;
               }
+            }
+        ).catch(
+            error => {
+              this.erreur = error.toString();
             }
         ).finally(
             () => {

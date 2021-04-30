@@ -13,16 +13,16 @@
       </div>
     </main>
     <footer>
-      <div v-if="ressources.length === 0 && !chargement">
-        <p>
-          Aucune ressource ne correspond à votre recherche.
-        </p>
-      </div>
-      <div v-if="chargement">
-        <p>
-          Chargement…
-        </p>
-      </div>
+      <p v-if="erreur !== ''">
+        Une erreur est survenue. Veuillez contacter un référent ENT.<br>
+        Détail de l'erreur : <code>{{ erreur }}</code>
+      </p>
+      <p v-else-if="ressources.length === 0 && !chargement">
+        Aucune ressource ne correspond à votre recherche.
+      </p>
+      <p v-if="chargement">
+        Chargement…
+      </p>
     </footer>
   </div>
 </template>
@@ -35,6 +35,7 @@ export default {
   components: {CarteRessource},
   props: {
     ressources: Array,
+    erreur: String,
     lectureTerminee: Boolean,
     chargement: Boolean
   },
