@@ -5,16 +5,8 @@
     </h3>
     <ul class="liste-attributs-ressource-carte-ressource">
       <li class="attribut-ressource-carte-ressource">
-        <span class="intitule-attribut-ressource-carte-ressource">Identifiant : </span>
+        <span class="intitule-attribut-ressource-carte-ressource">Identifiant GAR : </span>
         <span class="nom-attribut-ressource">{{ ressource.ressource.id }}</span>
-      </li>
-      <li class="attribut-ressource-carte-ressource">
-        <span class="intitule-attribut-ressource-carte-ressource">Affichable : </span>
-        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.affichable ? 'Oui' : 'Non' }}</span>
-      </li>
-      <li class="attribut-ressource-carte-ressource">
-        <span class="intitule-attribut-ressource-carte-ressource">Diffusable : </span>
-        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.diffusable ? 'Oui' : 'Non' }}</span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="ressource.editeur.nom !== '' || plusInfos">
         <span class="intitule-attribut-ressource-carte-ressource">Éditeur : </span>
@@ -31,8 +23,19 @@
         <span class="nom-attribut-ressource-carte-ressource">{{ ressource.distributeurTech.nom }} </span>
         <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ ressource.distributeurTech.id }}</span>
       </li>
+      <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
+        <span class="intitule-attribut-ressource-carte-ressource">Affichable : </span>
+        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.affichable ? 'Oui' : 'Non' }}</span>
+      </li>
+      <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
+        <span class="intitule-attribut-ressource-carte-ressource">Diffusable : </span>
+        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.diffusable ? 'Oui' : 'Non' }}</span>
+      </li>
     </ul>
-    <button class="plus-infos-carte-ressource" v-on:click="afficherPlusInfos" :disabled="plusInfos">Plus d'informations</button>
+    <div class="boutons-carte-ressource">
+      <button class="" v-on:click="afficherPlusInfos" :disabled="plusInfos">Plus d'informations</button>
+      <button class="" v-on:click="copierReferences">Copier les références</button>
+    </div>
   </div>
 </template>
 
@@ -61,6 +64,25 @@ export default {
     afficherPlusInfos() {
       this.plusInfos = true;
       this.distributeursComComputed = this.ressource.distributeursCom;
+    },
+    copierReferences() {
+      let string =
+          'Nom de la ressource : ' + this.ressource.ressource.nom + '\n' +
+          'Identifiant GAR : ' + this.ressource.ressource.id + '\n' +
+          'Nom de l\'éditeur : ' + this.ressource.editeur.nom + '\n' +
+          'ID de l\'éditeur : ' + this.ressource.editeur.id + '\n';
+
+      for (let i = 0; i < this.ressource.distributeursCom.length; i++) {
+        string +=
+            'Nom du distributeur commercial : ' + this.ressource.distributeursCom[i].nom + '\n' +
+            'ID du distributeur commercial : ' + this.ressource.distributeursCom[i].id + '\n';
+      }
+
+      string +=
+          'Nom du distributeur technique : ' + this.ressource.distributeurTech.nom + '\n' +
+          'ID du distributeur technique : ' + this.ressource.distributeurTech.id + '\n';
+
+      navigator.clipboard.writeText(string);
     }
   }
 }
@@ -106,7 +128,12 @@ export default {
   margin-bottom: 0;
 }
 
-.plus-infos-carte-ressource {
+.boutons-carte-ressource {
+  display: flex;
+  flex-direction: row;
+}
+
+.boutons-carte-ressource > button {
   width: 100%;
   height: 30px;
   border-radius: 3px;
@@ -120,8 +147,14 @@ export default {
   font-weight: bold;
 }
 
-.plus-infos-carte-ressource:disabled {
+.boutons-carte-ressource > button:disabled {
   background-color: #30336480;
   color: #FFFFFF80;
+}
+
+@media (max-width: 1080px) {
+  .cadre-carte-ressource {
+    font-size: smaller;
+  }
 }
 </style>

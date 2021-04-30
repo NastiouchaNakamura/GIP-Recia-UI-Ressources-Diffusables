@@ -1,12 +1,12 @@
 <template>
   <div class="cadre-recherche-ressource">
-    <header class="en-tete-recherche-ressource">
-      <h1 class="titre-en-tete-recherche-ressource">Recherche</h1>
-    </header>
-    <main class="formulaire-recherche-ressource">
-      <input class="champ-recherche-ressource" v-model.trim="recherche.texte" @change="recommencerRecherche" type="text" placeholder="Recherche">
-      <button class="reinitialiser-recherche-ressource" @click="reinitialiserRecherche">Réinitialiser la recherche</button>
-    </main>
+    <div class="input-recherche-ressource">
+      <input class="champ-recherche-ressource" v-model.trim="rechercheInput" @change="recommencerRecherche" type="text" placeholder="Recherche">
+      <button class="reinitialiser-recherche-ressource" @click="reinitialiserRecherche">Init</button>
+    </div>
+    <small class="elements-affiches-page-ressource">
+      {{ nombreRessourcesAffichees }}/{{ nombreRessourcesTotal }} ÉLÉMENTS AFFICHÉS
+    </small>
   </div>
 </template>
 
@@ -14,18 +14,22 @@
 export default {
   name: "recherche-ressource",
   props: {
-    recherche: Object
+    recherche: String,
+    nombreRessourcesTotal: Number,
+    nombreRessourcesAffichees: Number
   },
   data: function() {
-    return {};
+    return {
+      rechercheInput: ''
+    };
   },
   methods: {
     reinitialiserRecherche: function () {
-      this.recherche.texte = '';
-      this.recommencerRecherche();
+      this.rechercheInput = '';
+      this.$parent.recommencerRechercheInput(this.rechercheInput);
     },
     recommencerRecherche: function () {
-      this.$parent.recommencerRecherche();
+      this.$parent.recommencerRechercheInput(this.rechercheInput);
     }
   }
 }
@@ -38,26 +42,12 @@ export default {
   border: thin solid lightgrey;
   box-shadow: 2px 2px 5px lightgrey;
   box-sizing: border-box;
+  padding: 10px;
 }
 
-.en-tete-recherche-ressource {
+.input-recherche-ressource {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  background-color: #d91a7b;
-  padding: 10px 20px 10px 20px;
-  border-bottom: thin solid lightgrey;
-  box-shadow: 0 2px 5px lightgrey;
-}
-
-.titre-en-tete-recherche-ressource {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: white;
-}
-
-.formulaire-recherche-ressource {
-  padding: 10px;
 }
 
 .champ-recherche-ressource {
@@ -66,23 +56,23 @@ export default {
   height: 30px;
   border-radius: 3px;
   overflow: hidden;
-  margin-bottom: 5px;
   border: thin solid lightgrey;
   padding: 0 4px 0 4px;
   font-size: small;
   font-weight: bold;
+  margin-right: 5px;
 }
 
 .reinitialiser-recherche-ressource {
-  width: 100%;
+  width: 50px;
   height: 30px;
   border-radius: 3px;
   overflow: hidden;
-  margin-top: 5px;
   padding: 0 4px 0 4px;
   background-color: #303364;
   color: white;
   font-size: small;
   font-weight: bold;
+  margin-left: 5px;
 }
 </style>
