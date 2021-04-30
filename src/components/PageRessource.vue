@@ -114,7 +114,6 @@ export default {
   padding: 10px 20px 10px 20px;
   border-bottom: thin solid lightgrey;
   box-shadow: 0 2px 5px lightgrey;
-  height: 70px;
 }
 
 .titre-en-tete-page-ressource {
