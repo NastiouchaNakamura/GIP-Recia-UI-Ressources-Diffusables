@@ -2,7 +2,9 @@
   <div class="cadre-recherche-ressource">
     <div class="input-recherche-ressource">
       <input class="champ-recherche-ressource" v-model.trim="rechercheInput" @change="recommencerRecherche" type="text" placeholder="Recherche">
-      <button class="reinitialiser-recherche-ressource" @click="reinitialiserRecherche">Init</button>
+      <button class="reinitialiser-recherche-ressource" @click="reinitialiserRecherche">
+        <font-awesome-icon :icon="['fas', 'redo']"/>
+      </button>
     </div>
     <small class="elements-affiches-page-ressource">
       {{ nombreRessourcesAffichees }}/{{ nombreRessourcesTotal }} ÉLÉMENTS AFFICHÉS
@@ -11,6 +13,11 @@
 </template>
 
 <script>
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faRedo } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faRedo)
+
 export default {
   name: "recherche-ressource",
   props: {
