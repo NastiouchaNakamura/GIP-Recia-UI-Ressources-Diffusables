@@ -125,10 +125,10 @@ export default {
 .boutons-carte-ressource {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .boutons-carte-ressource > button {
-  width: 100%;
   height: 30px;
   border-radius: 3px;
   overflow: hidden;
@@ -139,6 +139,8 @@ export default {
   color: white;
   font-size: small;
   font-weight: bold;
+  width: 30vw;
+  min-width: 180px;
 }
 
 .boutons-carte-ressource > button:disabled {
