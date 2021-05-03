@@ -1,7 +1,7 @@
 <template>
   <div class="cadre-recherche-ressource">
     <div class="input-recherche-ressource">
-      <input class="champ-recherche-ressource" v-model.trim="rechercheInput" @change="recommencerRecherche" type="text" placeholder="Recherche">
+      <input class="champ-recherche-ressource" v-model.trim="rechercheInput" @input="recommencerRecherche" type="text" placeholder="Recherche">
       <button class="reinitialiser-recherche-ressource" @click="reinitialiserRecherche">
         <font-awesome-icon :icon="['fas', 'redo']"/>
       </button>
@@ -15,6 +15,7 @@
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faRedo } from '@fortawesome/free-solid-svg-icons'
+import { debounce } from 'debounce'
 
 library.add(faRedo)
 
@@ -29,6 +30,9 @@ export default {
     return {
       rechercheInput: ''
     };
+  },
+  created() {
+    this.recommencerRecherche = debounce(this.recommencerRecherche, 500); // Buffer de 0,5s après input.
   },
   methods: {
     reinitialiserRecherche: function () {
