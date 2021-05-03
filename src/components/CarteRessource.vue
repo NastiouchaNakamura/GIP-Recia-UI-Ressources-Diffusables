@@ -69,18 +69,12 @@ export default {
       let string =
           'Nom de la ressource : ' + this.ressource.ressource.nom + '\n' +
           'Identifiant GAR : ' + this.ressource.ressource.id + '\n' +
-          'Nom de l\'éditeur : ' + this.ressource.editeur.nom + '\n' +
-          'ID de l\'éditeur : ' + this.ressource.editeur.id + '\n';
+          'Nom de l\'éditeur : ' + this.ressource.editeur.nom + '\n';
 
       for (let i = 0; i < this.ressource.distributeursCom.length; i++) {
         string +=
-            'Nom du distributeur commercial : ' + this.ressource.distributeursCom[i].nom + '\n' +
-            'ID du distributeur commercial : ' + this.ressource.distributeursCom[i].id + '\n';
+            'Nom du distributeur commercial : ' + this.ressource.distributeursCom[i].nom + '\n';
       }
-
-      string +=
-          'Nom du distributeur technique : ' + this.ressource.distributeurTech.nom + '\n' +
-          'ID du distributeur technique : ' + this.ressource.distributeurTech.id + '\n';
 
       navigator.clipboard.writeText(string);
     }
