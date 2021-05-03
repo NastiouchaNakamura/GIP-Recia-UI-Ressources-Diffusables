@@ -20,7 +20,7 @@ async function getRessourcesDiffusables(
         }
     ).then(
         (response) => {
-            if (response.status === 100) {
+            if (response.status === 200) {
                 return response.json();
             } else {
                 throw new Error('HTTP Response Code ' + response.status);
@@ -51,7 +51,7 @@ async function getSize(
         }
     ).then(
         (response) => {
-            if (response.status === 100) {
+            if (response.status === 200) {
                 return response.json();
             } else {
                 throw new Error('HTTP Response Code: ' + response.status);
