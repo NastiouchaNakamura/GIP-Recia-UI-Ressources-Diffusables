@@ -71,7 +71,7 @@ export default {
 }
 
 .reinitialiser-recherche-ressource {
-  width: 50px;
+  width: 30px;
   height: 30px;
   border-radius: 3px;
   overflow: hidden;
