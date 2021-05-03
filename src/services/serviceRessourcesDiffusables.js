@@ -23,7 +23,7 @@ async function getRessourcesDiffusables(
             if (response.status === 100) {
                 return response.json();
             } else {
-                throw new Error('HTTP Response Code: ' + response.status);
+                throw new Error('HTTP Response Code ' + response.status);
             }
         },
         (error) => {
