@@ -3,23 +3,27 @@
     <header class="en-tete-page-ressource">
       <h1 class="titre-en-tete-page-ressource">Ressources diffusables</h1>
     </header>
-    <main class="main-page-ressource">
-      <recherche-ressource
-          v-bind:recherche="recherche"
-          v-bind:nombreRessourcesTotal="nombreRessourcesTotal"
-          v-bind:nombreRessourcesAffichees="ressources.length"
-          ref="rechercheRessource"
-          class="recherche-ressource-page-ressource"
-      />
-      <liste-ressources
-          v-bind:ressources="ressources"
-          v-bind:erreur="erreur"
-          v-bind:lectureTerminee="lectureTerminee"
-          v-bind:chargement="chargement"
-          ref="listeRessource"
-          class="liste-ressource-page-ressource"
-      />
-    </main>
+    <div class="bloc-principal-page-ressource">
+      <aside class="aside-page-ressource">
+        <recherche-ressource
+            v-bind:recherche="recherche"
+            v-bind:nombreRessourcesTotal="nombreRessourcesTotal"
+            v-bind:nombreRessourcesAffichees="ressources.length"
+            ref="rechercheRessource"
+            class="recherche-ressource-page-ressource"
+        />
+      </aside>
+      <main class="main-page-ressource">
+        <liste-ressources
+            v-bind:ressources="ressources"
+            v-bind:erreur="erreur"
+            v-bind:lectureTerminee="lectureTerminee"
+            v-bind:chargement="chargement"
+            ref="listeRessource"
+            class="liste-ressource-page-ressource"
+        />
+      </main>
+    </div>
   </div>
 </template>
 
@@ -133,18 +137,18 @@ export default {
   color: white;
 }
 
-.main-page-ressource {
+.bloc-principal-page-ressource {
   display: flex;
   flex-direction: row;
   height: calc(100% - 70px);
 }
 
-.recherche-ressource-page-ressource {
+.aside-page-ressource {
   max-width: 20vw;
   width: 100%;
 }
 
-.liste-ressource-page-ressource {
+.main-page-ressource {
   max-width: 80vw;
   width: 100%;
 }
@@ -158,17 +162,17 @@ export default {
     font-size: x-large;
   }
 
-  .main-page-ressource {
+  .bloc-principal-page-ressource {
     flex-direction: column;
     height: 100%;
   }
 
-  .recherche-ressource-page-ressource {
+  .aside-page-ressource {
     max-width: 100vw;
     height: 160px;
   }
 
-  .liste-ressource-page-ressource {
+  .main-page-ressource {
     max-width: 100vw;
   }
 }
