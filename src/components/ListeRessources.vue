@@ -61,7 +61,7 @@ export default {
 }
 
 .liste-liste-ressources {
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .page-suivante-liste-ressources {
