@@ -12,6 +12,9 @@
             ref="rechercheRessource"
             class="recherche-ressource-page-ressource"
         />
+        <legende-ressource
+            class="legende-ressource-page-ressource"
+        />
       </aside>
       <main class="main-page-ressource">
         <liste-ressources
@@ -31,10 +34,12 @@
 import ListeRessources from "@/components/ListeRessources";
 import RechercheRessource from "@/components/RechercheRessource";
 import {getRessourcesDiffusables, getSize} from "@/services/serviceRessourcesDiffusables";
+import LegendeRessource from "@/components/LegendeRessource";
 
 export default {
   name: 'page-ressource',
   components: {
+    LegendeRessource,
     rechercheRessource: RechercheRessource,
     listeRessources: ListeRessources
   },
@@ -154,6 +159,10 @@ export default {
 }
 
 @media (max-width: 1080px) {
+  .legende-ressource-page-ressource {
+    display: none;
+  }
+
   .en-tete-page-ressource {
     height: revert;
   }

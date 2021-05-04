@@ -1,14 +1,14 @@
 <template>
-  <div class="cadre-liste-ressource">
-    <main class="liste-liste-ressource">
+  <div class="cadre-liste-ressources">
+    <main class="liste-liste-ressources">
       <div v-if="ressources.length !== 0">
         <carte-ressource
             v-for="ressource in ressources"
             :key="ressource.idRessource"
             v-bind:ressource="ressource"
         />
-        <div class="div-page-suivante-liste-ressource" v-if="!lectureTerminee">
-          <button class="page-suivante-liste-ressource" v-on:click="getPageSuivante">Charger plus</button>
+        <div class="div-page-suivante-liste-ressources" v-if="!lectureTerminee">
+          <button class="page-suivante-liste-ressources" v-on:click="getPageSuivante">Charger plus</button>
         </div>
       </div>
     </main>
@@ -31,7 +31,7 @@
 import CarteRessource from "@/components/CarteRessource";
 
 export default {
-  name: "liste-ressources",
+  name: "liste-ressourcess",
   components: {CarteRessource},
   props: {
     ressources: Array,
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style scoped>
-.cadre-liste-ressource {
+.cadre-liste-ressources {
   display: flex;
   flex-direction: column;
   border: thin solid lightgrey;
@@ -60,11 +60,11 @@ export default {
   padding: 10px;
 }
 
-.liste-liste-ressource {
+.liste-liste-ressources {
   overflow: scroll;
 }
 
-.page-suivante-liste-ressource {
+.page-suivante-liste-ressources {
   width: 100%;
   height: 50px;
   border-radius: 3px;
@@ -77,7 +77,7 @@ export default {
   font-weight: bold;
 }
 
-.div-page-suivante-liste-ressource {
+.div-page-suivante-liste-ressources {
   padding: 10px;
   margin: 5px;
 }
