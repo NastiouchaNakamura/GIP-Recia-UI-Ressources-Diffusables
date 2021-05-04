@@ -71,8 +71,8 @@ export default {
   overflow: hidden;
   margin: 5px;
   padding: 0 4px 0 4px;
-  background-color: #303364;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--secondary-over-color);
   font-size: x-large;
   font-weight: bold;
 }

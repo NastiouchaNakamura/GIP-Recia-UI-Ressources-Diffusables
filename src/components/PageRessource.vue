@@ -130,7 +130,7 @@ export default {
 }
 
 .en-tete-page-ressource {
-  background-color: #d91a7b;
+  background-color: var(--main-color);
   padding: 10px 20px 10px 20px;
   border-bottom: thin solid lightgrey;
   box-shadow: 0 2px 5px lightgrey;
@@ -139,7 +139,7 @@ export default {
 .titre-en-tete-page-ressource {
   margin-top: 0;
   margin-bottom: 0;
-  color: white;
+  color: var(--main-over-color);
 }
 
 .bloc-principal-page-ressource {

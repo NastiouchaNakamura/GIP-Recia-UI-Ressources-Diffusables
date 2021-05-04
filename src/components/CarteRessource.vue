@@ -97,7 +97,7 @@ export default {
 .nom-ressource-carte-ressource {
   margin-top: 0;
   margin-bottom: 12px;
-  color: #d91a7e;
+  color: var(--main-color);
 }
 
 .attribut-ressource-carte-ressource {
@@ -112,7 +112,7 @@ export default {
 }
 
 .id-attribut-ressource-carte-ressource {
-  color: grey;
+  color: rgba(var(--default-text-color), 0.5);
   font-size: smaller;
 }
 
@@ -135,8 +135,8 @@ export default {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0 4px 0 4px;
-  background-color: #303364;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--secondary-over-color);
   font-size: small;
   font-weight: bold;
   width: 30vw;
@@ -144,8 +144,8 @@ export default {
 }
 
 .boutons-carte-ressource > button:disabled {
-  background-color: #30336480;
-  color: #FFFFFF80;
+  background-color: rgba(var(--secondary-color), 0.5);
+  color: rgba(var(--secondary-over-color), 0.5);
 }
 
 @media (max-width: 1080px) {
