@@ -112,7 +112,7 @@ export default {
 }
 
 .id-attribut-ressource-carte-ressource {
-  color: rgba(var(--default-text-color), 0.5);
+  color: var(--default-text-color-transparent);
   font-size: smaller;
 }
 
@@ -144,8 +144,8 @@ export default {
 }
 
 .boutons-carte-ressource > button:disabled {
-  background-color: rgba(var(--secondary-color), 0.5);
-  color: rgba(var(--secondary-over-color), 0.5);
+  background-color: var(--secondary-color-transparent);
+  color: var(--secondary-over-color-transparent);
 }
 
 @media (max-width: 1080px) {
