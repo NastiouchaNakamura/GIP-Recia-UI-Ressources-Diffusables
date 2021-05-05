@@ -1,43 +1,33 @@
 <template>
   <div class="cadre-legende-ressource">
-    <p>{{ $t('hello') }}</p>
     <ul class="liste-legendes-legende-ressource">
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource">Identifiant GAR : </span>
-        <span class="definition-legende-ressource">Définition de l'Identifiant GAR</span>
+        <span class="intitule-legende-ressource">{{ $t('id-gar.intitule') }} : </span>
+        <span class="definition-legende-ressource">{{ $t('id-gar.definition') }}</span>
       </li>
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource">Éditeur : </span>
-        <span class="definition-legende-ressource">Définition de l'éditeur</span>
+        <span class="intitule-legende-ressource">{{ $t('editeur.intitule') }} : </span>
+        <span class="definition-legende-ressource">{{ $t('editeur.definition') }}</span>
       </li>
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource">Distributeur commercial : </span>
-        <span class="definition-legende-ressource">Définition du distributeur commercial</span>
+        <span class="intitule-legende-ressource">{{ $t('distributeurCom.intitule') }} : </span>
+        <span class="definition-legende-ressource">{{ $t('distributeurCom.definition') }}</span>
       </li>
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource">Distributeur technique : </span>
-        <span class="definition-legende-ressource">Définition du distributeur technique</span>
+        <span class="intitule-legende-ressource">{{ $t('distributeurTech.intitule') }} : </span>
+        <span class="definition-legende-ressource">{{ $t('distributeurTech.definition') }}</span>
       </li>
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource">Affichable : </span>
-        <span class="definition-legende-ressource">Définition de affchable</span>
+        <span class="intitule-legende-ressource">{{ $t('affichable.intitule') }} : </span>
+        <span class="definition-legende-ressource">{{ $t('affichable.definition') }}</span>
       </li>
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource">Diffusable : </span>
-        <span class="definition-legende-ressource">Définition de diffusable</span>
+        <span class="intitule-legende-ressource">{{ $t('diffusable.intitule') }} : </span>
+        <span class="definition-legende-ressource">{{ $t('diffusable.definition') }}</span>
       </li>
     </ul>
   </div>
 </template>
-
-<i18n>{
-  "fr": {
-    "hello": "こんにちは、世界！"
-  },
-  "en": {
-    "hello": "hello world!"
-  }
-}</i18n>
 
 <script>
 export default {
@@ -69,3 +59,58 @@ export default {
   font-weight: bold;
 }
 </style>
+
+<i18n>{
+  "fr": {
+    "id-gar": {
+      "intitule": "Identifiant GAR",
+      "definition": "Définition de l'Identifiant GAR."
+    },
+    "editeur": {
+      "intitule": "Éditeur",
+      "definition": "Définition de l'éditeur."
+    },
+    "distributeurCom": {
+      "intitule": "Distributeur commercial",
+      "definition": "Définition du distributeur commercial"
+    },
+    "distributeurTech": {
+      "intitule": "Distributeur technique",
+      "definition": "Définition du distributeur technique"
+    },
+    "affichable": {
+      "intitule": "Affichable",
+      "definition": "Définition de affichable"
+    },
+    "diffusable": {
+      "intitule": "Diffusable",
+      "definition": "Définition de diffusable"
+    }
+  },
+  "en": {
+    "id-gar": {
+      "intitule": "GAR Identifier",
+      "definition": "GAR Identifier meaning."
+    },
+    "editeur": {
+      "intitule": "Editor",
+      "definition": "Editor meaning."
+    },
+    "distributeurTech": {
+      "intitule": "Technical distributor",
+      "definition": "Technical distributor meaning"
+    },
+    "distributeurCom": {
+      "intitule": "Commercial distributor",
+      "definition": "Commercial distributor meaning"
+    },
+    "affichable": {
+      "intitule": "Displayable",
+      "definition": "Displayable meaning"
+    },
+    "diffusable": {
+      "intitule": "Sharable",
+      "definition": "Sharable meaning"
+    }
+  }
+}</i18n>
