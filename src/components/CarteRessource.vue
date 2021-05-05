@@ -5,31 +5,31 @@
     </h3>
     <ul class="liste-attributs-ressource-carte-ressource">
       <li class="attribut-ressource-carte-ressource">
-        <span class="intitule-attribut-ressource-carte-ressource">Identifiant GAR : </span>
+        <span class="intitule-attribut-ressource-carte-ressource">{{ $t('id-gar') }} : </span>
         <span class="nom-attribut-ressource">{{ ressource.ressource.id }}</span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="ressource.editeur.nom !== '' || plusInfos">
-        <span class="intitule-attribut-ressource-carte-ressource">Éditeur : </span>
+        <span class="intitule-attribut-ressource-carte-ressource">{{ $t('editeur') }} : </span>
         <span class="nom-attribut-ressource-carte-ressource">{{ ressource.editeur.nom }} </span>
         <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ ressource.editeur.id }}</span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-for="distributeurCom in distributeursComComputed" :key="distributeurCom.id">
-        <span class="intitule-attribut-ressource-carte-ressource">Distributeur commercial : </span>
+        <span class="intitule-attribut-ressource-carte-ressource">{{ $t('distributeurCom') }} : </span>
         <span class="nom-attribut-ressource-carte-ressource">{{ distributeurCom.nom }} </span>
         <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ distributeurCom.id }}</span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="ressource.distributeurTech.nom !== '' || plusInfos">
-        <span class="intitule-attribut-ressource-carte-ressource">Distributeur technique : </span>
+        <span class="intitule-attribut-ressource-carte-ressource">{{ $t('distributeurTech') }} : </span>
         <span class="nom-attribut-ressource-carte-ressource">{{ ressource.distributeurTech.nom }} </span>
         <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ ressource.distributeurTech.id }}</span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
-        <span class="intitule-attribut-ressource-carte-ressource">Affichable : </span>
-        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.affichable ? 'Oui' : 'Non' }}</span>
+        <span class="intitule-attribut-ressource-carte-ressource">{{ $t('affichable') }} : </span>
+        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.affichable ? $t('oui') : $t('non') }}</span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
-        <span class="intitule-attribut-ressource-carte-ressource">Diffusable : </span>
-        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.diffusable ? 'Oui' : 'Non' }}</span>
+        <span class="intitule-attribut-ressource-carte-ressource">{{ $t('diffusable') }} : </span>
+        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.diffusable ? $t('oui') : $t('non') }}</span>
       </li>
     </ul>
     <div class="boutons-carte-ressource">
@@ -67,13 +67,13 @@ export default {
     },
     copierReferences() {
       let string =
-          'Nom de la ressource : ' + this.ressource.ressource.nom + '\n' +
-          'Identifiant GAR : ' + this.ressource.ressource.id + '\n' +
-          'Nom de l\'éditeur : ' + this.ressource.editeur.nom + '\n';
+          this.$i18n.t('nom-ressource') + ' : ' + this.ressource.ressource.nom + '\n' +
+          this.$i18n.t('id-gar') + ' : ' + this.ressource.ressource.id + '\n' +
+          this.$i18n.t('editeur') + ' : ' + this.ressource.editeur.nom + '\n';
 
       for (let i = 0; i < this.ressource.distributeursCom.length; i++) {
         string +=
-            'Nom du distributeur commercial : ' + this.ressource.distributeursCom[i].nom + '\n';
+            this.$i18n.t('distributeurCom') + ' : ' + this.ressource.distributeursCom[i].nom + '\n';
       }
 
       navigator.clipboard.writeText(string);
@@ -154,3 +154,28 @@ export default {
   }
 }
 </style>
+
+<i18n>{
+  "fr": {
+    "id-gar": "Identifiant GAR",
+    "nom-ressource": "Nom de la ressource",
+    "editeur": "Éditeur",
+    "distributeurCom": "Distributeur commercial",
+    "distributeurTech": "Distributeur technique",
+    "affichable": "Affichable",
+    "diffusable": "Diffusable",
+    "oui": "Oui",
+    "non": "Non"
+  },
+  "en": {
+    "id-gar": "GAR Identifier",
+    "nom-ressource": "Resource name",
+    "editeur": "Editor",
+    "distributeurTech": "Technical distributor",
+    "distributeurCom": "Commercial distributor",
+    "affichable": "Displayable",
+    "diffusable": "Sharable",
+    "oui": "Yes",
+    "non": "No"
+  }
+}</i18n>
