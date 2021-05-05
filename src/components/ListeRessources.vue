@@ -8,20 +8,20 @@
             v-bind:ressource="ressource"
         />
         <div class="div-page-suivante-liste-ressources" v-if="!lectureTerminee">
-          <button class="page-suivante-liste-ressources" v-on:click="getPageSuivante">Charger plus</button>
+          <button class="page-suivante-liste-ressources" v-on:click="getPageSuivante">{{ $t('charger-plus') }}</button>
         </div>
       </div>
     </main>
     <footer>
       <p v-if="erreur !== ''">
-        Une erreur est survenue. Veuillez contacter un référent ENT.<br>
-        Détail de l'erreur : <code>{{ erreur }}</code>
+        {{ $t('erreur') }}<br>
+        {{ $t('detail-erreur') }}: <code>{{ erreur }}</code>
       </p>
       <p v-else-if="ressources.length === 0 && !chargement">
-        Aucune ressource ne correspond à votre recherche.
+        {{ $t('aucune-ressource') }}
       </p>
       <p v-if="chargement">
-        Chargement…
+        {{ $t('chargement') }}
       </p>
     </footer>
   </div>
@@ -82,3 +82,20 @@ export default {
   margin: 5px;
 }
 </style>
+
+<i18n>{
+  "fr": {
+    "charger-plus": "Charger plus",
+    "chargement": "Chargement…",
+    "aucune-ressource": "Aucune ressource ne correspond à votre recherche.",
+    "erreur": "Une erreur est survenue. Veuillez contacter un référent ENT.",
+    "detail-erreur": "Détail de l'erreur "
+  },
+  "en": {
+    "charger-plus": "Load more",
+    "chargement": "Loading…",
+    "aucune-ressource": "No resource matches your request.",
+    "erreur": "An error occured. Please contact a ENT referent.",
+    "detail-erreur": "Error informations"
+  }
+}</i18n>
