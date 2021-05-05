@@ -1,5 +1,6 @@
 <template>
   <div class="cadre-legende-ressource">
+    <p>{{ $t('hello') }}</p>
     <ul class="liste-legendes-legende-ressource">
       <li class="element-legende-ressource">
         <span class="intitule-legende-ressource">Identifiant GAR : </span>
@@ -28,6 +29,15 @@
     </ul>
   </div>
 </template>
+
+<i18n>{
+  "fr": {
+    "hello": "こんにちは、世界！"
+  },
+  "en": {
+    "hello": "hello world!"
+  }
+}</i18n>
 
 <script>
 export default {
