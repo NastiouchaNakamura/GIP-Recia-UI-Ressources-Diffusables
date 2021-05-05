@@ -1,13 +1,19 @@
 <template>
   <div class="cadre-recherche-ressource">
     <div class="input-recherche-ressource">
-      <input class="champ-recherche-ressource" v-model.trim="rechercheInput" @input="recommencerRecherche" type="text" placeholder="Recherche">
+      <input
+          class="champ-recherche-ressource"
+          v-model.trim="rechercheInput"
+          @input="recommencerRecherche"
+          type="text"
+          :placeholder="$t('recherche')"
+      >
       <button class="reinitialiser-recherche-ressource" @click="reinitialiserRecherche">
         <font-awesome-icon :icon="['fas', 'redo']"/>
       </button>
     </div>
     <small class="elements-affiches-page-ressource">
-      {{ nombreRessourcesAffichees }}/{{ nombreRessourcesTotal }} ÉLÉMENTS AFFICHÉS
+      {{ nombreRessourcesAffichees }}/{{ nombreRessourcesTotal }} {{ $t('elements-affiches').toUpperCase() }}
     </small>
   </div>
 </template>
@@ -87,3 +93,14 @@ export default {
   margin-left: 5px;
 }
 </style>
+
+<i18n>{
+  "fr": {
+    "recherche": "Recherche",
+    "elements-affiches": "éléments affichés"
+  },
+  "en": {
+    "recherche": "Search",
+    "elements-affiches": "items displayed"
+  }
+}</i18n>
