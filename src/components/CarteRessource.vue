@@ -33,8 +33,8 @@
       </li>
     </ul>
     <div class="boutons-carte-ressource">
-      <button class="" v-on:click="afficherPlusInfos" :disabled="plusInfos">Plus d'informations</button>
-      <button class="" v-on:click="copierReferences">Copier les références</button>
+      <button class="" v-on:click="afficherPlusInfos" :disabled="plusInfos">{{ $t('plus-informations') }}</button>
+      <button class="" v-on:click="copierReferences">{{ $t('copier-references') }}</button>
     </div>
   </div>
 </template>
@@ -165,7 +165,9 @@ export default {
     "affichable": "Affichable",
     "diffusable": "Diffusable",
     "oui": "Oui",
-    "non": "Non"
+    "non": "Non",
+    "plus-informations": "Plus d'informations",
+    "copier-references": "Copier les références"
   },
   "en": {
     "id-gar": "GAR Identifier",
@@ -176,6 +178,8 @@ export default {
     "affichable": "Displayable",
     "diffusable": "Sharable",
     "oui": "Yes",
-    "non": "No"
+    "non": "No",
+    "plus-informations": "More informations",
+    "copier-references": "Copy references"
   }
 }</i18n>
