@@ -1,7 +1,7 @@
 <template>
   <div class="cadre-page-ressource">
     <header class="en-tete-page-ressource">
-      <h1 class="titre-en-tete-page-ressource">Ressources diffusables</h1>
+      <h1 class="titre-en-tete-page-ressource">{{ $t('ressources-diffusables') }}</h1>
     </header>
     <div class="bloc-principal-page-ressource">
       <aside class="aside-page-ressource">
@@ -186,3 +186,12 @@ export default {
   }
 }
 </style>
+
+<i18n>{
+  "fr": {
+    "ressources-diffusables": "Ressources diffusables"
+  },
+  "en": {
+    "ressources-diffusables": "Sharable resources"
+  }
+}</i18n>
