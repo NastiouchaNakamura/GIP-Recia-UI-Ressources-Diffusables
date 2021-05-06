@@ -1,7 +1,19 @@
+import oidc from "@uportal/open-id-connect";
+
 async function getRessourcesDiffusables(
+    userInfoApiUrl,
     page,
     recherche
 ) {
+    const options = {
+        method: 'GET',
+        credentials: 'same-origin',
+        headers: {
+            Authorization: 'Bearer ' + (await oidc({ userInfoApiUrl: userInfoApiUrl })).encoded,
+            'content-type': 'application/jwt'
+        }
+    };
+
     return await fetch(
         'http://localhost:8090/mediacentre/api/ressources-diffusables' +
         '?ressourcesPerPage=20' +
@@ -15,9 +27,7 @@ async function getRessourcesDiffusables(
         (recherche !== '' ? '&nomDistributeurCom=' + recherche : '') +
         (recherche !== '' ? '&distributeurTech=' + recherche : '') +
         (recherche !== '' ? '&nomDistributeurTech=' + recherche : ''),
-        {
-            method: 'GET'
-        }
+        options
     ).then(
         (response) => {
             if (response.status === 200) {
@@ -33,8 +43,18 @@ async function getRessourcesDiffusables(
 }
 
 async function getSize(
+    userInfoApiUrl,
     recherche
 ) {
+    const options = {
+        method: 'GET',
+        credentials: 'same-origin',
+        headers: {
+            Authorization: 'Bearer ' + (await oidc({ userInfoApiUrl: userInfoApiUrl })).encoded,
+            'content-type': 'application/jwt'
+        }
+    };
+
     return await fetch(
         'http://localhost:8090/mediacentre/api/ressources-diffusables/size?dummy=0' +
         (recherche !== '' ? '&operator=OR' : '') +
@@ -46,9 +66,7 @@ async function getSize(
         (recherche !== '' ? '&nomDistributeurCom=' + recherche : '') +
         (recherche !== '' ? '&distributeurTech=' + recherche : '') +
         (recherche !== '' ? '&nomDistributeurTech=' + recherche : ''),
-        {
-            method: 'GET'
-        }
+        options
     ).then(
         (response) => {
             if (response.status === 200) {

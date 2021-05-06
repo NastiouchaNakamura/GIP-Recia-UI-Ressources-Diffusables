@@ -71,6 +71,7 @@ export default {
       this.pageSuivante = 0;
       this.chargement = true;
       getSize(
+          'https://test-lycee.giprecia.net/portail/api/v5-1/userinfo',
           this.recherche
       ).then(
           value => {
@@ -94,6 +95,7 @@ export default {
       if (!this.lectureTerminee) {
         this.chargement = true;
         getRessourcesDiffusables(
+            'https://test-lycee.giprecia.net/portail/api/v5-1/userinfo',
             this.pageSuivante++,
             this.recherche
         ).then(
