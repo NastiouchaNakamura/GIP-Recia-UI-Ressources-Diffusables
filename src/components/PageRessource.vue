@@ -125,8 +125,6 @@ export default {
   flex-direction: column;
   margin: 0;
   padding: 0;
-  height: calc(100vh - 180px);
-  max-height: calc(100vh - 180px);
 }
 
 .en-tete-page-ressource {
@@ -145,7 +143,7 @@ export default {
 .bloc-principal-page-ressource {
   display: flex;
   flex-direction: row;
-  height: calc(100% - 70px);
+  height: calc(100vh - 180px);
 }
 
 .aside-page-ressource {
@@ -156,6 +154,11 @@ export default {
 .main-page-ressource {
   max-width: 80vw;
   width: 100%;
+  height: 100%;
+}
+
+.liste-ressource-page-ressource {
+  height: 100%;
 }
 
 @media (max-width: 1080px) {
