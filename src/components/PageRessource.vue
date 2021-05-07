@@ -69,6 +69,7 @@ export default {
     recommencerRecherche: function () {
       this.ressources = [];
       this.pageSuivante = 0;
+      this.erreur = '';
       this.chargement = true;
       getSize(
           'https://test-lycee.giprecia.net/portail/api/v5-1/userinfo',
@@ -93,6 +94,7 @@ export default {
     },
     getPageSuivante: function () {
       if (!this.lectureTerminee) {
+        this.erreur = '';
         this.chargement = true;
         getRessourcesDiffusables(
             'https://test-lycee.giprecia.net/portail/api/v5-1/userinfo',
