@@ -23,17 +23,13 @@
       <p v-else-if="ressources.length === 0">
         {{ $t('aucune-ressource') }}
       </p>
-      <div
+      <button
           v-else-if="!lectureTerminee"
-          class="div-page-suivante-liste-ressources"
+          class="page-suivante-liste-ressources"
+          v-on:click="getPageSuivante"
       >
-        <button
-            class="page-suivante-liste-ressources"
-            v-on:click="getPageSuivante"
-        >
-          {{ $t('charger-plus') }}
-        </button>
-      </div>
+        {{ $t('charger-plus') }}
+      </button>
     </footer>
   </div>
 </template>
@@ -73,26 +69,28 @@ export default {
 }
 
 .page-suivante-liste-ressources {
-  width: 100%;
+  width: calc(100% - 30px);
   height: 50px;
   border-radius: 3px;
   overflow: hidden;
-  margin: 5px;
-  padding: 0 4px 0 4px;
+  margin: 20px 10px 20px 10px;
+  padding: 10px 15px 10px 15px;
   background-color: var(--secondary-color);
   color: var(--secondary-over-color);
   font-size: x-large;
   font-weight: bold;
-}
-
-.div-page-suivante-liste-ressources {
-  padding: 10px;
-  margin: 5px;
+  box-sizing: border-box;
+  display: block;
 }
 
 .chargement-liste-ressources {
+  width: calc(100% - 30px);
   font-size: x-large;
   font-weight: bold;
+  height: 50px;
+  margin: 20px 10px 20px 10px;
+  padding: 12px 17px 12px 17px;
+  box-sizing: border-box;
 }
 </style>
 
