@@ -6,7 +6,9 @@
     <ul class="liste-attributs-ressource-carte-ressource">
       <li class="attribut-ressource-carte-ressource">
         <span class="intitule-attribut-ressource-carte-ressource">{{ $t('id-gar') }} : </span>
-        <span class="nom-attribut-ressource">{{ ressource.ressource.id }}</span>
+        <span
+            class="nom-attribut-ressource-carte-ressource id-principal-ressource-carte-ressource"
+        >{{ ressource.ressource.id }}</span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="ressource.editeur.nom !== '' || plusInfos">
         <span class="intitule-attribut-ressource-carte-ressource">{{ $t('editeur') }} : </span>
@@ -111,9 +113,14 @@ export default {
   font-weight: bold;
 }
 
+.id-principal-ressource-carte-ressource {
+  word-wrap: break-word;
+}
+
 .id-attribut-ressource-carte-ressource {
   color: var(--default-text-color-transparent);
   font-size: smaller;
+  word-wrap: break-word;
 }
 
 .liste-attributs-ressource-carte-ressource {
@@ -129,7 +136,7 @@ export default {
 }
 
 .boutons-carte-ressource > button {
-  height: 30px;
+  min-height: 30px;
   border-radius: 3px;
   overflow: hidden;
   margin-top: 0;
@@ -140,7 +147,7 @@ export default {
   font-size: small;
   font-weight: bold;
   width: 30vw;
-  min-width: 180px;
+  min-width: calc(min(180px, 50%));
 }
 
 .boutons-carte-ressource > button:disabled {
