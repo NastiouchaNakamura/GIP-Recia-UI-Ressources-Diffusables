@@ -185,7 +185,6 @@ export default {
 
   .aside-page-ressource {
     max-width: 100vw;
-    height: 160px;
   }
 
   .main-page-ressource {
