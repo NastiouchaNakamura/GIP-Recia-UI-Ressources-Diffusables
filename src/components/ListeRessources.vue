@@ -7,22 +7,33 @@
             :key="ressource.idRessource"
             v-bind:ressource="ressource"
         />
-        <div class="div-page-suivante-liste-ressources" v-if="!lectureTerminee">
-          <button class="page-suivante-liste-ressources" v-on:click="getPageSuivante">{{ $t('charger-plus') }}</button>
-        </div>
       </div>
     </main>
     <footer>
-      <p v-if="erreur !== ''">
+      <p
+          v-if="chargement"
+          class="chargement-liste-ressources"
+      >
+        {{ $t('chargement') }}
+      </p>
+      <p v-else-if="erreur !== ''">
         {{ $t('erreur') }}<br>
         {{ $t('detail-erreur') }}: <code>{{ erreur }}</code>
       </p>
-      <p v-else-if="ressources.length === 0 && !chargement">
+      <p v-else-if="ressources.length === 0">
         {{ $t('aucune-ressource') }}
       </p>
-      <p v-if="chargement">
-        {{ $t('chargement') }}
-      </p>
+      <div
+          v-else-if="!lectureTerminee"
+          class="div-page-suivante-liste-ressources"
+      >
+        <button
+            class="page-suivante-liste-ressources"
+            v-on:click="getPageSuivante"
+        >
+          {{ $t('charger-plus') }}
+        </button>
+      </div>
     </footer>
   </div>
 </template>
@@ -58,9 +69,6 @@ export default {
   box-shadow: 2px 2px 5px lightgrey;
   box-sizing: border-box;
   padding: 10px;
-}
-
-.liste-liste-ressources {
   overflow-y: scroll;
 }
 
@@ -80,6 +88,11 @@ export default {
 .div-page-suivante-liste-ressources {
   padding: 10px;
   margin: 5px;
+}
+
+.chargement-liste-ressources {
+  font-size: x-large;
+  font-weight: bold;
 }
 </style>
 
