@@ -1,6 +1,7 @@
 import oidc from "@uportal/open-id-connect";
 
 async function getRessourcesDiffusables(
+    ressourcesDiffusablesApiUrl,
     userInfoApiUrl,
     page,
     recherche
@@ -15,7 +16,7 @@ async function getRessourcesDiffusables(
     };
 
     return await fetch(
-        'http://localhost:8090/mediacentre/api/ressources-diffusables' +
+        ressourcesDiffusablesApiUrl +
         '?ressourcesPerPage=20' +
         '&page=' + page +
         (recherche !== '' ? '&operator=OR' : '') +
@@ -43,6 +44,7 @@ async function getRessourcesDiffusables(
 }
 
 async function getSize(
+    ressourcesDiffusablesSizeApiUrl,
     userInfoApiUrl,
     recherche
 ) {
@@ -56,8 +58,8 @@ async function getSize(
     };
 
     return await fetch(
-        'http://localhost:8090/mediacentre/api/ressources-diffusables/size?dummy=0' +
-        (recherche !== '' ? '&operator=OR' : '') +
+        ressourcesDiffusablesSizeApiUrl +
+        '?operator=OR' +
         (recherche !== '' ? '&idRessource=' + recherche : '') +
         (recherche !== '' ? '&nomRessource=' + recherche : '') +
         (recherche !== '' ? '&idEditeur=' + recherche : '') +

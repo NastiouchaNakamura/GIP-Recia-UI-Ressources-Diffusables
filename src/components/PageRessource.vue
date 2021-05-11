@@ -43,6 +43,23 @@ export default {
     rechercheRessource: RechercheRessource,
     listeRessources: ListeRessources
   },
+  props: {
+    ressourcesDiffusablesApiUrl: {
+      type: String,
+      default:
+          process.env.VUE_APP_RESSOURCES_DIFFUSABLES_API_URI,
+    },
+    ressourcesDiffusablesSizeApiUrl: {
+      type: String,
+      default:
+      process.env.VUE_APP_RESSOURCES_DIFFUSABLES_SIZE_API_URI,
+    },
+    userInfoApiUrl: {
+      type: String,
+      default:
+      process.env.VUE_APP_USER_INFO_API_URI,
+    },
+  },
   data: function() {
     return {
       ressources: [],
@@ -72,7 +89,8 @@ export default {
       this.erreur = '';
       this.chargement = true;
       getSize(
-          'https://test-lycee.giprecia.net/portail/api/v5-1/userinfo',
+          this.ressourcesDiffusablesSizeApiUrl,
+          this.userInfoApiUrl,
           this.recherche
       ).then(
           value => {
@@ -97,7 +115,8 @@ export default {
         this.erreur = '';
         this.chargement = true;
         getRessourcesDiffusables(
-            'https://test-lycee.giprecia.net/portail/api/v5-1/userinfo',
+            this.ressourcesDiffusablesApiUrl,
+            this.userInfoApiUrl,
             this.pageSuivante++,
             this.recherche
         ).then(
