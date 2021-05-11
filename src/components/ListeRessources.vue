@@ -14,21 +14,21 @@
           v-if="chargement"
           class="chargement-liste-ressources"
       >
-        {{ $t('chargement') }}
+        {{ t('chargement') }}
       </p>
       <p v-else-if="erreur !== ''">
-        {{ $t('erreur') }}<br>
-        {{ $t('detail-erreur') }}: <code>{{ erreur }}</code>
+        {{ t('erreur') }}<br>
+        {{ t('detail-erreur') }}: <code>{{ erreur }}</code>
       </p>
       <p v-else-if="ressources.length === 0">
-        {{ $t('aucune-ressource') }}
+        {{ t('aucune-ressource') }}
       </p>
       <button
           v-else-if="!lectureTerminee"
           class="page-suivante-liste-ressources"
           v-on:click="getPageSuivante"
       >
-        {{ $t('charger-plus') }}
+        {{ t('charger-plus') }}
       </button>
     </footer>
   </div>
@@ -36,9 +36,10 @@
 
 <script>
 import CarteRessource from "@/components/CarteRessource";
+import i18n from "@/i18n";
 
 export default {
-  name: "liste-ressourcess",
+  name: "liste-ressources",
   components: {CarteRessource},
   props: {
     ressources: Array,
@@ -50,6 +51,9 @@ export default {
     return {};
   },
   methods: {
+    t: function (key) {
+      return i18n.t('message.' + this.$options.name + '.' + key); // 'message.page-ressource.{key}
+    },
     getPageSuivante: function () {
       this.$parent.getPageSuivante();
     }
@@ -93,20 +97,3 @@ export default {
   box-sizing: border-box;
 }
 </style>
-
-<i18n>{
-  "fr": {
-    "charger-plus": "Charger plus",
-    "chargement": "Chargement…",
-    "aucune-ressource": "Aucune ressource ne correspond à votre recherche.",
-    "erreur": "Une erreur est survenue. Veuillez contacter un référent ENT.",
-    "detail-erreur": "Détail de l'erreur "
-  },
-  "en": {
-    "charger-plus": "Load more",
-    "chargement": "Loading…",
-    "aucune-ressource": "No resource matches your request.",
-    "erreur": "An error occured. Please contact a ENT referent.",
-    "detail-erreur": "Error informations"
-  }
-}</i18n>

@@ -1,7 +1,7 @@
 <template>
   <div class="cadre-page-ressource">
     <header class="en-tete-page-ressource">
-      <h1 class="titre-en-tete-page-ressource">{{ $t('ressources-diffusables') }}</h1>
+      <h1 class="titre-en-tete-page-ressource">{{ t('ressources-diffusables') }}</h1>
     </header>
     <div class="bloc-principal-page-ressource">
       <aside class="aside-page-ressource">
@@ -35,6 +35,7 @@ import ListeRessources from "@/components/ListeRessources";
 import RechercheRessource from "@/components/RechercheRessource";
 import {getRessourcesDiffusables, getSize} from "@/services/serviceRessourcesDiffusables";
 import LegendeRessource from "@/components/LegendeRessource";
+import i18n from "@/i18n";
 
 export default {
   name: 'page-ressource',
@@ -46,19 +47,16 @@ export default {
   props: {
     ressourcesDiffusablesApiUrl: {
       type: String,
-      default:
-          process.env.VUE_APP_RESSOURCES_DIFFUSABLES_API_URI,
+      default: process.env.VUE_APP_RESSOURCES_DIFFUSABLES_API_URI,
     },
     ressourcesDiffusablesSizeApiUrl: {
       type: String,
-      default:
-      process.env.VUE_APP_RESSOURCES_DIFFUSABLES_SIZE_API_URI,
+      default: process.env.VUE_APP_RESSOURCES_DIFFUSABLES_SIZE_API_URI,
     },
     userInfoApiUrl: {
       type: String,
-      default:
-      process.env.VUE_APP_USER_INFO_API_URI,
-    },
+      default: process.env.VUE_APP_USER_INFO_API_URI,
+    }
   },
   data: function() {
     return {
@@ -75,6 +73,9 @@ export default {
     this.recommencerRecherche();
   },
   methods: {
+    t: function (key) {
+      return i18n.t('message.' + this.$options.name + '.' + key); // 'message.page-ressource.{key}
+    },
     reinitialiserRecherche: function () {
       this.recherche = '';
       this.recommencerRecherche();
@@ -211,12 +212,3 @@ export default {
   }
 }
 </style>
-
-<i18n>{
-  "fr": {
-    "ressources-diffusables": "Ressources diffusables"
-  },
-  "en": {
-    "ressources-diffusables": "Sharable resources"
-  }
-}</i18n>

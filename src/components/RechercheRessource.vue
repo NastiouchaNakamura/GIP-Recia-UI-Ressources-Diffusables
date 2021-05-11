@@ -6,14 +6,14 @@
           v-model.trim="rechercheInput"
           @input="recommencerRecherche"
           type="text"
-          :placeholder="$t('recherche')"
+          :placeholder="t('recherche')"
       >
       <button class="reinitialiser-recherche-ressource" @click="reinitialiserRecherche">
         <font-awesome-icon :icon="['fas', 'redo']"/>
       </button>
     </div>
     <small class="elements-affiches-page-ressource">
-      {{ nombreRessourcesAffichees }}/{{ nombreRessourcesTotal }} {{ $t('elements-affiches').toUpperCase() }}
+      {{ nombreRessourcesAffichees }}/{{ nombreRessourcesTotal }} {{ t('elements-affiches').toUpperCase() }}
     </small>
   </div>
 </template>
@@ -22,6 +22,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faRedo } from '@fortawesome/free-solid-svg-icons'
 import { debounce } from 'debounce'
+import i18n from "@/i18n";
 
 library.add(faRedo)
 
@@ -41,6 +42,9 @@ export default {
     this.recommencerRecherche = debounce(this.recommencerRecherche, 500); // Buffer de 0,5s après input.
   },
   methods: {
+    t: function (key) {
+      return i18n.t('message.' + this.$options.name + '.' + key); // 'message.page-ressource.{key}
+    },
     reinitialiserRecherche: function () {
       this.rechercheInput = '';
       this.$parent.recommencerRechercheInput(this.rechercheInput);
@@ -93,14 +97,3 @@ export default {
   margin-left: 5px;
 }
 </style>
-
-<i18n>{
-  "fr": {
-    "recherche": "Recherche",
-    "elements-affiches": "éléments affichés"
-  },
-  "en": {
-    "recherche": "Search",
-    "elements-affiches": "items displayed"
-  }
-}</i18n>
