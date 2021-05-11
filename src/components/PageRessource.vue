@@ -167,7 +167,7 @@ export default {
 .bloc-principal-page-ressource {
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 180px);
+  height: calc(100vh - 240px);
 }
 
 .aside-page-ressource {
