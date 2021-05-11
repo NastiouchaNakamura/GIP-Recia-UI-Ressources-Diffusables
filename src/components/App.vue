@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <PageRessource/>
+    <page-ressource/>
   </div>
 </template>
 
 <script>
-import PageRessource from './components/PageRessource'
+import PageRessource from './PageRessource'
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
     PageRessource
   }
