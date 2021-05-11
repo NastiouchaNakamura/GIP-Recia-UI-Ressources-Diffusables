@@ -9,7 +9,7 @@
           :placeholder="t('recherche')"
       >
       <button class="reinitialiser-recherche-ressource" @click="reinitialiserRecherche">
-        <font-awesome-icon :icon="['fas', 'redo']"/>
+        <font-awesome-icon class="icone-reinitialiser-recherche-ressource" :icon="['fas', 'redo']"/>
       </button>
     </div>
     <small class="elements-affiches-page-ressource">
@@ -96,5 +96,9 @@ export default {
   font-size: small;
   font-weight: bold;
   margin-left: 5px;
+}
+
+.icone-reinitialiser-recherche-ressource {
+  width: 80%;
 }
 </style>
