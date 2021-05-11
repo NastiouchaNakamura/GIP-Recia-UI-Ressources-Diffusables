@@ -19,15 +19,16 @@
 </template>
 
 <script>
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faRedo } from '@fortawesome/free-solid-svg-icons'
-import { debounce } from 'debounce'
+import { debounce } from 'debounce';
 import i18n from "@/i18n";
-
-library.add(faRedo)
+import '@/icons';
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
   name: "recherche-ressource",
+  components: {
+    FontAwesomeIcon
+  },
   props: {
     recherche: String,
     nombreRessourcesTotal: Number,

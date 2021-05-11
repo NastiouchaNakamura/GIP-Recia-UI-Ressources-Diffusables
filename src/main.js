@@ -1,12 +1,8 @@
-import Vue from 'vue'
-import App from '@/components/App.vue'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import Vue from 'vue';
+import App from '@/components/App.vue';
 import i18n from "@/i18n";
 
 Vue.config.productionTip = false
-
-// fontawesome
-Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 new Vue({
     i18n,

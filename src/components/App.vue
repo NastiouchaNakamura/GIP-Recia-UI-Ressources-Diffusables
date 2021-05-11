@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PageRessource from './PageRessource'
+import PageRessource from './PageRessource';
 
 export default {
   name: 'app',
