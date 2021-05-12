@@ -1,6 +1,6 @@
 {
   "name": "ui-ressources-gar",
-  "version": "0.7.1a",
+  "version": "0.7.1b",
   "private": false,
   "main": "dist/ui-ressouces-gar.min.js",
   "scripts": {

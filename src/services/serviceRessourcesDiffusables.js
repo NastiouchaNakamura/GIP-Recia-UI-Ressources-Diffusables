@@ -8,7 +8,7 @@ async function getRessourcesDiffusables(
 ) {
     const options = {
         method: 'GET',
-        credentials: 'same-origin',
+        //credentials: 'same-origin',
         headers: {
             Authorization: 'Bearer ' + (await oidc({ userInfoApiUrl: userInfoApiUrl })).encoded,
             'content-type': 'application/jwt'
@@ -50,7 +50,7 @@ async function getSize(
 ) {
     const options = {
         method: 'GET',
-        credentials: 'same-origin',
+        //credentials: 'same-origin',
         headers: {
             Authorization: 'Bearer ' + (await oidc({ userInfoApiUrl: userInfoApiUrl })).encoded,
             'content-type': 'application/jwt'
