@@ -176,10 +176,12 @@ export default {
 
 .aside-page-ressource {
   max-width: 20%;
+  width: 100%;
 }
 
 .main-page-ressource {
   max-width: 80%;
+  width: 100%;
   height: 100%;
 }
 
