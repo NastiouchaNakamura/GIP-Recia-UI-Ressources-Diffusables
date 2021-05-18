@@ -15,7 +15,7 @@ async function getRessourcesDiffusables(
         }
     };
 
-    await fetch(
+    return await fetch(
         ressourcesDiffusablesApiUrl +
         '?ressourcesPerPage=20' +
         '&page=' + page +
@@ -57,7 +57,7 @@ async function getSize(
         }
     };
 
-    await fetch(
+    return await fetch(
         ressourcesDiffusablesSizeApiUrl +
         '?operator=OR' +
         (recherche !== '' ? '&idRessource=' + recherche : '') +
