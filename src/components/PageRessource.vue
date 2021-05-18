@@ -45,17 +45,21 @@ export default {
     listeRessources: ListeRessources
   },
   props: {
+    baseApiUrl: {
+      type: String,
+      default: process.env.VUE_APP_BASE_API_URI
+    },
     ressourcesDiffusablesApiUrl: {
       type: String,
-      default: process.env.VUE_APP_RESSOURCES_DIFFUSABLES_API_URI,
+      default: process.env.VUE_APP_RESSOURCES_DIFFUSABLES_API_URI
     },
     ressourcesDiffusablesSizeApiUrl: {
       type: String,
-      default: process.env.VUE_APP_RESSOURCES_DIFFUSABLES_SIZE_API_URI,
+      default: process.env.VUE_APP_RESSOURCES_DIFFUSABLES_SIZE_API_URI
     },
     userInfoApiUrl: {
       type: String,
-      default: process.env.VUE_APP_USER_INFO_API_URI,
+      default: process.env.VUE_APP_USER_INFO_API_URI
     }
   },
   data: function() {

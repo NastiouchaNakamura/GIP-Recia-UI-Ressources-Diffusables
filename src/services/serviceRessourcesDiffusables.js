@@ -8,14 +8,14 @@ async function getRessourcesDiffusables(
 ) {
     const options = {
         method: 'GET',
-        //credentials: 'same-origin',
+        credentials: 'same-origin',
         headers: {
             Authorization: 'Bearer ' + (await oidc({ userInfoApiUrl: userInfoApiUrl })).encoded,
             'content-type': 'application/jwt'
         }
     };
 
-    return await fetch(
+    await fetch(
         ressourcesDiffusablesApiUrl +
         '?ressourcesPerPage=20' +
         '&page=' + page +
@@ -50,14 +50,14 @@ async function getSize(
 ) {
     const options = {
         method: 'GET',
-        //credentials: 'same-origin',
+        credentials: 'same-origin',
         headers: {
             Authorization: 'Bearer ' + (await oidc({ userInfoApiUrl: userInfoApiUrl })).encoded,
             'content-type': 'application/jwt'
         }
     };
 
-    return await fetch(
+    await fetch(
         ressourcesDiffusablesSizeApiUrl +
         '?operator=OR' +
         (recherche !== '' ? '&idRessource=' + recherche : '') +
