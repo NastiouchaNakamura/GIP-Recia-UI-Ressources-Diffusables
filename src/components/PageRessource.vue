@@ -94,7 +94,7 @@ export default {
       this.erreur = '';
       this.chargement = true;
       getSize(
-          this.ressourcesDiffusablesSizeApiUrl,
+          this.baseApiUrl + this.ressourcesDiffusablesSizeApiUrl,
           this.userInfoApiUrl,
           this.recherche
       ).then(
@@ -120,7 +120,7 @@ export default {
         this.erreur = '';
         this.chargement = true;
         getRessourcesDiffusables(
-            this.ressourcesDiffusablesApiUrl,
+            this.baseApiUrl + this.ressourcesDiffusablesApiUrl,
             this.userInfoApiUrl,
             this.pageSuivante++,
             this.recherche
