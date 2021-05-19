@@ -14,8 +14,8 @@ export default {
   }
 }
 </script>
-<style id="style-ui-ressources-gar-app">
-#app {
+<style>
+:root {
   /* Couleur par défaut de tout le texte */
   --ui-ressources-gar-default-text-color: #303030;
   --ui-ressources-gar-default-text-color-transparent: #30303080;
@@ -35,9 +35,7 @@ export default {
   --ui-ressources-gar-button-text-color: var(--ui-ressources-gar-header-text-color);
   --ui-ressources-gar-button-text-color-transparent: var(--ui-ressources-gar-header-text-color-transparent);
 }
-</style>
 
-<style>
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
