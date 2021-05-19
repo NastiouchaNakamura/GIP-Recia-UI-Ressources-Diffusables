@@ -156,7 +156,7 @@ export default {
 }
 
 .en-tete-page-ressource {
-  background-color: var(--main-color);
+  background-color: var(--ui-ressources-gar-header-background-color);
   padding: 10px 20px 10px 20px;
   border-bottom: thin solid lightgrey;
   box-shadow: 0 2px 5px lightgrey;
@@ -165,7 +165,7 @@ export default {
 .titre-en-tete-page-ressource {
   margin-top: 0;
   margin-bottom: 0;
-  color: var(--main-over-color);
+  color: var(--ui-ressources-gar-header-text-color);
 }
 
 .bloc-principal-page-ressource {

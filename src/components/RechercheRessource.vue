@@ -91,8 +91,8 @@ export default {
   border-radius: 3px;
   overflow: hidden;
   padding: 0 4px 0 4px;
-  background-color: var(--secondary-color);
-  color: var(--secondary-over-color);
+  background-color: var(--ui-ressources-gar-button-background-color);
+  color: var(--ui-ressources-gar-button-text-color);
   font-size: small;
   font-weight: bold;
   margin-left: 5px;

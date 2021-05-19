@@ -79,8 +79,8 @@ export default {
   overflow: hidden;
   margin: 20px 10px 20px 10px;
   padding: 10px 15px 10px 15px;
-  background-color: var(--secondary-color);
-  color: var(--secondary-over-color);
+  background-color: var(--ui-ressources-gar-button-background-color);
+  color: var(--ui-ressources-gar-button-text-color);
   font-size: x-large;
   font-weight: bold;
   box-sizing: border-box;

@@ -14,25 +14,38 @@ export default {
   }
 }
 </script>
+<style id="style-ui-ressources-gar-app">
+#app {
+  /* Couleur par défaut de tout le texte */
+  --ui-ressources-gar-default-text-color: #303030;
+  --ui-ressources-gar-default-text-color-transparent: #30303080;
+
+  /* Couleurs du header */
+  --ui-ressources-gar-header-background-color: #25B2F3;
+  --ui-ressources-gar-header-background-color-transparent: #25B2F380;
+  --ui-ressources-gar-header-text-color: #FFFFFF;
+  --ui-ressources-gar-header-text-color-transparent: #FFFFFF80;
+
+  /* Couleur des titres des cartes de ressources */
+  --ui-ressources-gar-ressources-title-color: var(--ui-ressources-gar-header-background-color);
+
+  /* Couleurs des boutons */
+  --ui-ressources-gar-button-background-color: var(--ui-ressources-gar-header-background-color);
+  --ui-ressources-gar-button-background-color-transparent: var(--ui-ressources-gar-header-background-color-transparent);
+  --ui-ressources-gar-button-text-color: var(--ui-ressources-gar-header-text-color);
+  --ui-ressources-gar-button-text-color-transparent: var(--ui-ressources-gar-header-text-color-transparent);
+}
+</style>
 
 <style>
-#app {
-  /* Variables */
-  --default-text-color: #2c3e50; /* Sur fond blanc */
-  --default-text-color-transparent: #2c3e5080;
-  --main-color: #d91a7b; /* Header */
-  --main-over-color: white; /* Texte sur --main-color */
-  --main-text-color: var(--main-color); /* Titre des ressources */
-  --secondary-color: #303364; /* Boutons */
-  --secondary-color-transparent: #30336480;
-  --secondary-over-color: white; /* Texte sur --secondary-color */
-  --secondary-over-color-transparent: #FFFFFF80;
+@font-face {
 
-  /* Style */
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+#app {
+  font-family: 'Roboto', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: var(--default-text-color);
+  color: var(--ui-ressources-gar-default-text-color);
 }
 </style>

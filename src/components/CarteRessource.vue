@@ -104,7 +104,7 @@ export default {
 .nom-ressource-carte-ressource {
   margin-top: 0;
   margin-bottom: 12px;
-  color: var(--main-color);
+  color: var(--ui-ressources-gar-header-background-color);
 }
 
 .attribut-ressource-carte-ressource {
@@ -123,7 +123,7 @@ export default {
 }
 
 .id-attribut-ressource-carte-ressource {
-  color: var(--default-text-color-transparent);
+  color: var(--ui-ressources-gar-default-text-color-transparent);
   font-size: smaller;
   word-wrap: break-word;
 }
@@ -147,17 +147,18 @@ export default {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0 4px 0 4px;
-  background-color: var(--secondary-color);
-  color: var(--secondary-over-color);
+  background-color: var(--ui-ressources-gar-button-background-color);
+  color: var(--ui-ressources-gar-button-text-color);
   font-size: small;
   font-weight: bold;
   width: 30vw;
   min-width: calc(min(180px, 50%));
+  max-width: 500px;
 }
 
 .boutons-carte-ressource > button:disabled {
-  background-color: var(--secondary-color-transparent);
-  color: var(--secondary-over-color-transparent);
+  background-color: var(--ui-ressources-gar-button-background-color-transparent);
+  color: var(--ui-ressources-gar-button-text-color-transparent);
 }
 
 @media (max-width: 1080px) {
