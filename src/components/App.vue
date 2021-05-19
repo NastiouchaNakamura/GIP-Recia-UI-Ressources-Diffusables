@@ -15,7 +15,8 @@ export default {
 }
 </script>
 <style>
-:root {
+/* Variables */
+#app {
   /* Couleur par défaut de tout le texte */
   --ui-ressources-gar-default-text-color: #303030;
   --ui-ressources-gar-default-text-color-transparent: #30303080;
