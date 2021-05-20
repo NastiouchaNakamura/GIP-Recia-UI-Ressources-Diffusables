@@ -123,7 +123,7 @@ export default {
 }
 
 .id-attribut-ressource-carte-ressource {
-  opacity: 50%;
+  opacity: 0.5;
   font-size: smaller;
   word-wrap: break-word;
 }
@@ -157,7 +157,7 @@ export default {
 }
 
 .boutons-carte-ressource > button:disabled {
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 @media (max-width: 1080px) {
