@@ -123,7 +123,7 @@ export default {
 }
 
 .id-attribut-ressource-carte-ressource {
-  color: var(--ui-ressources-gar-default-text-color-transparent);
+  opacity: 50%;
   font-size: smaller;
   word-wrap: break-word;
 }
@@ -157,8 +157,7 @@ export default {
 }
 
 .boutons-carte-ressource > button:disabled {
-  background-color: var(--ui-ressources-gar-button-background-color-transparent);
-  color: var(--ui-ressources-gar-button-text-color-transparent);
+  opacity: 50%;
 }
 
 @media (max-width: 1080px) {
