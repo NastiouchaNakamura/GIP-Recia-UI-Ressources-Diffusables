@@ -15,34 +15,26 @@ export default {
 }
 </script>
 
-<style lang="scss" module>
+<!-- Variables définies dans le skin du portail.
+<style>
 /* Variables */
-
-/* Couleur par défaut de tout le texte */
-$ui-ressources-gar-default-text-color: #303030;
-
-/* Couleur du portail */
-$ui-ressources-gar-portal-color: #25B2F3;
-
-/* Texte sur la couleur du portail */
-$ui-ressources-gar-portal-text-color: #FFFFFF;
-
 #app {
   /* Couleur par défaut de tout le texte */
-  --ui-ressources-gar-default-text-color: $ui-ressources-gar-default-text-color;
+  --ui-ressources-gar-default-text-color: #303030;
 
   /* Couleurs du header */
-  --ui-ressources-gar-header-background-color: $ui-ressources-gar-portal-color;
-  --ui-ressources-gar-header-text-color: $ui-ressources-gar-portal-text-color;
+  --ui-ressources-gar-header-background-color: #25B2F3;
+  --ui-ressources-gar-header-text-color: #FFFFFF;
 
   /* Couleur des titres des cartes de ressources */
-  --ui-ressources-gar-ressources-title-color: $ui-ressources-gar-portal-color;
+  --ui-ressources-gar-ressources-title-color: #25B2F3;
 
   /* Couleurs des boutons */
-  --ui-ressources-gar-button-background-color: darken($ui-ressources-gar-portal-color, 0.5);
-  --ui-ressources-gar-button-text-color: $ui-ressources-gar-portal-text-color;
+  --ui-ressources-gar-button-background-color: #0C9EE1;
+  --ui-ressources-gar-button-text-color: #FFFFFF;
 }
 </style>
+-->
 
 <style>
 #app {
