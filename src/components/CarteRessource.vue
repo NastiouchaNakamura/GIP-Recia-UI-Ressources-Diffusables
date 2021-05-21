@@ -20,7 +20,7 @@
         <span class="nom-attribut-ressource-carte-ressource">{{ distributeurCom.nom }} </span>
         <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ distributeurCom.id }}</span>
       </li>
-      <li class="attribut-ressource-carte-ressource" v-if="ressource.distributeurTech.nom !== '' || plusInfos">
+      <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
         <span class="intitule-attribut-ressource-carte-ressource">{{ t('distributeurTech') }} : </span>
         <span class="nom-attribut-ressource-carte-ressource">{{ ressource.distributeurTech.nom }} </span>
         <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ ressource.distributeurTech.id }}</span>
