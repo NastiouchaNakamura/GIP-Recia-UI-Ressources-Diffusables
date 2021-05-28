@@ -31,13 +31,22 @@ async function getRessourcesDiffusables(
         options
     ).then(
         (response) => {
-            if (response.status === 200) {
-                return response.json();
-            } else {
-                throw new Error('HTTP Response Code ' + response.status);
-            }
+            return response.json().then(
+                value => {
+                    if (response.status === 200) { // OK
+                        return value.payload;
+                    } else if (response.status === 400) { // BAD REQUEST
+                        throw new Error('HTTP Response Code: ' + response.status + '; ' + value.payload.exceptionLocalizedMessage);
+                    } else {
+                        throw new Error('HTTP Response Code: ' + response.status);
+                    }
+                },
+                error => {
+                    throw error;
+                }
+            );
         },
-        (error) => {
+        error => {
             throw error;
         }
     )
@@ -71,13 +80,22 @@ async function getSize(
         options
     ).then(
         (response) => {
-            if (response.status === 200) {
-                return response.json();
-            } else {
-                throw new Error('HTTP Response Code: ' + response.status);
-            }
+            return response.json().then(
+                value => {
+                    if (response.status === 200) { // OK
+                        return value.payload;
+                    } else if (response.status === 400) { // BAD REQUEST
+                        throw new Error('HTTP Response Code: ' + response.status + '; ' + value.payload.exceptionLocalizedMessage);
+                    } else {
+                        throw new Error('HTTP Response Code: ' + response.status);
+                    }
+                },
+                error => {
+                    throw error;
+                }
+            );
         },
-        (error) => {
+        error => {
             throw error;
         }
     )
