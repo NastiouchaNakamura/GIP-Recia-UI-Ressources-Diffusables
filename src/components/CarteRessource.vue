@@ -74,13 +74,13 @@ export default {
     },
     copierReferences() {
       let string =
-          this.$i18n.t('nom-ressource') + ': ' + this.ressource.ressource.nom + '\n' +
-          this.$i18n.t('id-gar') + ': ' + this.ressource.ressource.id + '\n' +
-          this.$i18n.t('editeur') + ': ' + this.ressource.editeur.nom + '\n';
+          this.t('nom-ressource') + ': ' + this.ressource.ressource.nom + '\n' +
+          this.t('id-gar') + ': ' + this.ressource.ressource.id + '\n' +
+          this.t('editeur') + ': ' + this.ressource.editeur.nom + '\n';
 
       for (let i = 0; i < this.ressource.distributeursCom.length; i++) {
         string +=
-            this.$i18n.t('distributeurCom') + ': ' + this.ressource.distributeursCom[i].nom + '\n';
+            this.t('distributeurCom') + ': ' + this.ressource.distributeursCom[i].nom + '\n';
       }
 
       navigator.clipboard.writeText(string);
