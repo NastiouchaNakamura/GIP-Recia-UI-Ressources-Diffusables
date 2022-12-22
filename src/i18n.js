@@ -1,5 +1,8 @@
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
+import Vue from "vue";
+import VueI18n from "vue-i18n";
+
+import en from "./locales/en.json";
+import fr from "./locales/fr.json";
 
 function getBrowserLang(availableLanguages) {
   // These window.navigator contain language information
@@ -12,11 +15,11 @@ function getBrowserLang(availableLanguages) {
   // 4. userLanguage    -> Language of Windows Regional Options
   // 5. systemLanguage  -> UI Language of Windows
   const browserLanguagePropertyKeys = [
-    'languages',
-    'language',
-    'browserLanguage',
-    'userLanguage',
-    'systemLanguage',
+    "languages",
+    "language",
+    "browserLanguage",
+    "userLanguage",
+    "systemLanguage",
   ];
 
   const allLangs = browserLanguagePropertyKeys
@@ -33,7 +36,7 @@ function getBrowserLang(availableLanguages) {
   const detectedLocale = allLangs.find((x) => availableLanguages.includes(x));
 
   // If no locale is detected, fallback to 'en'
-  return detectedLocale || 'en';
+  return detectedLocale || "en";
 }
 
 function getPageLang(availableLanguages) {
@@ -45,29 +48,19 @@ function getPageLang(availableLanguages) {
     // Returns first language matched in available languages
     const detectedLocale = allLangs.find((x) => availableLanguages.includes(x));
     // If no available language is detected, fallback to 'en'
-    return detectedLocale || 'en';
+    return detectedLocale || "en";
   }
   // if no lang is retrieved from the document page we try to resolve from the browser
   return getBrowserLang(availableLanguages);
 }
 
-function loadLocaleMessages() {
-  const locales = require.context('./locales', true, /[a-z0-9-]+\.json$/i);
-  const messages = {};
-  locales.keys().forEach((key) => {
-    const matched = key.match(/([a-z0-9-]+)\./i);
-    if (matched && matched.length > 1) {
-      const locale = matched[1];
-      messages[locale] = locales(key);
-    }
-  });
-  return messages;
-}
-
 Vue.use(VueI18n);
 
 export default new VueI18n({
-  locale: getPageLang(['fr-FR', 'fr', 'en-US', 'en']),
-  fallbackLocale: 'en',
-  messages: loadLocaleMessages(),
+  locale: getPageLang(["fr-FR", "fr", "en-US", "en"]),
+  fallbackLocale: "en",
+  messages: {
+    en,
+    fr,
+  },
 });

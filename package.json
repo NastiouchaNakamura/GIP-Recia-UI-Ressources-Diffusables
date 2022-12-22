@@ -2,65 +2,36 @@
   "name": "ui-ressources-gar",
   "version": "1.1.1",
   "private": false,
-  "main": "dist/ui-ressouces-gar.min.js",
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "prebuild": "babel node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js -o node_modules/@vue/web-component-wrapper/dist/vue-wc-wrapper.js",
-    "build": "vue-cli-service build --name ui-ressources-gar --target wc 'src/components/*.vue'",
-    "buildDev": "vue-cli-service build --name ui-ressources-gar --target wc 'src/components/*.vue'",
-    "lint": "vue-cli-service lint",
-    "publish": "npm publish"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "@fortawesome/fontawesome-svg-core": "^1.2.35",
-    "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@fortawesome/vue-fontawesome": "^2.0.2",
-    "@vue/cli": "^4.5.13",
-    "core-js": "^3.12.1",
-    "debounce": "^1.2.1",
-    "oidc-client": "^1.11.5",
-    "vue": "^2.6.12",
-    "vue-i18n": "^8.24.4",
-    "vue-loader": "^15.9.6"
-  },
-  "devDependencies": {
-    "@uportal/open-id-connect": "^1.36.0",
-    "@vue/cli-plugin-babel": "^4.5.13",
-    "@vue/cli-plugin-eslint": "^4.5.13",
-    "@vue/cli-service": "^4.5.13",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.9.0",
-    "node-sass": "^6.0.0",
-    "sass-loader": "^10.0.0",
-    "vue-template-compiler": "^2.6.12"
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
   "description": "UI des ressources du GAR en Vue.js.",
   "author": "Anaël",
-  "license": "ISC"
+  "license": "ISC",
+  "main": "dist/ui-ressouces-gar.min.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.1",
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/vue-fontawesome": "^2.0.9",
+    "axios": "^1.2.1",
+    "debounce": "^1.2.1",
+    "vue": "^2.7.14",
+    "vue-i18n": "^8.28.2"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@uportal/open-id-connect": "^1.37.0",
+    "@vitejs/plugin-legacy": "^2.3.1",
+    "@vitejs/plugin-vue2": "^1.1.2",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint": "^8.30.0",
+    "eslint-plugin-vue": "^9.8.0",
+    "prettier": "^2.8.1",
+    "terser": "^5.16.1",
+    "vite": "^3.2.5"
+  }
 }

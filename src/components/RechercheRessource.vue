@@ -2,41 +2,48 @@
   <div class="cadre-recherche-ressource">
     <div class="input-recherche-ressource">
       <input
-          class="champ-recherche-ressource"
-          v-model.trim="rechercheInput"
-          @input="recommencerRecherche"
-          type="text"
-          :placeholder="t('recherche')"
+        class="champ-recherche-ressource"
+        v-model.trim="rechercheInput"
+        @input="recommencerRecherche"
+        type="text"
+        :placeholder="t('recherche')"
+      />
+      <button
+        class="reinitialiser-recherche-ressource"
+        @click="reinitialiserRecherche"
       >
-      <button class="reinitialiser-recherche-ressource" @click="reinitialiserRecherche">
-        <font-awesome-icon class="icone-reinitialiser-recherche-ressource sombre-off" :icon="['fas', 'redo']"/>
+        <font-awesome-icon
+          class="icone-reinitialiser-recherche-ressource sombre-off"
+          :icon="['fas', 'redo']"
+        />
       </button>
     </div>
     <small class="elements-affiches-page-ressource">
-      {{ nombreRessourcesAffichees }}/{{ nombreRessourcesTotal }} {{ t('elements-affiches').toUpperCase() }}
+      {{ nombreRessourcesAffichees }}/{{ nombreRessourcesTotal }}
+      {{ t("elements-affiches").toUpperCase() }}
     </small>
   </div>
 </template>
 
 <script>
-import { debounce } from 'debounce';
+import { debounce } from "debounce";
 import i18n from "@/i18n";
-import '@/icons';
+import "@/icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
   name: "recherche-ressource",
   components: {
-    FontAwesomeIcon
+    FontAwesomeIcon,
   },
   props: {
     recherche: String,
     nombreRessourcesTotal: Number,
-    nombreRessourcesAffichees: Number
+    nombreRessourcesAffichees: Number,
   },
-  data: function() {
+  data: function () {
     return {
-      rechercheInput: ''
+      rechercheInput: "",
     };
   },
   created() {
@@ -44,17 +51,17 @@ export default {
   },
   methods: {
     t: function (key) {
-      return i18n.t('message.' + this.$options.name + '.' + key); // 'message.page-ressource.{key}
+      return i18n.t(`message.${this.$options.name}.${key}`); // 'message.page-ressource.{key}
     },
     reinitialiserRecherche: function () {
-      this.rechercheInput = '';
+      this.rechercheInput = "";
       this.$parent.recommencerRechercheInput(this.rechercheInput);
     },
     recommencerRecherche: function () {
       this.$parent.recommencerRechercheInput(this.rechercheInput);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
