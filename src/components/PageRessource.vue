@@ -1,29 +1,29 @@
 <template>
   <div class="cadre-page-ressource">
     <header class="en-tete-page-ressource">
-      <h1 class="titre-en-tete-page-ressource">{{ t('ressources-diffusables') }}</h1>
+      <h1 class="titre-en-tete-page-ressource">
+        {{ t("ressources-diffusables") }}
+      </h1>
     </header>
     <div class="bloc-principal-page-ressource">
       <aside class="aside-page-ressource">
         <recherche-ressource
-            v-bind:recherche="recherche"
-            v-bind:nombreRessourcesTotal="nombreRessourcesTotal"
-            v-bind:nombreRessourcesAffichees="ressources.length"
-            ref="rechercheRessource"
-            class="recherche-ressource-page-ressource"
+          v-bind:recherche="recherche"
+          v-bind:nombreRessourcesTotal="nombreRessourcesTotal"
+          v-bind:nombreRessourcesAffichees="ressources.length"
+          ref="rechercheRessource"
+          class="recherche-ressource-page-ressource"
         />
-        <legende-ressource
-            class="legende-ressource-page-ressource"
-        />
+        <legende-ressource class="legende-ressource-page-ressource" />
       </aside>
       <main class="main-page-ressource">
         <liste-ressources
-            v-bind:ressources="ressources"
-            v-bind:erreur="erreur"
-            v-bind:lectureTerminee="lectureTerminee"
-            v-bind:chargement="chargement"
-            ref="listeRessource"
-            class="liste-ressource-page-ressource"
+          v-bind:ressources="ressources"
+          v-bind:erreur="erreur"
+          v-bind:lectureTerminee="lectureTerminee"
+          v-bind:chargement="chargement"
+          ref="listeRessource"
+          class="liste-ressource-page-ressource"
         />
       </main>
     </div>
@@ -31,46 +31,31 @@
 </template>
 
 <script>
-import ListeRessources from "@/components/ListeRessources";
-import RechercheRessource from "@/components/RechercheRessource";
-import {getRessourcesDiffusables, getSize} from "@/services/serviceRessourcesDiffusables";
-import LegendeRessource from "@/components/LegendeRessource";
+import ListeRessources from "@/components/ListeRessources.vue";
+import RechercheRessource from "@/components/RechercheRessource.vue";
+import {
+  getRessourcesDiffusables,
+  getSize,
+} from "@/services/serviceRessourcesDiffusables.js";
+import LegendeRessource from "@/components/LegendeRessource.vue";
 import i18n from "@/i18n";
 
 export default {
-  name: 'page-ressource',
+  name: "page-ressource",
   components: {
     LegendeRessource,
-    rechercheRessource: RechercheRessource,
-    listeRessources: ListeRessources
+    RechercheRessource,
+    ListeRessources,
   },
-  props: {
-    baseApiUrl: {
-      type: String,
-      default: process.env.VUE_APP_BASE_API_URI
-    },
-    ressourcesDiffusablesApiUrl: {
-      type: String,
-      default: process.env.VUE_APP_RESSOURCES_DIFFUSABLES_API_URI
-    },
-    ressourcesDiffusablesSizeApiUrl: {
-      type: String,
-      default: process.env.VUE_APP_RESSOURCES_DIFFUSABLES_SIZE_API_URI
-    },
-    userInfoApiUrl: {
-      type: String,
-      default: process.env.VUE_APP_USER_INFO_API_URI
-    }
-  },
-  data: function() {
+  data: function () {
     return {
       ressources: [],
-      erreur: '',
+      erreur: "",
       nombreRessourcesTotal: 0,
       pageSuivante: 0,
       lectureTerminee: false,
       chargement: false,
-      recherche: ''
+      recherche: "",
     };
   },
   mounted() {
@@ -78,76 +63,65 @@ export default {
   },
   methods: {
     t: function (key) {
-      return i18n.t('message.' + this.$options.name + '.' + key); // 'message.page-ressource.{key}
+      return i18n.t(`message.${this.$options.name}.${key}`); // 'message.page-ressource.{key}
     },
     reinitialiserRecherche: function () {
-      this.recherche = '';
+      this.recherche = "";
       this.recommencerRecherche();
     },
     recommencerRechercheInput: function (rechercheInput) {
       this.recherche = rechercheInput;
-      this.recommencerRecherche()
+      this.recommencerRecherche();
     },
-    recommencerRecherche: function () {
+    recommencerRecherche: async function () {
       this.ressources = [];
       this.pageSuivante = 0;
-      this.erreur = '';
+      this.erreur = "";
       this.chargement = true;
-      getSize(
-          this.baseApiUrl + this.ressourcesDiffusablesSizeApiUrl,
-          this.userInfoApiUrl,
-          this.recherche
-      ).then(
-          value => {
-            this.nombreRessourcesTotal = value;
-            if (this.nombreRessourcesTotal === 0) {
-              this.lectureTerminee = true;
-              this.chargement = false;
-            } else {
-              this.lectureTerminee = false;
-              this.getPageSuivante();
-            }
-          }
-      ).catch(
-          error => {
-            this.erreur = error.toString();
-            this.chargement = false;
-          }
-      );
+      try {
+        let response = await getSize(this.recherche);
+        this.nombreRessourcesTotal = response.data.payload;
+        if (this.nombreRessourcesTotal === 0) {
+          this.lectureTerminee = true;
+          this.chargement = false;
+        } else {
+          this.lectureTerminee = false;
+          this.getPageSuivante();
+        }
+      } catch (e) {
+        this.erreur =
+          e.toString() +
+          (e.response != undefined ? " | " + e.response.data.message : "");
+        this.chargement = false;
+      }
     },
-    getPageSuivante: function () {
+    getPageSuivante: async function () {
       if (!this.lectureTerminee) {
-        this.erreur = '';
+        this.erreur = "";
         this.chargement = true;
-        getRessourcesDiffusables(
-            this.baseApiUrl + this.ressourcesDiffusablesApiUrl,
-            this.userInfoApiUrl,
+        try {
+          let response = await getRessourcesDiffusables(
             this.pageSuivante++,
             this.recherche
-        ).then(
-            value => {
-              this.ressources = this.ressources.concat(value);
-              if (this.ressources.length === this.nombreRessourcesTotal) {
-                this.lectureTerminee = true;
-              }
-            }
-        ).catch(
-            error => {
-              this.erreur = error.toString();
-            }
-        ).finally(
-            () => {
-              this.chargement = false;
-            }
-        )
+          );
+          this.ressources = this.ressources.concat(response.data.payload);
+          if (this.ressources.length === this.nombreRessourcesTotal) {
+            this.lectureTerminee = true;
+          }
+          this.chargement = false;
+        } catch (e) {
+          this.erreur =
+            e.toString() +
+            (e.response != undefined ? " | " + e.response.data.message : "");
+          this.chargement = false;
+        }
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 .cadre-page-ressource {
   display: flex;
   flex-direction: column;

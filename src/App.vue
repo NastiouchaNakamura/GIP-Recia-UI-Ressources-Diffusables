@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <page-ressource/>
+    <page-ressource />
   </div>
 </template>
 
 <script>
-import PageRessource from './PageRessource';
+import PageRessource from "@/components/PageRessource.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    PageRessource
-  }
-}
+    PageRessource,
+  },
+};
 </script>
 
 <!-- Variables définies dans le skin du portail.

@@ -1,104 +1,53 @@
 import oidc from "@uportal/open-id-connect";
+import axios from "axios";
 
-async function getRessourcesDiffusables(
-    ressourcesDiffusablesApiUrl,
-    userInfoApiUrl,
-    page,
-    recherche
-) {
-    const options = {
-        method: 'GET',
-        credentials: 'same-origin',
-        headers: {
-            Authorization: 'Bearer ' + (await oidc({ userInfoApiUrl: userInfoApiUrl })).encoded,
-            'content-type': 'application/jwt'
-        }
-    };
+async function getToken() {
+  try {
+    const { encoded } = await oidc({
+      userInfoApiUrl: import.meta.env.VITE_USER_INFO_API_URI,
+    });
 
-    return await fetch(
-        ressourcesDiffusablesApiUrl +
-        '?ressourcesPerPage=20' +
-        '&page=' + page +
-        (recherche !== '' ? '&operator=OR' : '') +
-        (recherche !== '' ? '&idRessource=' + recherche : '') +
-        (recherche !== '' ? '&nomRessource=' + recherche : '') +
-        (recherche !== '' ? '&idEditeur=' + recherche : '') +
-        (recherche !== '' ? '&nomEditeur=' + recherche : '') +
-        (recherche !== '' ? '&distributeurCom=' + recherche : '') +
-        (recherche !== '' ? '&nomDistributeurCom=' + recherche : '') +
-        (recherche !== '' ? '&distributeurTech=' + recherche : '') +
-        (recherche !== '' ? '&nomDistributeurTech=' + recherche : ''),
-        options
-    ).then(
-        (response) => {
-            return response.json().then(
-                value => {
-                    if (response.status === 200) { // OK
-                        return value.payload;
-                    } else if (response.status === 400) { // BAD REQUEST
-                        throw new Error('HTTP Response Code: ' + response.status + '; ' + value.payload.exceptionLocalizedMessage);
-                    } else {
-                        throw new Error('HTTP Response Code: ' + response.status);
-                    }
-                },
-                error => {
-                    throw error;
-                }
-            );
-        },
-        error => {
-            throw error;
-        }
-    )
+    return encoded;
+  } catch (e) {
+    console.error(e);
+  }
 }
 
-async function getSize(
-    ressourcesDiffusablesSizeApiUrl,
-    userInfoApiUrl,
-    recherche
-) {
-    const options = {
-        method: 'GET',
-        credentials: 'same-origin',
-        headers: {
-            Authorization: 'Bearer ' + (await oidc({ userInfoApiUrl: userInfoApiUrl })).encoded,
-            'content-type': 'application/jwt'
-        }
-    };
-
-    return await fetch(
-        ressourcesDiffusablesSizeApiUrl +
-        '?operator=OR' +
-        (recherche !== '' ? '&idRessource=' + recherche : '') +
-        (recherche !== '' ? '&nomRessource=' + recherche : '') +
-        (recherche !== '' ? '&idEditeur=' + recherche : '') +
-        (recherche !== '' ? '&nomEditeur=' + recherche : '') +
-        (recherche !== '' ? '&distributeurCom=' + recherche : '') +
-        (recherche !== '' ? '&nomDistributeurCom=' + recherche : '') +
-        (recherche !== '' ? '&distributeurTech=' + recherche : '') +
-        (recherche !== '' ? '&nomDistributeurTech=' + recherche : ''),
-        options
-    ).then(
-        (response) => {
-            return response.json().then(
-                value => {
-                    if (response.status === 200) { // OK
-                        return value.payload;
-                    } else if (response.status === 400) { // BAD REQUEST
-                        throw new Error('HTTP Response Code: ' + response.status + '; ' + value.payload.exceptionLocalizedMessage);
-                    } else {
-                        throw new Error('HTTP Response Code: ' + response.status);
-                    }
-                },
-                error => {
-                    throw error;
-                }
-            );
-        },
-        error => {
-            throw error;
-        }
-    )
+function getUrlParams(recherche) {
+  return recherche !== ""
+    ? `&operator=OR&idRessource=${recherche}&nomRessource=${recherche}&idEditeur=${recherche}&nomEditeur=${recherche}&distributeurCom=${recherche}&nomDistributeurCom=${recherche}&distributeurTech=${recherche}&nomDistributeurTech=${recherche}`
+    : "";
 }
 
-export { getRessourcesDiffusables, getSize }
+async function getRessourcesDiffusables(page, recherche) {
+  return await axios.get(
+    import.meta.env.VITE_BASE_API_URI +
+      import.meta.env.VITE_RESSOURCES_DIFFUSABLES_API_URI +
+      `?ressourcesPerPage=20&page=${page}${getUrlParams(recherche)}`,
+    {
+      credentials: "same-origin",
+      headers: {
+        Authorization: `Bearer ${await getToken()}`,
+        "content-type": "application/jwt",
+      },
+    }
+  );
+}
+
+async function getSize(recherche) {
+  return await axios.get(
+    import.meta.env.VITE_BASE_API_URI +
+      import.meta.env.VITE_RESSOURCES_DIFFUSABLES_SIZE_API_URI +
+      "?" +
+      getUrlParams(recherche),
+    {
+      credentials: "same-origin",
+      headers: {
+        Authorization: `Bearer ${await getToken()}`,
+        "content-type": "application/jwt",
+      },
+    }
+  );
+}
+
+export { getRessourcesDiffusables, getSize };

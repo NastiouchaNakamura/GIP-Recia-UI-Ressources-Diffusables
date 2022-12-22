@@ -5,38 +5,79 @@
     </h3>
     <ul class="liste-attributs-ressource-carte-ressource">
       <li class="attribut-ressource-carte-ressource">
-        <span class="intitule-attribut-ressource-carte-ressource">{{ t('id-gar') }} : </span>
+        <span class="intitule-attribut-ressource-carte-ressource">
+          {{ t("id-gar") }} :
+        </span>
         <span
-            class="nom-attribut-ressource-carte-ressource id-principal-ressource-carte-ressource"
-        >{{ ressource.ressource.id }}</span>
+          class="nom-attribut-ressource-carte-ressource id-principal-ressource-carte-ressource"
+        >
+          {{ ressource.ressource.id }}
+        </span>
       </li>
-      <li class="attribut-ressource-carte-ressource" v-if="ressource.editeur.nom !== '' || plusInfos">
-        <span class="intitule-attribut-ressource-carte-ressource">{{ t('editeur') }} : </span>
-        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.editeur.nom }} </span>
-        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ ressource.editeur.id }}</span>
+      <li
+        class="attribut-ressource-carte-ressource"
+        v-if="ressource.editeur.nom !== '' || plusInfos"
+      >
+        <span class="intitule-attribut-ressource-carte-ressource">
+          {{ t("editeur") }} :
+        </span>
+        <span class="nom-attribut-ressource-carte-ressource">
+          {{ ressource.editeur.nom }}
+        </span>
+        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">
+          {{ ressource.editeur.id }}
+        </span>
       </li>
-      <li class="attribut-ressource-carte-ressource" v-for="distributeurCom in distributeursComComputed" :key="distributeurCom.id">
-        <span class="intitule-attribut-ressource-carte-ressource">{{ t('distributeurCom') }} : </span>
-        <span class="nom-attribut-ressource-carte-ressource">{{ distributeurCom.nom }} </span>
-        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ distributeurCom.id }}</span>
+      <li
+        class="attribut-ressource-carte-ressource"
+        v-for="distributeurCom in distributeursComComputed"
+        :key="distributeurCom.id"
+      >
+        <span class="intitule-attribut-ressource-carte-ressource">
+          {{ t("distributeurCom") }} :
+        </span>
+        <span class="nom-attribut-ressource-carte-ressource">
+          {{ distributeurCom.nom }}
+        </span>
+        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">
+          {{ distributeurCom.id }}
+        </span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
-        <span class="intitule-attribut-ressource-carte-ressource">{{ t('distributeurTech') }} : </span>
-        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.distributeurTech.nom }} </span>
-        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">{{ ressource.distributeurTech.id }}</span>
+        <span class="intitule-attribut-ressource-carte-ressource">
+          {{ t("distributeurTech") }} :
+        </span>
+        <span class="nom-attribut-ressource-carte-ressource">
+          {{ ressource.distributeurTech.nom }}
+        </span>
+        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">
+          {{ ressource.distributeurTech.id }}
+        </span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
-        <span class="intitule-attribut-ressource-carte-ressource">{{ t('affichable') }} : </span>
-        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.affichable ? t('oui') : t('non') }}</span>
+        <span class="intitule-attribut-ressource-carte-ressource">
+          {{ t("affichable") }} :
+        </span>
+        <span class="nom-attribut-ressource-carte-ressource">
+          {{ ressource.affichable ? t("oui") : t("non") }}
+        </span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
-        <span class="intitule-attribut-ressource-carte-ressource">{{ t('diffusable') }} : </span>
-        <span class="nom-attribut-ressource-carte-ressource">{{ ressource.diffusable ? t('oui') : t('non') }}</span>
+        <span class="intitule-attribut-ressource-carte-ressource">
+          {{ t("diffusable") }} :
+        </span>
+        <span class="nom-attribut-ressource-carte-ressource">
+          {{ ressource.diffusable ? t("oui") : t("non") }}
+        </span>
       </li>
     </ul>
     <div class="boutons-carte-ressource">
-      <button class="" v-on:click="afficherPlusInfos" :disabled="plusInfos">{{ t('plus-informations') }}</button>
-      <button class="" v-on:click="copierReferences">{{ t('copier-references') }}</button>
+      <button class="" v-on:click="afficherPlusInfos" :disabled="plusInfos">
+        {{ t("plus-informations") }}
+      </button>
+      <button class="" v-on:click="copierReferences">
+        {{ t("copier-references") }}
+      </button>
     </div>
   </div>
 </template>
@@ -47,46 +88,42 @@ import i18n from "@/i18n";
 export default {
   name: "carte-ressource",
   props: {
-    ressource: Object
+    ressource: Object,
   },
   data: function () {
     return {
       plusInfos: false,
-      distributeursComComputed: []
+      distributeursComComputed: [],
     };
   },
   mounted() {
-    this.ressource.distributeursCom.forEach(
-        distributeurCom => {
-          if (distributeurCom.nom !== '') {
-            this.distributeursComComputed.push(distributeurCom);
-          }
-        }
-    );
+    this.ressource.distributeursCom.forEach((distributeurCom) => {
+      if (distributeurCom.nom !== "") {
+        this.distributeursComComputed.push(distributeurCom);
+      }
+    });
   },
   methods: {
     t: function (key) {
-      return i18n.t('message.' + this.$options.name + '.' + key); // 'message.page-ressource.{key}
+      return i18n.t(`message.${this.$options.name}.${key}`); // 'message.page-ressource.{key}
     },
     afficherPlusInfos() {
       this.plusInfos = true;
       this.distributeursComComputed = this.ressource.distributeursCom;
     },
     copierReferences() {
-      let string =
-          this.t('nom-ressource') + ': ' + this.ressource.ressource.nom + '\n' +
-          this.t('id-gar') + ': ' + this.ressource.ressource.id + '\n' +
-          this.t('editeur') + ': ' + this.ressource.editeur.nom + '\n';
+      let string = `${this.t("nom-ressource")}: ${this.ressource.ressource.nom}
+${this.t("id-gar")}: ${this.ressource.ressource.id}
+${this.t("editeur")}: ${this.ressource.editeur.nom}`;
 
-      for (let i = 0; i < this.ressource.distributeursCom.length; i++) {
-        string +=
-            this.t('distributeurCom') + ': ' + this.ressource.distributeursCom[i].nom + '\n';
+      for (const element of this.ressource.distributeursCom) {
+        string += `\n${this.t("distributeurCom")}: ${element.nom}`;
       }
 
       navigator.clipboard.writeText(string);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
