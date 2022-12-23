@@ -16,7 +16,7 @@ export default {
 </script>
 
 <!-- Variables définies dans le skin du portail. -->
-<style>
+<!-- <style>
 /* Variables */
 #app {
   /* Couleur par défaut de tout le texte */
@@ -33,7 +33,7 @@ export default {
   --ui-ressources-gar-button-background-color: #0c9ee1;
   --ui-ressources-gar-button-text-color: #ffffff;
 }
-</style>
+</style> -->
 
 <style>
 #app {
