@@ -10,7 +10,8 @@
       "diffusable": "Sharable",
       "oui": "Yes",
       "non": "No",
-      "plus-informations": "More informations",
+      "plus-informations": "More information",
+      "moins-informations": "Less information",
       "copier-references": "Copy references"
     },
     "legende-ressource": {

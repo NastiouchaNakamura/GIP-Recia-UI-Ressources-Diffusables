@@ -72,8 +72,8 @@
       </li>
     </ul>
     <div class="boutons-carte-ressource">
-      <button class="" v-on:click="afficherPlusInfos" :disabled="plusInfos">
-        {{ t("plus-informations") }}
+      <button class="" v-on:click="afficherPlusInfos">
+        {{ plusInfos ? t("moins-informations") : t("plus-informations") }}
       </button>
       <button class="" v-on:click="copierReferences">
         {{ t("copier-references") }}
@@ -108,8 +108,7 @@ export default {
       return i18n.t(`message.${this.$options.name}.${key}`); // 'message.page-ressource.{key}
     },
     afficherPlusInfos() {
-      this.plusInfos = true;
-      this.distributeursComComputed = this.ressource.distributeursCom;
+      this.plusInfos = !this.plusInfos;
     },
     copierReferences() {
       let string = `${this.t("nom-ressource")}: ${this.ressource.ressource.nom}
