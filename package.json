@@ -21,7 +21,8 @@
     "debounce": "^1.2.1",
     "sass": "^1.57.1",
     "vue": "^2.7.14",
-    "vue-i18n": "^8.28.2"
+    "vue-i18n": "^8.28.2",
+    "vue-toastification": "^1.7.14"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",

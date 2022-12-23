@@ -62,19 +62,18 @@ export default {
 .cadre-liste-ressources {
   display: flex;
   flex-direction: column;
-  border: thin solid lightgrey;
-  box-shadow: 2px 2px 5px lightgrey;
   box-sizing: border-box;
-  padding: 10px;
   overflow-y: scroll;
+  padding: 10px;
 }
 
 .page-suivante-liste-ressources {
-  width: calc(100% - 30px);
+  width: calc(100% - 20px);
   height: 50px;
-  border-radius: 3px;
+  border-radius: 2em;
+  border: none;
   overflow: hidden;
-  margin: 20px 10px 20px 10px;
+  margin: 15px 10px 15px 10px;
   padding: 10px 15px 10px 15px;
   background-color: var(--ui-ressources-gar-button-background-color);
   color: var(--ui-ressources-gar-button-text-color);
@@ -82,6 +81,7 @@ export default {
   font-weight: bold;
   box-sizing: border-box;
   display: block;
+  cursor: pointer;
 }
 
 .chargement-liste-ressources {

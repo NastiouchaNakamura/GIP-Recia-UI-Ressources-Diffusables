@@ -120,6 +120,7 @@ ${this.t("editeur")}: ${this.ressource.editeur.nom}`;
       }
 
       navigator.clipboard.writeText(string);
+      this.$toast.info(this.t("contenu-copie"));
     },
   },
 };
@@ -127,19 +128,18 @@ ${this.t("editeur")}: ${this.ressource.editeur.nom}`;
 
 <style scoped>
 .cadre-carte-ressource {
-  border: thin solid lightgrey;
-  box-shadow: 2px 2px 5px lightgrey;
-  border-radius: 10px;
+  border-radius: 24px;
+  background-color: white;
   overflow: hidden;
 
   text-align: left;
   padding: 10px;
-  margin: 5px;
+  margin-bottom: 10px;
 }
 
 .nom-ressource-carte-ressource {
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: var(--ui-ressources-gar-header-background-color);
 }
 
@@ -174,22 +174,21 @@ ${this.t("editeur")}: ${this.ressource.editeur.nom}`;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-top: 10px;
 }
 
 .boutons-carte-ressource > button {
+  cursor: pointer;
+  border: none;
+  border-radius: 24px;
+  padding: 5px 15px 5px 15px;
   min-height: 30px;
-  border-radius: 3px;
   overflow: hidden;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0 4px 0 4px;
   background-color: var(--ui-ressources-gar-button-background-color);
   color: var(--ui-ressources-gar-button-text-color);
   font-size: small;
   font-weight: bold;
-  width: 30vw;
-  min-width: calc(min(180px, 50%));
-  max-width: 500px;
+  width: 35vw;
 }
 
 .boutons-carte-ressource > button:disabled {
