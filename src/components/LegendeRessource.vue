@@ -69,21 +69,21 @@ export default {
 <style scoped>
 .cadre-legende-ressource {
   text-align: left;
-  border: thin solid lightgrey;
-  box-shadow: 2px 2px 5px lightgrey;
   box-sizing: border-box;
   padding: 10px;
+  border-radius: 24px;
+  margin: 10px;
+  background-color: #ffffff;
 }
 
 .liste-legendes-legende-ressource {
   padding-left: 0;
+  margin: 0;
 }
 
 .element-legende-ressource {
-  margin-top: 0;
-  margin-bottom: 0;
   list-style-type: none;
-  padding: 0;
+  margin-bottom: 10px;
 }
 
 .intitule-legende-ressource {

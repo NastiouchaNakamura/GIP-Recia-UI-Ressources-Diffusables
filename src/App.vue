@@ -15,7 +15,7 @@ export default {
 };
 </script>
 
-<!-- Variables définies dans le skin du portail.
+<!-- Variables définies dans le skin du portail. -->
 <style>
 /* Variables */
 #app {
@@ -23,18 +23,17 @@ export default {
   --ui-ressources-gar-default-text-color: #303030;
 
   /* Couleurs du header */
-  --ui-ressources-gar-header-background-color: #25B2F3;
-  --ui-ressources-gar-header-text-color: #FFFFFF;
+  --ui-ressources-gar-header-background-color: #25b2f3;
+  --ui-ressources-gar-header-text-color: #ffffff;
 
   /* Couleur des titres des cartes de ressources */
-  --ui-ressources-gar-ressources-title-color: #25B2F3;
+  --ui-ressources-gar-ressources-title-color: #25b2f3;
 
   /* Couleurs des boutons */
-  --ui-ressources-gar-button-background-color: #0C9EE1;
-  --ui-ressources-gar-button-text-color: #FFFFFF;
+  --ui-ressources-gar-button-background-color: #0c9ee1;
+  --ui-ressources-gar-button-text-color: #ffffff;
 }
 </style>
--->
 
 <style>
 #app {
@@ -42,5 +41,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: var(--ui-ressources-gar-default-text-color);
+  background-color: #f0f0f0;
 }
 </style>

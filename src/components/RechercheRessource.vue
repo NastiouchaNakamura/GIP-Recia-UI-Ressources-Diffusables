@@ -14,7 +14,7 @@
       >
         <font-awesome-icon
           class="icone-reinitialiser-recherche-ressource sombre-off"
-          :icon="['fas', 'redo']"
+          :icon="['fa', 'xmark']"
         />
       </button>
     </div>
@@ -68,8 +68,6 @@ export default {
 .cadre-recherche-ressource {
   display: flex;
   flex-direction: column;
-  border: thin solid lightgrey;
-  box-shadow: 2px 2px 5px lightgrey;
   box-sizing: border-box;
   padding: 10px;
 }
@@ -77,32 +75,35 @@ export default {
 .input-recherche-ressource {
   display: flex;
   flex-direction: row;
+  margin-bottom: 10px;
 }
 
 .champ-recherche-ressource {
   box-sizing: border-box;
   width: 100%;
   height: 30px;
-  border-radius: 3px;
+  border-right: none;
   overflow: hidden;
-  border: thin solid lightgrey;
   padding: 0 4px 0 4px;
   font-size: small;
   font-weight: bold;
-  margin-right: 5px;
+  border-bottom: thin solid lightgrey;
+  border-top: thin solid lightgrey;
+  border-left: thin solid lightgrey;
+  border-radius: 3px 0 0 3px;
 }
 
 .reinitialiser-recherche-ressource {
   width: 30px;
   height: 30px;
-  border-radius: 3px;
   overflow: hidden;
   padding: 0 4px 0 4px;
   background-color: var(--ui-ressources-gar-button-background-color);
   color: var(--ui-ressources-gar-button-text-color);
   font-size: small;
   font-weight: bold;
-  margin-left: 5px;
+  border: none;
+  border-radius: 0 3px 3px 0;
 }
 
 .icone-reinitialiser-recherche-ressource {
