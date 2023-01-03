@@ -11,6 +11,7 @@
       <button
         class="reinitialiser-recherche-ressource"
         @click="reinitialiserRecherche"
+        :disabled="rechercheInput.length == 0"
       >
         <font-awesome-icon
           class="icone-reinitialiser-recherche-ressource sombre-off"
@@ -104,6 +105,13 @@ export default {
   font-weight: bold;
   border: none;
   border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}
+
+.reinitialiser-recherche-ressource:disabled {
+  background-color: dimgrey;
+  opacity: 1;
+  cursor: default;
 }
 
 .icone-reinitialiser-recherche-ressource {

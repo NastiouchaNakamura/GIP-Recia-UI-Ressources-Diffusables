@@ -1,10 +1,5 @@
 <template>
   <div class="cadre-page-ressource">
-    <header class="en-tete-page-ressource">
-      <h1 class="titre-en-tete-page-ressource">
-        {{ t("ressources-diffusables") }}
-      </h1>
-    </header>
     <div class="bloc-principal-page-ressource">
       <aside class="aside-page-ressource">
         <recherche-ressource
@@ -129,19 +124,6 @@ export default {
   padding: 0;
 }
 
-.en-tete-page-ressource {
-  background-color: var(--ui-ressources-gar-header-background-color);
-  padding: 10px 20px 10px 20px;
-  border-bottom: thin solid lightgrey;
-  box-shadow: 0 2px 5px lightgrey;
-}
-
-.titre-en-tete-page-ressource {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: var(--ui-ressources-gar-header-text-color);
-}
-
 .bloc-principal-page-ressource {
   display: flex;
   flex-direction: row;
@@ -153,7 +135,7 @@ export default {
 }
 
 .liste-ressource-page-ressource {
-  height: calc(100vh - 60px);
+  height: 100vh;
 }
 
 .main-page-ressource {
@@ -163,14 +145,6 @@ export default {
 @media (max-width: 1080px) {
   .legende-ressource-page-ressource {
     display: none;
-  }
-
-  .en-tete-page-ressource {
-    height: revert;
-  }
-
-  .titre-en-tete-page-ressource {
-    font-size: x-large;
   }
 
   .bloc-principal-page-ressource {
