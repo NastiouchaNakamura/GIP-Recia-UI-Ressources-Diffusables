@@ -5,6 +5,13 @@ import Toast from "vue-toastification";
 
 import "vue-toastification/dist/index.css";
 
+import "regenerator-runtime/runtime.js";
+
+Vue.config.ignoredElements = [
+  "extended-uportal-header",
+  "extended-uportal-footer",
+];
+
 Vue.config.productionTip = false;
 
 Vue.use(Toast);

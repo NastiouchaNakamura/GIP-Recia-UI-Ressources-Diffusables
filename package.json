@@ -7,7 +7,7 @@
   "license": "ISC",
   "main": "dist/ui-ressouces-gar.min.js",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview --port 4173",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
@@ -19,6 +19,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.9",
     "axios": "^1.2.1",
     "debounce": "^1.2.1",
+    "regenerator-runtime": "^0.13.11",
     "sass": "^1.57.1",
     "vue": "^2.7.14",
     "vue-i18n": "^8.28.2",
@@ -30,7 +31,7 @@
     "@vitejs/plugin-legacy": "^2.3.1",
     "@vitejs/plugin-vue2": "^1.1.2",
     "@vue/eslint-config-prettier": "^7.0.0",
-    "eslint": "^8.30.0",
+    "eslint": "^8.31.0",
     "eslint-plugin-vue": "^9.8.0",
     "prettier": "^2.8.1",
     "terser": "^5.16.1",
