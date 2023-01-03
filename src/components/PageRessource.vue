@@ -156,6 +156,10 @@ export default {
   height: calc(100vh - 60px);
 }
 
+.main-page-ressource {
+  width: 100%;
+}
+
 @media (max-width: 1080px) {
   .legende-ressource-page-ressource {
     display: none;
