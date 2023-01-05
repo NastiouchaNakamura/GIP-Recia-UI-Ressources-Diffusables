@@ -1,16 +1,39 @@
 {
   "name": "ui-ressources-gar",
   "version": "1.1.1",
-  "private": false,
   "description": "UI des ressources du GAR en Vue.js.",
-  "author": "Anaël",
-  "license": "ISC",
+  "keywords": [
+    "gar",
+    "ressources",
+    "gip-recia"
+  ],
+  "homepage": "https://github.com/GIP-RECIA/Ressources-Diffusables-UI/#README.md",
+  "bugs": {
+    "url": "https://github.com/GIP-RECIA/Ressources-Diffusables-UI/issues"
+  },
+  "license": "Apache-2.0",
+  "contributors": [
+    {
+      "name": "Anaël",
+      "url": "https://github.com/NastiouchaNakamura"
+    },
+    {
+      "name": "Quentin Guillemin",
+      "email": "quentin.guillemin@recia.fr",
+      "url": "https://github.com/Quentin-Guillemin"
+    }
+  ],
   "main": "dist/ui-ressouces-gar.min.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GIP-RECIA/Ressources-Diffusables-UI.git"
+  },
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview --port 4173",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "publish": "npm publish"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.2.1",

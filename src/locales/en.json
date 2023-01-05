@@ -48,9 +48,6 @@
       "erreur": "An error occured. Please contact a ENT referent.",
       "detail-erreur": "Error informations"
     },
-    "page-ressource": {
-      "ressources-diffusables": "Sharable resources"
-    },
     "recherche-ressource": {
       "recherche": "Search",
       "elements-affiches": "items displayed"

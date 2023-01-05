@@ -48,9 +48,6 @@
       "erreur": "Une erreur est survenue. Veuillez contacter un référent ENT.",
       "detail-erreur": "Détail de l'erreur "
     },
-    "page-ressource": {
-      "ressources-diffusables": "Ressources diffusables"
-    },
     "recherche-ressource": {
       "recherche": "Recherche",
       "elements-affiches": "éléments affichés"

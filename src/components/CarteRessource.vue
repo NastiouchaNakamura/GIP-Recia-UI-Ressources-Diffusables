@@ -129,7 +129,7 @@ ${this.t("editeur")}: ${this.ressource.editeur.nom}`;
 <style scoped>
 .cadre-carte-ressource {
   border-radius: 24px;
-  background-color: white;
+  background-color: #fff;
   overflow: hidden;
 
   text-align: left;

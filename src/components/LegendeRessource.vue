@@ -73,7 +73,7 @@ export default {
   padding: 10px;
   border-radius: 24px;
   margin: 10px;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .liste-legendes-legende-ressource {
