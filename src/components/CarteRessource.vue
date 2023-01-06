@@ -8,9 +8,7 @@
         <span class="intitule-attribut-ressource-carte-ressource">
           {{ m("id-gar") }} :
         </span>
-        <span
-          class="nom-attribut-ressource-carte-ressource id-principal-ressource-carte-ressource"
-        >
+        <span class="id-principal-ressource-carte-ressource">
           {{ ressource.ressource.id }}
         </span>
       </li>
@@ -24,8 +22,8 @@
         <span class="nom-attribut-ressource-carte-ressource">
           {{ ressource.editeur.nom }}
         </span>
-        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">
-          {{ ressource.editeur.id }}
+        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos"
+          >&nbsp;{{ ressource.editeur.id }}
         </span>
       </li>
       <li
@@ -39,8 +37,8 @@
         <span class="nom-attribut-ressource-carte-ressource">
           {{ distributeurCom.nom }}
         </span>
-        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">
-          {{ distributeurCom.id }}
+        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos"
+          >&nbsp;{{ distributeurCom.id }}
         </span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
@@ -50,8 +48,8 @@
         <span class="nom-attribut-ressource-carte-ressource">
           {{ ressource.distributeurTech.nom }}
         </span>
-        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">
-          {{ ressource.distributeurTech.id }}
+        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos"
+          >&nbsp;{{ ressource.distributeurTech.id }}
         </span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
@@ -83,7 +81,7 @@
 </template>
 
 <script setup>
-import { toRefs, ref, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import { useToast } from "vue-toastification";
 
@@ -91,12 +89,11 @@ const props = defineProps({
   ressource: Object,
 });
 
-const { ressource } = toRefs(props);
 const plusInfos = ref(false);
 const distributeursComComputed = ref([]);
 
 onMounted(() => {
-  ressource.value.distributeursCom.forEach((distributeurCom) => {
+  props.ressource.distributeursCom.forEach((distributeurCom) => {
     if (distributeurCom.nom !== "") {
       distributeursComComputed.value.push(distributeurCom);
     }
@@ -115,11 +112,11 @@ function afficherPlusInfos() {
 }
 
 function copierReferences() {
-  let string = `${m("nom-ressource")}: ${ressource.value.ressource.nom}
-${m("id-gar")}: ${ressource.value.ressource.id}
-${m("editeur")}: ${ressource.value.editeur.nom}`;
+  let string = `${m("nom-ressource")}: ${props.ressource.ressource.nom}
+${m("id-gar")}: ${props.ressource.ressource.id}
+${m("editeur")}: ${props.ressource.editeur.nom}`;
 
-  for (const element of ressource.value.distributeursCom) {
+  for (const element of props.ressource.distributeursCom) {
     string += `\n${m("distributeurCom")}: ${element.nom}`;
   }
 
