@@ -6,7 +6,7 @@
         v-model.trim="rechercheInput"
         @input="recommencerRecherche"
         type="text"
-        :placeholder="t('recherche')"
+        :placeholder="m('recherche')"
       />
       <button
         class="reinitialiser-recherche-ressource"
@@ -21,48 +21,46 @@
     </div>
     <small class="elements-affiches-page-ressource">
       {{ nombreRessourcesAffichees }}/{{ nombreRessourcesTotal }}
-      {{ t("elements-affiches").toUpperCase() }}
+      {{ m("elements-affiches").toUpperCase() }}
     </small>
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 import { debounce } from "debounce";
-import i18n from "@/i18n";
+
 import "@/icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-export default {
-  name: "recherche-ressource",
-  components: {
-    FontAwesomeIcon,
-  },
-  props: {
-    recherche: String,
-    nombreRessourcesTotal: Number,
-    nombreRessourcesAffichees: Number,
-  },
-  data: function () {
-    return {
-      rechercheInput: "",
-    };
-  },
-  created() {
-    this.recommencerRecherche = debounce(this.recommencerRecherche, 500); // Buffer de 0,5s après input.
-  },
-  methods: {
-    t: function (key) {
-      return i18n.t(`message.${this.$options.name}.${key}`); // 'message.page-ressource.{key}
-    },
-    reinitialiserRecherche: function () {
-      this.rechercheInput = "";
-      this.$parent.recommencerRechercheInput(this.rechercheInput);
-    },
-    recommencerRecherche: function () {
-      this.$parent.recommencerRechercheInput(this.rechercheInput);
-    },
-  },
-};
+const emit = defineEmits([
+  "reinitialiserRecherche",
+  "recommencerRechercheInput",
+]);
+
+defineProps({
+  recherche: String,
+  nombreRessourcesTotal: Number,
+  nombreRessourcesAffichees: Number,
+});
+
+const rechercheInput = ref("");
+
+const { t } = useI18n();
+
+function m(key) {
+  return t(`message.recherche-ressource.${key}`);
+}
+
+function reinitialiserRecherche() {
+  rechercheInput.value = "";
+  emit("reinitialiserRecherche");
+}
+
+const recommencerRecherche = debounce(() => {
+  emit("recommencerRechercheInput", rechercheInput.value);
+}, 500); // Buffer de 0,5s après input.
 </script>
 
 <style scoped>

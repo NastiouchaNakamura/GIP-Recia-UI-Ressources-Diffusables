@@ -5,57 +5,49 @@
         <carte-ressource
           v-for="ressource in ressources"
           :key="ressource.idRessource"
-          v-bind:ressource="ressource"
+          :ressource="ressource"
         />
       </div>
     </main>
     <footer>
       <p v-if="chargement" class="chargement-liste-ressources">
-        {{ t("chargement") }}
+        {{ m("chargement") }}
       </p>
       <p v-else-if="erreur !== ''">
-        {{ t("erreur") }}<br />
-        {{ t("detail-erreur") }}: <code>{{ erreur }}</code>
+        {{ m("erreur") }}<br />
+        {{ m("detail-erreur") }}: <code>{{ erreur }}</code>
       </p>
       <p v-else-if="ressources.length === 0">
-        {{ t("aucune-ressource") }}
+        {{ m("aucune-ressource") }}
       </p>
       <button
         v-else-if="!lectureTerminee"
         class="page-suivante-liste-ressources"
-        v-on:click="getPageSuivante"
+        @click="$emit('getPageSuivante')"
       >
-        {{ t("charger-plus") }}
+        {{ m("charger-plus") }}
       </button>
     </footer>
   </div>
 </template>
 
-<script>
-import CarteRessource from "@/components/CarteRessource.vue";
-import i18n from "@/i18n";
+<script setup>
+import { useI18n } from "vue-i18n";
 
-export default {
-  name: "liste-ressources",
-  components: { CarteRessource },
-  props: {
-    ressources: Array,
-    erreur: String,
-    lectureTerminee: Boolean,
-    chargement: Boolean,
-  },
-  data: function () {
-    return {};
-  },
-  methods: {
-    t: function (key) {
-      return i18n.t(`message.${this.$options.name}.${key}`); // 'message.page-ressource.{key}
-    },
-    getPageSuivante: function () {
-      this.$parent.getPageSuivante();
-    },
-  },
-};
+import CarteRessource from "@/components/CarteRessource.vue";
+
+defineProps({
+  ressources: Array,
+  erreur: String,
+  lectureTerminee: Boolean,
+  chargement: Boolean,
+});
+
+const { t } = useI18n();
+
+function m(key) {
+  return t(`message.liste-ressources.${key}`);
+}
 </script>
 
 <style scoped>
