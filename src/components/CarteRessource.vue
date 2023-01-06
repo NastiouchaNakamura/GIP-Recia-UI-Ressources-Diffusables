@@ -104,7 +104,7 @@ const { t } = useI18n();
 const toast = useToast();
 
 function m(key) {
-  return t(`message.carte-ressource.${key}`);
+  return t(`carte-ressource.${key}`);
 }
 
 function afficherPlusInfos() {

@@ -46,7 +46,7 @@ defineProps({
 const { t } = useI18n();
 
 function m(key) {
-  return t(`message.liste-ressources.${key}`);
+  return t(`liste-ressources.${key}`);
 }
 </script>
 
