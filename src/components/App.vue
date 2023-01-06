@@ -4,15 +4,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import PageRessource from "@/components/PageRessource.vue";
-
-export default {
-  name: "app",
-  components: {
-    PageRessource,
-  },
-};
 </script>
 
 <!-- Variables définies dans le skin du portail. -->

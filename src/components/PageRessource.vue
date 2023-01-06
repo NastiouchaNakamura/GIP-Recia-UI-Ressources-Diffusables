@@ -3,9 +3,11 @@
     <div class="bloc-principal-page-ressource">
       <aside class="aside-page-ressource">
         <recherche-ressource
-          v-bind:recherche="recherche"
-          v-bind:nombreRessourcesTotal="nombreRessourcesTotal"
-          v-bind:nombreRessourcesAffichees="ressources.length"
+          :recherche="recherche"
+          :nombreRessourcesTotal="nombreRessourcesTotal"
+          :nombreRessourcesAffichees="ressources.length"
+          @recommencerRechercheInput="recommencerRechercheInput"
+          @reinitialiserRecherche="reinitialiserRecherche"
           ref="rechercheRessource"
           class="recherche-ressource-page-ressource"
         />
@@ -13,10 +15,11 @@
       </aside>
       <main class="main-page-ressource">
         <liste-ressources
-          v-bind:ressources="ressources"
-          v-bind:erreur="erreur"
-          v-bind:lectureTerminee="lectureTerminee"
-          v-bind:chargement="chargement"
+          :ressources="ressources"
+          :erreur="erreur"
+          :lectureTerminee="lectureTerminee"
+          :chargement="chargement"
+          @getPageSuivante="getPageSuivante"
           ref="listeRessource"
           class="liste-ressource-page-ressource"
         />
@@ -25,95 +28,84 @@
   </div>
 </template>
 
-<script>
-import ListeRessources from "@/components/ListeRessources.vue";
-import RechercheRessource from "@/components/RechercheRessource.vue";
+<script setup>
+import { onMounted, ref } from "vue";
 import {
   getRessourcesDiffusables,
   getSize,
 } from "@/services/serviceRessourcesDiffusables.js";
-import LegendeRessource from "@/components/LegendeRessource.vue";
-import i18n from "@/i18n";
 
-export default {
-  name: "page-ressource",
-  components: {
-    LegendeRessource,
-    RechercheRessource,
-    ListeRessources,
-  },
-  data: function () {
-    return {
-      ressources: [],
-      erreur: "",
-      nombreRessourcesTotal: 0,
-      pageSuivante: 0,
-      lectureTerminee: false,
-      chargement: false,
-      recherche: "",
-    };
-  },
-  mounted() {
-    this.recommencerRecherche();
-  },
-  methods: {
-    t: function (key) {
-      return i18n.t(`message.${this.$options.name}.${key}`); // 'message.page-ressource.{key}
-    },
-    reinitialiserRecherche: function () {
-      this.recherche = "";
-      this.recommencerRecherche();
-    },
-    recommencerRechercheInput: function (rechercheInput) {
-      this.recherche = rechercheInput;
-      this.recommencerRecherche();
-    },
-    recommencerRecherche: async function () {
-      this.ressources = [];
-      this.pageSuivante = 0;
-      this.erreur = "";
-      this.chargement = true;
-      try {
-        let response = await getSize(this.recherche);
-        this.nombreRessourcesTotal = response.data.payload;
-        if (this.nombreRessourcesTotal === 0) {
-          this.lectureTerminee = true;
-          this.chargement = false;
-        } else {
-          this.lectureTerminee = false;
-          this.getPageSuivante();
-        }
-      } catch (e) {
-        this.erreur =
-          e.toString() +
-          (e.response != undefined ? " | " + e.response.data.message : "");
-        this.chargement = false;
+import LegendeRessource from "@/components/LegendeRessource.vue";
+import ListeRessources from "@/components/ListeRessources.vue";
+import RechercheRessource from "@/components/RechercheRessource.vue";
+
+const ressources = ref([]);
+const erreur = ref("");
+const nombreRessourcesTotal = ref(0);
+const pageSuivante = ref(0);
+const lectureTerminee = ref(false);
+const chargement = ref(false);
+const recherche = ref("");
+
+onMounted(() => {
+  recommencerRecherche();
+});
+
+function reinitialiserRecherche() {
+  recherche.value = "";
+  recommencerRecherche();
+}
+
+function recommencerRechercheInput(rechercheInput) {
+  recherche.value = rechercheInput;
+  recommencerRecherche();
+}
+
+async function recommencerRecherche() {
+  ressources.value = [];
+  pageSuivante.value = 0;
+  erreur.value = "";
+  chargement.value = true;
+  try {
+    let response = await getSize(recherche.value);
+    nombreRessourcesTotal.value = response.data.payload;
+    if (nombreRessourcesTotal.value === 0) {
+      lectureTerminee.value = true;
+      chargement.value = false;
+    } else {
+      lectureTerminee.value = false;
+      getPageSuivante();
+    }
+  } catch (e) {
+    erreur.value =
+      e.toString() +
+      (e.response != undefined ? " | " + e.response.data.message : "");
+    chargement.value = false;
+  }
+}
+
+async function getPageSuivante() {
+  if (!lectureTerminee.value) {
+    erreur.value = "";
+    chargement.value = true;
+    try {
+      let response = await getRessourcesDiffusables(
+        pageSuivante.value++,
+        recherche.value
+      );
+      ressources.value = ressources.value.concat(response.data.payload);
+      if (ressources.value.length === nombreRessourcesTotal.value) {
+        lectureTerminee.value = true;
       }
-    },
-    getPageSuivante: async function () {
-      if (!this.lectureTerminee) {
-        this.erreur = "";
-        this.chargement = true;
-        try {
-          let response = await getRessourcesDiffusables(
-            this.pageSuivante++,
-            this.recherche
-          );
-          this.ressources = this.ressources.concat(response.data.payload);
-          if (this.ressources.length === this.nombreRessourcesTotal) {
-            this.lectureTerminee = true;
-          }
-          this.chargement = false;
-        } catch (e) {
-          this.erreur =
-            e.toString() +
-            (e.response != undefined ? " | " + e.response.data.message : "");
-          this.chargement = false;
-        }
-      }
-    },
-  },
-};
+      chargement.value = false;
+    } catch (e) {
+      erreur.value =
+        e.toString() +
+        (e.response != undefined ? " | " + e.response.data.message : "");
+      chargement.value = false;
+    }
+  }
+}
 </script>
 
 <style scoped>
