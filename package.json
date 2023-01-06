@@ -48,7 +48,7 @@
     "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
-    "@intlify/vite-plugin-vue-i18n": "^7.0.0",
+    "@intlify/unplugin-vue-i18n": "^0.8.1",
     "@rushstack/eslint-patch": "^1.2.0",
     "@uportal/open-id-connect": "^1.37.0",
     "@vitejs/plugin-legacy": "^3.0.1",
