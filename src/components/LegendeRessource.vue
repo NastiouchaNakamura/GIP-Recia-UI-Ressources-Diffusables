@@ -59,7 +59,7 @@ import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 function m(key) {
-  return t(`message.legende-ressource.${key}`);
+  return t(`legende-ressource.${key}`);
 }
 </script>
 

@@ -50,7 +50,7 @@ const rechercheInput = ref("");
 const { t } = useI18n();
 
 function m(key) {
-  return t(`message.recherche-ressource.${key}`);
+  return t(`recherche-ressource.${key}`);
 }
 
 function reinitialiserRecherche() {

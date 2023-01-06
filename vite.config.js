@@ -2,8 +2,8 @@ import { fileURLToPath, URL } from "node:url";
 import { resolve, dirname } from "node:path";
 
 import { defineConfig } from "vite";
-import legacy from "@vitejs/plugin-legacy";
 import vue from "@vitejs/plugin-vue";
+import legacy from "@vitejs/plugin-legacy";
 import vueI18n from "@intlify/vite-plugin-vue-i18n";
 
 // https://vitejs.dev/config/
