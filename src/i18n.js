@@ -54,6 +54,8 @@ function getPageLang(availableLanguages) {
 }
 
 export default createI18n({
+  legacy: false,
+  globalInjection: true,
   locale: getPageLang(["fr-FR", "fr", "en-US", "en"]),
   allowComposition: true,
   fallbackLocale: "en",

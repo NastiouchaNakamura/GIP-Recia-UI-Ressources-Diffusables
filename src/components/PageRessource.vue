@@ -1,3 +1,106 @@
+<script setup lang="ts">
+import { onMounted, ref } from "vue";
+import {
+  getRessourcesDiffusables,
+  getSize,
+} from "../services/serviceRessourcesDiffusables";
+
+import LegendeRessource from "./LegendeRessource.vue";
+import ListeRessources from "./ListeRessources.vue";
+import RechercheRessource from "./RechercheRessource.vue";
+
+interface Ressource {
+  ressource: {
+    id: string;
+    nom: string;
+  };
+  editeur: {
+    id: string;
+    nom: string;
+  };
+  distributeursCom: Array<DistributeursCom>;
+  distributeurTech: {
+    id: string;
+    nom: string;
+  };
+  affichable: boolean;
+  diffusable: boolean;
+}
+
+interface DistributeursCom {
+  id: string;
+  nom: string;
+}
+
+const ressources = ref<Array<Ressource>>([]);
+const erreur = ref<string>("");
+const nombreRessourcesTotal = ref<number>(0);
+const pageSuivante = ref<number>(0);
+const lectureTerminee = ref<boolean>(false);
+const chargement = ref<boolean>(false);
+const recherche = ref<string>("");
+
+onMounted(() => {
+  recommencerRecherche();
+});
+
+function reinitialiserRecherche() {
+  recherche.value = "";
+  recommencerRecherche();
+}
+
+function recommencerRechercheInput(rechercheInput: string): void {
+  recherche.value = rechercheInput;
+  recommencerRecherche();
+}
+
+async function recommencerRecherche(): Promise<void> {
+  ressources.value = [];
+  pageSuivante.value = 0;
+  erreur.value = "";
+  chargement.value = true;
+  try {
+    let response = await getSize(recherche.value);
+    nombreRessourcesTotal.value = response.data.payload;
+    if (nombreRessourcesTotal.value === 0) {
+      lectureTerminee.value = true;
+      chargement.value = false;
+    } else {
+      lectureTerminee.value = false;
+      getPageSuivante();
+    }
+  } catch (e: any) {
+    erreur.value =
+      e.toString() +
+      (e.response != undefined ? " | " + e.response.data.message : "");
+    chargement.value = false;
+  }
+}
+
+async function getPageSuivante(): Promise<void> {
+  if (!lectureTerminee.value) {
+    erreur.value = "";
+    chargement.value = true;
+    try {
+      let response = await getRessourcesDiffusables(
+        pageSuivante.value++,
+        recherche.value
+      );
+      ressources.value = ressources.value.concat(response.data.payload);
+      if (ressources.value.length === nombreRessourcesTotal.value) {
+        lectureTerminee.value = true;
+      }
+      chargement.value = false;
+    } catch (e: any) {
+      erreur.value =
+        e.toString() +
+        (e.response != undefined ? " | " + e.response.data.message : "");
+      chargement.value = false;
+    }
+  }
+}
+</script>
+
 <template>
   <div class="cadre-page-ressource">
     <div class="bloc-principal-page-ressource">
@@ -28,87 +131,7 @@
   </div>
 </template>
 
-<script setup>
-import { onMounted, ref } from "vue";
-import {
-  getRessourcesDiffusables,
-  getSize,
-} from "@/services/serviceRessourcesDiffusables.js";
-
-import LegendeRessource from "@/components/LegendeRessource.vue";
-import ListeRessources from "@/components/ListeRessources.vue";
-import RechercheRessource from "@/components/RechercheRessource.vue";
-
-const ressources = ref([]);
-const erreur = ref("");
-const nombreRessourcesTotal = ref(0);
-const pageSuivante = ref(0);
-const lectureTerminee = ref(false);
-const chargement = ref(false);
-const recherche = ref("");
-
-onMounted(() => {
-  recommencerRecherche();
-});
-
-function reinitialiserRecherche() {
-  recherche.value = "";
-  recommencerRecherche();
-}
-
-function recommencerRechercheInput(rechercheInput) {
-  recherche.value = rechercheInput;
-  recommencerRecherche();
-}
-
-async function recommencerRecherche() {
-  ressources.value = [];
-  pageSuivante.value = 0;
-  erreur.value = "";
-  chargement.value = true;
-  try {
-    let response = await getSize(recherche.value);
-    nombreRessourcesTotal.value = response.data.payload;
-    if (nombreRessourcesTotal.value === 0) {
-      lectureTerminee.value = true;
-      chargement.value = false;
-    } else {
-      lectureTerminee.value = false;
-      getPageSuivante();
-    }
-  } catch (e) {
-    erreur.value =
-      e.toString() +
-      (e.response != undefined ? " | " + e.response.data.message : "");
-    chargement.value = false;
-  }
-}
-
-async function getPageSuivante() {
-  if (!lectureTerminee.value) {
-    erreur.value = "";
-    chargement.value = true;
-    try {
-      let response = await getRessourcesDiffusables(
-        pageSuivante.value++,
-        recherche.value
-      );
-      ressources.value = ressources.value.concat(response.data.payload);
-      if (ressources.value.length === nombreRessourcesTotal.value) {
-        lectureTerminee.value = true;
-      }
-      chargement.value = false;
-    } catch (e) {
-      erreur.value =
-        e.toString() +
-        (e.response != undefined ? " | " + e.response.data.message : "");
-      chargement.value = false;
-    }
-  }
-}
-</script>
-
-<style scoped>
+<style>
 .cadre-page-ressource {
   display: flex;
   flex-direction: column;

@@ -1,3 +1,43 @@
+<script setup lang="ts">
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+import { debounce } from "debounce";
+
+import "../icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+const emit = defineEmits([
+  "reinitialiserRecherche",
+  "recommencerRechercheInput",
+]);
+
+defineProps<{
+  recherche: string;
+  nombreRessourcesTotal: number;
+  nombreRessourcesAffichees: number;
+}>();
+
+const rechercheInput = ref<string>("");
+
+const { t } = useI18n();
+
+function m(key: string): string {
+  return t(`recherche-ressource.${key}`);
+}
+
+function reinitialiserRecherche() {
+  rechercheInput.value = "";
+  emit("reinitialiserRecherche");
+}
+
+const recommencerRecherche = debounce(
+  () => {
+    emit("recommencerRechercheInput", rechercheInput.value);
+  },
+  500 // Buffer de 0,5s après input.
+);
+</script>
+
 <template>
   <div class="cadre-recherche-ressource">
     <div class="input-recherche-ressource">
@@ -26,44 +66,7 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-import { useI18n } from "vue-i18n";
-import { debounce } from "debounce";
-
-import "@/icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
-const emit = defineEmits([
-  "reinitialiserRecherche",
-  "recommencerRechercheInput",
-]);
-
-defineProps({
-  recherche: String,
-  nombreRessourcesTotal: Number,
-  nombreRessourcesAffichees: Number,
-});
-
-const rechercheInput = ref("");
-
-const { t } = useI18n();
-
-function m(key) {
-  return t(`recherche-ressource.${key}`);
-}
-
-function reinitialiserRecherche() {
-  rechercheInput.value = "";
-  emit("reinitialiserRecherche");
-}
-
-const recommencerRecherche = debounce(() => {
-  emit("recommencerRechercheInput", rechercheInput.value);
-}, 500); // Buffer de 0,5s après input.
-</script>
-
-<style scoped>
+<style>
 .cadre-recherche-ressource {
   display: flex;
   flex-direction: column;

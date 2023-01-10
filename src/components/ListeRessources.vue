@@ -1,10 +1,52 @@
+<script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+import CarteRessource from "./CarteRessource.vue";
+
+interface Ressource {
+  ressource: {
+    id: string;
+    nom: string;
+  };
+  editeur: {
+    id: string;
+    nom: string;
+  };
+  distributeursCom: Array<DistributeursCom>;
+  distributeurTech: {
+    id: string;
+    nom: string;
+  };
+  affichable: boolean;
+  diffusable: boolean;
+}
+
+interface DistributeursCom {
+  id: string;
+  nom: string;
+}
+
+defineProps<{
+  ressources: Array<Ressource>;
+  erreur: string;
+  lectureTerminee: boolean;
+  chargement: boolean;
+}>();
+
+const { t } = useI18n();
+
+function m(key: string): string {
+  return t(`liste-ressources.${key}`);
+}
+</script>
+
 <template>
   <div class="cadre-liste-ressources">
     <main class="liste-liste-ressources">
       <div v-if="ressources.length !== 0">
         <carte-ressource
           v-for="ressource in ressources"
-          :key="ressource.idRessource"
+          :key="ressource.ressource.id"
           :ressource="ressource"
         />
       </div>
@@ -31,26 +73,7 @@
   </div>
 </template>
 
-<script setup>
-import { useI18n } from "vue-i18n";
-
-import CarteRessource from "@/components/CarteRessource.vue";
-
-defineProps({
-  ressources: Array,
-  erreur: String,
-  lectureTerminee: Boolean,
-  chargement: Boolean,
-});
-
-const { t } = useI18n();
-
-function m(key) {
-  return t(`liste-ressources.${key}`);
-}
-</script>
-
-<style scoped>
+<style>
 .cadre-liste-ressources {
   display: flex;
   flex-direction: column;
