@@ -1,3 +1,73 @@
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import { useI18n } from "vue-i18n";
+import { useToast } from "vue-toastification";
+
+interface Ressource {
+  ressource: {
+    id: string;
+    nom: string;
+  };
+  editeur: {
+    id: string;
+    nom: string;
+  };
+  distributeursCom: Array<DistributeursCom>;
+  distributeurTech: {
+    id: string;
+    nom: string;
+  };
+  affichable: boolean;
+  diffusable: boolean;
+}
+
+interface DistributeursCom {
+  id: string;
+  nom: string;
+}
+
+const props = defineProps<{
+  ressource: Ressource;
+}>();
+
+const plusInfos = ref<boolean>(false);
+const distributeursComComputed = ref<Array<DistributeursCom>>([]);
+
+onMounted(() => {
+  props.ressource.distributeursCom.forEach(
+    (distributeurCom: DistributeursCom) => {
+      if (distributeurCom.nom !== "") {
+        distributeursComComputed.value.push(distributeurCom);
+      }
+    }
+  );
+});
+
+const { t } = useI18n();
+const toast = useToast();
+
+function m(key: string): string {
+  return t(`carte-ressource.${key}`);
+}
+
+function afficherPlusInfos() {
+  plusInfos.value = !plusInfos.value;
+}
+
+function copierReferences() {
+  let string = `${m("nom-ressource")}: ${props.ressource.ressource.nom}
+${m("id-gar")}: ${props.ressource.ressource.id}
+${m("editeur")}: ${props.ressource.editeur.nom}`;
+
+  for (const element of props.ressource.distributeursCom) {
+    string += `\n${m("distributeurCom")}: ${element.nom}`;
+  }
+
+  navigator.clipboard.writeText(string);
+  toast.info(m("contenu-copie"));
+}
+</script>
+
 <template>
   <div class="cadre-carte-ressource">
     <h3 class="nom-ressource-carte-ressource">
@@ -80,52 +150,7 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from "vue";
-import { useI18n } from "vue-i18n";
-import { useToast } from "vue-toastification";
-
-const props = defineProps({
-  ressource: Object,
-});
-
-const plusInfos = ref(false);
-const distributeursComComputed = ref([]);
-
-onMounted(() => {
-  props.ressource.distributeursCom.forEach((distributeurCom) => {
-    if (distributeurCom.nom !== "") {
-      distributeursComComputed.value.push(distributeurCom);
-    }
-  });
-});
-
-const { t } = useI18n();
-const toast = useToast();
-
-function m(key) {
-  return t(`carte-ressource.${key}`);
-}
-
-function afficherPlusInfos() {
-  plusInfos.value = !plusInfos.value;
-}
-
-function copierReferences() {
-  let string = `${m("nom-ressource")}: ${props.ressource.ressource.nom}
-${m("id-gar")}: ${props.ressource.ressource.id}
-${m("editeur")}: ${props.ressource.editeur.nom}`;
-
-  for (const element of props.ressource.distributeursCom) {
-    string += `\n${m("distributeurCom")}: ${element.nom}`;
-  }
-
-  navigator.clipboard.writeText(string);
-  toast.info(m("contenu-copie"));
-}
-</script>
-
-<style scoped>
+<style>
 .cadre-carte-ressource {
   border-radius: 24px;
   background-color: #fff;

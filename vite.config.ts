@@ -1,4 +1,5 @@
-import { fileURLToPath, URL } from "node:url";
+import { fileURLToPath } from "node:url";
+import { resolve, dirname } from "node:path";
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
@@ -13,23 +14,16 @@ export default defineConfig({
       targets: ["ie >= 11"],
       additionalLegacyPolyfills: ["regenerator-runtime/runtime"],
     }),
-    VueI18nPlugin(),
+    VueI18nPlugin({
+      include: resolve(
+        dirname(fileURLToPath(import.meta.url)),
+        "./src/locales/**"
+      ),
+    }),
   ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
-    },
-  },
-  assetsDir: "vue-ui/",
-  css: {
-    requireModuleExtension: true,
-    loaderOptions: {
-      css: {
-        modules: {
-          localIdentName: "[name]-[local]",
-        },
-        localsConvention: "camelCaseOnly",
-      },
     },
   },
 });

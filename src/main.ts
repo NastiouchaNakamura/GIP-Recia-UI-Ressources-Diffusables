@@ -1,6 +1,7 @@
 import { createApp } from "vue";
-import App from "@/App.ce.vue";
-import i18n from "@/i18n";
+import App from "./App.vue";
+import "./assets/app.css";
+import i18n from "./i18n";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import "regenerator-runtime/runtime.js";

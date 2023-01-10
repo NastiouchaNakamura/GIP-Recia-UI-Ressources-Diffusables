@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
+function m(key: string): string {
+  return t(`legende-ressource.${key}`);
+}
+</script>
+
 <template>
   <div class="cadre-legende-ressource">
     <ul class="liste-legendes-legende-ressource">
@@ -53,17 +63,7 @@
   </div>
 </template>
 
-<script setup>
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
-
-function m(key) {
-  return t(`legende-ressource.${key}`);
-}
-</script>
-
-<style scoped>
+<style>
 .cadre-legende-ressource {
   text-align: left;
   box-sizing: border-box;

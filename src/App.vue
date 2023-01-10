@@ -1,11 +1,9 @@
 <template>
-  <div id="app">
-    <page-ressource />
-  </div>
+  <page-ressource />
 </template>
 
-<script setup>
-import PageRessource from "@/components/PageRessource.vue";
+<script setup lang="ts">
+import PageRessource from "./components/PageRessource.vue";
 </script>
 
 <!-- Variables définies dans le skin du portail. -->
