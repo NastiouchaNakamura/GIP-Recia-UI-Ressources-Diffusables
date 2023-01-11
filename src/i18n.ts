@@ -3,7 +3,7 @@ import { createI18n } from "vue-i18n";
 import en from "./locales/en.json";
 import fr from "./locales/fr.json";
 
-function getBrowserLang(availableLanguages) {
+function getBrowserLang(availableLanguages: Array<string>): string {
   // These window.navigator contain language information
   // 1. languages -> Array of preferred languages
   //                 (eg ["en-US", "zh-CN", "ja-JP"]) Firefox^32, Chrome^32
@@ -13,7 +13,7 @@ function getBrowserLang(availableLanguages) {
   // 3. browserLanguage -> UI Language of IE
   // 4. userLanguage    -> Language of Windows Regional Options
   // 5. systemLanguage  -> UI Language of Windows
-  const browserLanguagePropertyKeys = [
+  const browserLanguagePropertyKeys: Array<string> = [
     "languages",
     "language",
     "browserLanguage",
@@ -21,31 +21,35 @@ function getBrowserLang(availableLanguages) {
     "systemLanguage",
   ];
 
-  const allLangs = browserLanguagePropertyKeys
+  const allLangs: Array<string> = browserLanguagePropertyKeys
     // merge all values into flattened array
-    .flatMap((key) => navigator[key])
+    .flatMap((key: string) => navigator[key])
     // Remove undefined values
-    .filter((v) => v)
+    .filter((v: string) => v)
     // Shorten strings to use two chars (en-US -> en)
-    .map((v) => v.substring(0, 2))
+    .map((v: string) => v.substring(0, 2))
     // Returns unique values
-    .filter((v, i, a) => a.indexOf(v) === i);
+    .filter((v: any, i: any, a: any) => a.indexOf(v) === i);
 
   // Returns first language matched in available languages
-  const detectedLocale = allLangs.find((x) => availableLanguages.includes(x));
+  const detectedLocale: string | undefined = allLangs.find((x) =>
+    availableLanguages.includes(x)
+  );
 
   // If no locale is detected, fallback to 'en'
   return detectedLocale || "en";
 }
 
-function getPageLang(availableLanguages) {
+function getPageLang(availableLanguages: Array<string>): string {
   // retrieve lang from html lang tag
   const pageLang = document.documentElement.lang;
   if (pageLang) {
     // we add the the shorten two char lang in the list in case the more specific lang isn't provided
     const allLangs = [pageLang, pageLang.substring(0, 2)];
     // Returns first language matched in available languages
-    const detectedLocale = allLangs.find((x) => availableLanguages.includes(x));
+    const detectedLocale: string | undefined = allLangs.find((x) =>
+      availableLanguages.includes(x)
+    );
     // If no available language is detected, fallback to 'en'
     return detectedLocale || "en";
   }
@@ -53,7 +57,7 @@ function getPageLang(availableLanguages) {
   return getBrowserLang(availableLanguages);
 }
 
-export default createI18n({
+export default createI18n<false>({
   legacy: false,
   globalInjection: true,
   locale: getPageLang(["fr-FR", "fr", "en-US", "en"]),
