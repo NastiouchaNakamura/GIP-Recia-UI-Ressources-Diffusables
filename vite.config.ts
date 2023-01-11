@@ -9,7 +9,13 @@ import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.includes("-ce"),
+        },
+      },
+    }),
     legacy({
       targets: ["ie >= 11"],
       additionalLegacyPolyfills: ["regenerator-runtime/runtime"],

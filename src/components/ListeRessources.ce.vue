@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 
-import CarteRessource from "./CarteRessource.vue";
-
 interface Ressource {
   ressource: {
     id: string;
@@ -25,12 +23,11 @@ interface DistributeursCom {
   id: string;
   nom: string;
 }
-
 defineProps<{
   ressources: Array<Ressource>;
   erreur: string;
   lectureTerminee: boolean;
-  chargement: boolean;
+  chargement: boolean | null;
 }>();
 
 const { t } = useI18n();
@@ -44,7 +41,7 @@ function m(key: string): string {
   <div class="cadre-liste-ressources">
     <main class="liste-liste-ressources">
       <div v-if="ressources.length !== 0">
-        <carte-ressource
+        <carte-ressource-ce
           v-for="ressource in ressources"
           :key="ressource.ressource.id"
           :ressource="ressource"
@@ -73,7 +70,7 @@ function m(key: string): string {
   </div>
 </template>
 
-<style>
+<style scoped>
 .cadre-liste-ressources {
   display: flex;
   flex-direction: column;

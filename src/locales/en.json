@@ -17,11 +17,11 @@
   "legende-ressource": {
     "id-gar": {
       "intitule": "GAR Identifier",
-      "definition": "GAR Identifier meaning."
+      "definition": "GAR Identifier meaning"
     },
     "editeur": {
       "intitule": "Editor",
-      "definition": "Editor meaning."
+      "definition": "Editor meaning"
     },
     "distributeurTech": {
       "intitule": "Technical distributor",

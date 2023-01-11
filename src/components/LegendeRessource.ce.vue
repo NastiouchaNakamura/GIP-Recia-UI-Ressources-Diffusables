@@ -63,7 +63,7 @@ function m(key: string): string {
   </div>
 </template>
 
-<style>
+<style scoped>
 .cadre-legende-ressource {
   text-align: left;
   box-sizing: border-box;
