@@ -12,7 +12,6 @@ const emit = defineEmits([
 ]);
 
 defineProps<{
-  recherche: string;
   nombreRessourcesTotal: number;
   nombreRessourcesAffichees: number;
 }>();
@@ -66,7 +65,7 @@ const recommencerRecherche = debounce(
   </div>
 </template>
 
-<style>
+<style scoped>
 .cadre-recherche-ressource {
   display: flex;
   flex-direction: column;

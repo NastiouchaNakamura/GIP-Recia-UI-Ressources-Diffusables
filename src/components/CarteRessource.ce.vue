@@ -150,7 +150,7 @@ ${m("editeur")}: ${props.ressource.editeur.nom}`;
   </div>
 </template>
 
-<style>
+<style scoped>
 .cadre-carte-ressource {
   border-radius: 24px;
   background-color: #fff;
@@ -158,7 +158,7 @@ ${m("editeur")}: ${props.ressource.editeur.nom}`;
 
   text-align: left;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .nom-ressource-carte-ressource {

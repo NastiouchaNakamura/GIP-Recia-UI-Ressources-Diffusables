@@ -5,10 +5,6 @@ import {
   getSize,
 } from "../services/serviceRessourcesDiffusables";
 
-import LegendeRessource from "./LegendeRessource.vue";
-import ListeRessources from "./ListeRessources.vue";
-import RechercheRessource from "./RechercheRessource.vue";
-
 interface Ressource {
   ressource: {
     id: string;
@@ -32,6 +28,10 @@ interface DistributeursCom {
   nom: string;
 }
 
+interface Event {
+  detail: Array<any>;
+}
+
 const ressources = ref<Array<Ressource>>([]);
 const erreur = ref<string>("");
 const nombreRessourcesTotal = ref<number>(0);
@@ -49,8 +49,8 @@ function reinitialiserRecherche() {
   recommencerRecherche();
 }
 
-function recommencerRechercheInput(rechercheInput: string): void {
-  recherche.value = rechercheInput;
+function recommencerRechercheInput(rechercheInput: Event): void {
+  recherche.value = rechercheInput.detail[0];
   recommencerRecherche();
 }
 
@@ -90,13 +90,12 @@ async function getPageSuivante(): Promise<void> {
       if (ressources.value.length === nombreRessourcesTotal.value) {
         lectureTerminee.value = true;
       }
-      chargement.value = false;
     } catch (e: any) {
       erreur.value =
         e.toString() +
         (e.response != undefined ? " | " + e.response.data.message : "");
-      chargement.value = false;
     }
+    chargement.value = false;
   }
 }
 </script>
@@ -105,8 +104,7 @@ async function getPageSuivante(): Promise<void> {
   <div class="cadre-page-ressource">
     <div class="bloc-principal-page-ressource">
       <aside class="aside-page-ressource">
-        <recherche-ressource
-          :recherche="recherche"
+        <recherche-ressource-ce
           :nombreRessourcesTotal="nombreRessourcesTotal"
           :nombreRessourcesAffichees="ressources.length"
           @recommencerRechercheInput="recommencerRechercheInput"
@@ -114,10 +112,10 @@ async function getPageSuivante(): Promise<void> {
           ref="rechercheRessource"
           class="recherche-ressource-page-ressource"
         />
-        <legende-ressource class="legende-ressource-page-ressource" />
+        <legende-ressource-ce class="legende-ressource-page-ressource" />
       </aside>
       <main class="main-page-ressource">
-        <liste-ressources
+        <liste-ressources-ce
           :ressources="ressources"
           :erreur="erreur"
           :lectureTerminee="lectureTerminee"
@@ -131,8 +129,12 @@ async function getPageSuivante(): Promise<void> {
   </div>
 </template>
 
-<style>
+<style scoped>
 .cadre-page-ressource {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: var(--ui-ressources-gar-default-text-color);
   display: flex;
   flex-direction: column;
   margin: 0;

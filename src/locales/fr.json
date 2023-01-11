@@ -17,11 +17,11 @@
   "legende-ressource": {
     "id-gar": {
       "intitule": "Identifiant GAR",
-      "definition": "Définition de l'Identifiant GAR."
+      "definition": "Définition de l'Identifiant GAR"
     },
     "editeur": {
       "intitule": "Éditeur",
-      "definition": "Définition de l'éditeur."
+      "definition": "Définition de l'éditeur"
     },
     "distributeurCom": {
       "intitule": "Distributeur commercial",
