@@ -7,16 +7,21 @@ import ListeRessources from "./components/ListeRessources.ce.vue";
 import PageRessource from "./components/PageRessource.ce.vue";
 import RechercheRessource from "./components/RechercheRessource.ce.vue";
 
-const CarteRessourceCE = defineCustomElement(CarteRessource);
-const I18nHostCE = defineCustomElement(I18nHost);
-const LegendeRessourceCE = defineCustomElement(LegendeRessource);
-const ListeRessourcesCE = defineCustomElement(ListeRessources);
-const PageRessourceCE = defineCustomElement(PageRessource);
-const RechercheRessourceCE = defineCustomElement(RechercheRessource);
-
-customElements.define("carte-ressource-ce", CarteRessourceCE);
-customElements.define("i18n-host-ce", I18nHostCE);
-customElements.define("legende-ressource-ce", LegendeRessourceCE);
-customElements.define("liste-ressources-ce", ListeRessourcesCE);
-customElements.define("page-ressource-ce", PageRessourceCE);
-customElements.define("recherche-ressource-ce", RechercheRessourceCE);
+customElements.define(
+  "carte-ressource-ce",
+  defineCustomElement(CarteRessource)
+);
+customElements.define("i18n-host-ce", defineCustomElement(I18nHost));
+customElements.define(
+  "legende-ressource-ce",
+  defineCustomElement(LegendeRessource)
+);
+customElements.define(
+  "liste-ressources-ce",
+  defineCustomElement(ListeRessources)
+);
+customElements.define("page-ressource-ce", defineCustomElement(PageRessource));
+customElements.define(
+  "recherche-ressource-ce",
+  defineCustomElement(RechercheRessource)
+);

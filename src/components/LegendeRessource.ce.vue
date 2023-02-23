@@ -3,9 +3,7 @@ import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
 
-function m(key: string): string {
-  return t(`legende-ressource.${key}`);
-}
+const m = (key: string): string => t(`legende-ressource.${key}`);
 </script>
 
 <template>

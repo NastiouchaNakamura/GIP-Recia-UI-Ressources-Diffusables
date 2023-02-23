@@ -1,30 +1,8 @@
 <script setup lang="ts">
+import type { DistributeursCom, Ressource } from "@/types/types";
 import { ref, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import { useToast } from "vue-toastification";
-
-interface Ressource {
-  ressource: {
-    id: string;
-    nom: string;
-  };
-  editeur: {
-    id: string;
-    nom: string;
-  };
-  distributeursCom: Array<DistributeursCom>;
-  distributeurTech: {
-    id: string;
-    nom: string;
-  };
-  affichable: boolean;
-  diffusable: boolean;
-}
-
-interface DistributeursCom {
-  id: string;
-  nom: string;
-}
 
 const props = defineProps<{
   ressource: Ressource;
@@ -34,38 +12,32 @@ const plusInfos = ref<boolean>(false);
 const distributeursComComputed = ref<Array<DistributeursCom>>([]);
 
 onMounted(() => {
-  props.ressource.distributeursCom.forEach(
-    (distributeurCom: DistributeursCom) => {
-      if (distributeurCom.nom !== "") {
-        distributeursComComputed.value.push(distributeurCom);
-      }
-    }
+  distributeursComComputed.value = props.ressource.distributeursCom.filter(
+    (distributeurCom: DistributeursCom) => distributeurCom.nom !== ""
   );
 });
 
 const { t } = useI18n();
 const toast = useToast();
 
-function m(key: string): string {
-  return t(`carte-ressource.${key}`);
-}
+const m = (key: string): string => t(`carte-ressource.${key}`);
 
-function afficherPlusInfos() {
+const afficherPlusInfos = (): void => {
   plusInfos.value = !plusInfos.value;
-}
+};
 
-function copierReferences() {
+const copierReferences = (): void => {
   let string = `${m("nom-ressource")}: ${props.ressource.ressource.nom}
 ${m("id-gar")}: ${props.ressource.ressource.id}
 ${m("editeur")}: ${props.ressource.editeur.nom}`;
 
-  for (const element of props.ressource.distributeursCom) {
+  props.ressource.distributeursCom.forEach((element) => {
     string += `\n${m("distributeurCom")}: ${element.nom}`;
-  }
+  });
 
   navigator.clipboard.writeText(string);
   toast.info(m("contenu-copie"));
-}
+};
 </script>
 
 <template>

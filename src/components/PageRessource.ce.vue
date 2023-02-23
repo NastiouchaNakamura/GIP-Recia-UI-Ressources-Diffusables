@@ -1,36 +1,10 @@
 <script setup lang="ts">
+import type { Event, Ressource } from "@/types/types";
 import { onMounted, ref } from "vue";
 import {
   getRessourcesDiffusables,
   getSize,
 } from "../services/serviceRessourcesDiffusables";
-
-interface Ressource {
-  ressource: {
-    id: string;
-    nom: string;
-  };
-  editeur: {
-    id: string;
-    nom: string;
-  };
-  distributeursCom: Array<DistributeursCom>;
-  distributeurTech: {
-    id: string;
-    nom: string;
-  };
-  affichable: boolean;
-  diffusable: boolean;
-}
-
-interface DistributeursCom {
-  id: string;
-  nom: string;
-}
-
-interface Event {
-  detail: Array<any>;
-}
 
 const ressources = ref<Array<Ressource>>([]);
 const erreur = ref<string>("");
@@ -40,21 +14,21 @@ const lectureTerminee = ref<boolean>(false);
 const chargement = ref<boolean>(false);
 const recherche = ref<string>("");
 
-onMounted(() => {
+onMounted((): void => {
   recommencerRecherche();
 });
 
-function reinitialiserRecherche() {
+const reinitialiserRecherche = (): void => {
   recherche.value = "";
   recommencerRecherche();
-}
+};
 
-function recommencerRechercheInput(rechercheInput: Event): void {
+const recommencerRechercheInput = (rechercheInput: Event): void => {
   recherche.value = rechercheInput.detail[0];
   recommencerRecherche();
-}
+};
 
-async function recommencerRecherche(): Promise<void> {
+const recommencerRecherche = async (): Promise<void> => {
   ressources.value = [];
   pageSuivante.value = 0;
   erreur.value = "";
@@ -75,9 +49,9 @@ async function recommencerRecherche(): Promise<void> {
       (e.response != undefined ? " | " + e.response.data.message : "");
     chargement.value = false;
   }
-}
+};
 
-async function getPageSuivante(): Promise<void> {
+const getPageSuivante = async (): Promise<void> => {
   if (!lectureTerminee.value) {
     erreur.value = "";
     chargement.value = true;
@@ -97,7 +71,7 @@ async function getPageSuivante(): Promise<void> {
     }
     chargement.value = false;
   }
-}
+};
 </script>
 
 <template>
