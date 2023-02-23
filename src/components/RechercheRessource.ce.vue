@@ -20,19 +20,15 @@ const rechercheInput = ref<string>("");
 
 const { t } = useI18n();
 
-function m(key: string): string {
-  return t(`recherche-ressource.${key}`);
-}
+const m = (key: string): string => t(`recherche-ressource.${key}`);
 
-function reinitialiserRecherche() {
+const reinitialiserRecherche = (): void => {
   rechercheInput.value = "";
   emit("reinitialiserRecherche");
-}
+};
 
 const recommencerRecherche = debounce(
-  () => {
-    emit("recommencerRechercheInput", rechercheInput.value);
-  },
+  () => emit("recommencerRechercheInput", rechercheInput.value),
   500 // Buffer de 0,5s après input.
 );
 </script>

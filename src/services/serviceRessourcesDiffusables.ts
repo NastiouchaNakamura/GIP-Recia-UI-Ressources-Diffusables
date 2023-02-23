@@ -1,10 +1,17 @@
 import oidc from "@uportal/open-id-connect";
 import axios from "axios";
 
+const {
+  VITE_BASE_API_URI,
+  VITE_RESSOURCES_DIFFUSABLES_API_URI,
+  VITE_RESSOURCES_DIFFUSABLES_SIZE_API_URI,
+  VITE_USER_INFO_API_URI,
+} = import.meta.env;
+
 async function getToken(): Promise<string | undefined> {
   try {
     const { encoded } = await oidc({
-      userInfoApiUrl: import.meta.env.VITE_USER_INFO_API_URI,
+      userInfoApiUrl: VITE_USER_INFO_API_URI,
     });
 
     return encoded;
@@ -21,9 +28,9 @@ function getUrlParams(recherche: string): string {
 
 async function getRessourcesDiffusables(page: number, recherche: string) {
   return await axios.get(
-    import.meta.env.VITE_BASE_API_URI +
-      import.meta.env.VITE_RESSOURCES_DIFFUSABLES_API_URI +
-      `?ressourcesPerPage=20&page=${page}${getUrlParams(recherche)}`,
+    `${VITE_BASE_API_URI}${VITE_RESSOURCES_DIFFUSABLES_API_URI}?ressourcesPerPage=20&page=${page}${getUrlParams(
+      recherche
+    )}`,
     {
       headers: {
         Authorization: `Bearer ${await getToken()}`,
@@ -35,10 +42,9 @@ async function getRessourcesDiffusables(page: number, recherche: string) {
 
 async function getSize(recherche: string) {
   return await axios.get(
-    import.meta.env.VITE_BASE_API_URI +
-      import.meta.env.VITE_RESSOURCES_DIFFUSABLES_SIZE_API_URI +
-      "?" +
-      getUrlParams(recherche),
+    `${VITE_BASE_API_URI}${VITE_RESSOURCES_DIFFUSABLES_SIZE_API_URI}?${getUrlParams(
+      recherche
+    )}`,
     {
       headers: {
         Authorization: `Bearer ${await getToken()}`,

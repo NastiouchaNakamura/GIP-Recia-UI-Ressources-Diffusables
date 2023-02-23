@@ -1,28 +1,7 @@
 <script setup lang="ts">
+import type { Ressource } from "@/types/types";
 import { useI18n } from "vue-i18n";
 
-interface Ressource {
-  ressource: {
-    id: string;
-    nom: string;
-  };
-  editeur: {
-    id: string;
-    nom: string;
-  };
-  distributeursCom: Array<DistributeursCom>;
-  distributeurTech: {
-    id: string;
-    nom: string;
-  };
-  affichable: boolean;
-  diffusable: boolean;
-}
-
-interface DistributeursCom {
-  id: string;
-  nom: string;
-}
 defineProps<{
   ressources: Array<Ressource>;
   erreur: string;
@@ -32,9 +11,7 @@ defineProps<{
 
 const { t } = useI18n();
 
-function m(key: string): string {
-  return t(`liste-ressources.${key}`);
-}
+const m = (key: string): string => t(`liste-ressources.${key}`);
 </script>
 
 <template>
