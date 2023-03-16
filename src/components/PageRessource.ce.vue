@@ -76,79 +76,51 @@ const getPageSuivante = async (): Promise<void> => {
 
 <template>
   <div class="cadre-page-ressource">
-    <div class="bloc-principal-page-ressource">
-      <aside class="aside-page-ressource">
-        <recherche-ressource-ce
-          :nombre-ressources-total="nombreRessourcesTotal"
-          :nombre-ressources-affichees="ressources.length"
-          @recommencer-recherche-input="recommencerRechercheInput"
-          @reinitialiser-recherche="reinitialiserRecherche"
-          ref="rechercheRessource"
-          class="recherche-ressource-page-ressource"
-        />
-        <legende-ressource-ce class="legende-ressource-page-ressource" />
-      </aside>
-      <main class="main-page-ressource">
-        <liste-ressources-ce
-          :ressources="ressources"
-          :erreur="erreur"
-          :lectureTerminee="lectureTerminee"
-          :chargement="chargement"
-          @get-page-suivante="getPageSuivante"
-          ref="listeRessource"
-          class="liste-ressource-page-ressource"
-        />
-      </main>
-    </div>
+    <aside class="aside-page-ressource">
+      <recherche-ressource-ce
+        :nombre-ressources-total="nombreRessourcesTotal"
+        :nombre-ressources-affichees="ressources.length"
+        @recommencer-recherche-input="recommencerRechercheInput"
+        @reinitialiser-recherche="reinitialiserRecherche"
+        ref="rechercheRessource"
+      />
+      <legende-ressource-ce class="legende-ressource-page-ressource" />
+    </aside>
+    <main class="main-page-ressource">
+      <liste-ressources-ce
+        :ressources="ressources"
+        :erreur="erreur"
+        :lectureTerminee="lectureTerminee"
+        :chargement="chargement"
+        @get-page-suivante="getPageSuivante"
+        ref="listeRessource"
+      />
+    </main>
   </div>
 </template>
 
-<style scoped>
-.cadre-page-ressource {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: var(--ui-ressources-gar-default-text-color);
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
+<style lang="scss" scoped>
+.legende-ressource-page-ressource {
+  display: none;
 }
 
-.bloc-principal-page-ressource {
-  display: flex;
-  flex-direction: row;
-}
-
-.aside-page-ressource {
-  max-width: 20%;
-  width: 100%;
-}
-
-.liste-ressource-page-ressource {
-  height: 100vh;
-}
-
-.main-page-ressource {
-  width: 100%;
-}
-
-@media (max-width: 1080px) {
-  .legende-ressource-page-ressource {
-    display: none;
-  }
-
-  .bloc-principal-page-ressource {
-    flex-direction: column;
-    height: 100%;
+@media (min-width: 1024px) {
+  .cadre-page-ressource {
+    display: flex;
   }
 
   .aside-page-ressource {
-    max-width: 100vw;
+    max-height: 100vh;
+    min-width: 20%;
+    overflow-y: hidden;
   }
 
   .main-page-ressource {
-    max-width: 100vw;
+    min-width: 80%;
+  }
+
+  .legende-ressource-page-ressource {
+    display: block;
   }
 }
 </style>

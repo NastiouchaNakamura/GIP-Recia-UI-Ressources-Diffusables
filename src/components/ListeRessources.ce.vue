@@ -16,14 +16,12 @@ const m = (key: string): string => t(`liste-ressources.${key}`);
 
 <template>
   <div class="cadre-liste-ressources">
-    <main class="liste-liste-ressources">
-      <div v-if="ressources.length !== 0">
-        <carte-ressource-ce
-          v-for="ressource in ressources"
-          :key="ressource.ressource.id"
-          :ressource="ressource"
-        />
-      </div>
+    <main>
+      <carte-ressource-ce
+        v-for="ressource in ressources"
+        :key="ressource.ressource.id"
+        :ressource="ressource"
+      />
     </main>
     <footer>
       <p v-if="chargement" class="chargement-liste-ressources">
@@ -47,39 +45,42 @@ const m = (key: string): string => t(`liste-ressources.${key}`);
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .cadre-liste-ressources {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  overflow-y: scroll;
+  height: calc(100vh - (20px + 77px));
   padding: 10px;
+  overflow-y: scroll;
+}
+
+.cadre-liste-ressources > main {
+  margin-bottom: -10px;
+}
+
+.cadre-liste-ressources > footer {
+  text-align: center;
 }
 
 .page-suivante-liste-ressources {
-  width: calc(100% - 20px);
-  height: 50px;
-  border-radius: 2em;
-  border: none;
-  overflow: hidden;
-  margin: 15px 10px 15px 10px;
-  padding: 10px 15px 10px 15px;
-  background-color: var(--ui-ressources-gar-button-background-color);
-  color: var(--ui-ressources-gar-button-text-color);
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
   font-size: x-large;
   font-weight: bold;
-  box-sizing: border-box;
-  display: block;
+  background-color: var(--ui-ressources-gar-button-background-color);
+  color: var(--ui-ressources-gar-button-text-color);
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
 }
 
 .chargement-liste-ressources {
-  width: calc(100% - 30px);
   font-size: x-large;
   font-weight: bold;
-  height: 50px;
-  margin: 20px 10px 20px 10px;
-  padding: 12px 17px 12px 17px;
-  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .cadre-liste-ressources {
+    height: calc(100vh - 20px);
+  }
 }
 </style>

@@ -122,28 +122,27 @@ ${m("editeur")}: ${props.ressource.editeur.nom}`;
   </div>
 </template>
 
-<style scoped>
-.cadre-carte-ressource {
-  border-radius: 24px;
-  background-color: #fff;
-  overflow: hidden;
+<style lang="scss" scoped>
+$margin: 10px;
 
+.cadre-carte-ressource {
   text-align: left;
-  padding: 10px;
-  margin-bottom: 20px;
+  background-color: #fff;
+  padding: var(--ui-ressources-gar-padding);
+  margin-bottom: $margin;
+  border-radius: 12px;
 }
 
 .nom-ressource-carte-ressource {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: $margin;
   color: var(--ui-ressources-gar-header-background-color);
 }
 
-.attribut-ressource-carte-ressource {
-  margin-top: 0;
-  margin-bottom: 0;
+.liste-attributs-ressource-carte-ressource {
   list-style-type: none;
   padding: 0;
+  margin: 0 0 $margin 0;
 }
 
 .intitule-attribut-ressource-carte-ressource {
@@ -160,40 +159,39 @@ ${m("editeur")}: ${props.ressource.editeur.nom}`;
   word-wrap: break-word;
 }
 
-.liste-attributs-ressource-carte-ressource {
-  padding-left: 0;
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-
 .boutons-carte-ressource {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: 10px;
 }
 
 .boutons-carte-ressource > button {
-  cursor: pointer;
-  border: none;
-  border-radius: 24px;
-  padding: 5px 15px 5px 15px;
-  min-height: 30px;
-  overflow: hidden;
-  background-color: var(--ui-ressources-gar-button-background-color);
-  color: var(--ui-ressources-gar-button-text-color);
+  min-width: min(200px, 45%);
+  padding: 10px;
   font-size: small;
   font-weight: bold;
-  width: 35vw;
+  background-color: var(--ui-ressources-gar-button-background-color);
+  color: var(--ui-ressources-gar-button-text-color);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.boutons-carte-ressource > button:not(:first-child) {
+  margin-left: calc($margin/2);
+}
+.boutons-carte-ressource > button:not(:last-child) {
+  margin-right: calc($margin/2);
 }
 
 .boutons-carte-ressource > button:disabled {
-  opacity: 0.5;
+  background-color: lightgray;
+  cursor: not-allowed;
 }
 
-@media (max-width: 1080px) {
-  .cadre-carte-ressource {
-    font-size: smaller;
+@media (min-width: 768px) {
+  .boutons-carte-ressource {
+    justify-content: flex-end;
   }
 }
 </style>
