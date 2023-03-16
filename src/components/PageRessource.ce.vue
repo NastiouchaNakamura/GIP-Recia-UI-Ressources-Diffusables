@@ -79,10 +79,10 @@ const getPageSuivante = async (): Promise<void> => {
     <div class="bloc-principal-page-ressource">
       <aside class="aside-page-ressource">
         <recherche-ressource-ce
-          :nombreRessourcesTotal="nombreRessourcesTotal"
-          :nombreRessourcesAffichees="ressources.length"
-          @recommencerRechercheInput="recommencerRechercheInput"
-          @reinitialiserRecherche="reinitialiserRecherche"
+          :nombre-ressources-total="nombreRessourcesTotal"
+          :nombre-ressources-affichees="ressources.length"
+          @recommencer-recherche-input="recommencerRechercheInput"
+          @reinitialiser-recherche="reinitialiserRecherche"
           ref="rechercheRessource"
           class="recherche-ressource-page-ressource"
         />
@@ -94,7 +94,7 @@ const getPageSuivante = async (): Promise<void> => {
           :erreur="erreur"
           :lectureTerminee="lectureTerminee"
           :chargement="chargement"
-          @getPageSuivante="getPageSuivante"
+          @get-page-suivante="getPageSuivante"
           ref="listeRessource"
           class="liste-ressource-page-ressource"
         />
