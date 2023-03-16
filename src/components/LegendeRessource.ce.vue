@@ -61,23 +61,26 @@ const m = (key: string): string => t(`legende-ressource.${key}`);
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .cadre-legende-ressource {
   text-align: left;
-  box-sizing: border-box;
-  padding: 10px;
-  border-radius: 24px;
+  padding: var(--ui-ressources-gar-padding);
   margin: 10px;
   background-color: #fff;
+  border-radius: 12px;
+  box-sizing: border-box;
 }
 
 .liste-legendes-legende-ressource {
-  padding-left: 0;
+  padding: 0px;
   margin: 0;
 }
 
 .element-legende-ressource {
   list-style-type: none;
+}
+
+.element-legende-ressource:not(:last-child) {
   margin-bottom: 10px;
 }
 

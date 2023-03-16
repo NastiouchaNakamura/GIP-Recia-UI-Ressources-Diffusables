@@ -48,10 +48,7 @@ const recommencerRecherche = debounce(
         @click="reinitialiserRecherche"
         :disabled="rechercheInput.length == 0"
       >
-        <font-awesome-icon
-          class="icone-reinitialiser-recherche-ressource sombre-off"
-          :icon="['fa', 'xmark']"
-        />
+        <font-awesome-icon :icon="['fa', 'xmark']" />
       </button>
     </div>
     <small class="elements-affiches-page-ressource">
@@ -61,12 +58,13 @@ const recommencerRecherche = debounce(
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .cadre-recherche-ressource {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   box-sizing: border-box;
-  padding: 10px;
+  padding: var(--ui-ressources-gar-padding);
 }
 
 .input-recherche-ressource {
@@ -75,42 +73,43 @@ const recommencerRecherche = debounce(
   margin-bottom: 10px;
 }
 
+$input-height: 30px;
+$border-radius: 4px;
+$padding: 8px;
+
 .champ-recherche-ressource {
   box-sizing: border-box;
   width: 100%;
-  height: 30px;
-  border-right: none;
-  overflow: hidden;
-  padding: 0 4px 0 4px;
+  height: $input-height;
+  padding: 0 $padding 0 $padding;
   font-size: small;
   font-weight: bold;
-  border-bottom: thin solid lightgrey;
-  border-top: thin solid lightgrey;
-  border-left: thin solid lightgrey;
-  border-radius: 3px 0 0 3px;
+  outline: none;
+  border: thin solid lightgrey;
+  border-right: none;
+  border-radius: $border-radius 0 0 $border-radius;
 }
 
 .reinitialiser-recherche-ressource {
-  width: 30px;
-  height: 30px;
-  overflow: hidden;
-  padding: 0 4px 0 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $input-height;
+  height: $input-height;
+  padding: $padding;
   background-color: var(--ui-ressources-gar-button-background-color);
   color: var(--ui-ressources-gar-button-text-color);
-  font-size: small;
-  font-weight: bold;
   border: none;
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 $border-radius $border-radius 0;
   cursor: pointer;
 }
 
 .reinitialiser-recherche-ressource:disabled {
-  background-color: dimgrey;
-  opacity: 1;
-  cursor: default;
+  background-color: lightgray;
+  cursor: not-allowed;
 }
 
-.icone-reinitialiser-recherche-ressource {
-  width: 80%;
+.elements-affiches-page-ressource {
+  text-align: center;
 }
 </style>
