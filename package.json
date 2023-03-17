@@ -29,7 +29,7 @@
     "url": "https://github.com/GIP-RECIA/Ressources-Diffusables-UI.git"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "build-only": "vite build",
