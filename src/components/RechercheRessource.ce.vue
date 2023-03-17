@@ -63,8 +63,10 @@ const recommencerRecherche = debounce(
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-sizing: border-box;
   padding: var(--ui-ressources-gar-padding);
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 12px;
 }
 
 .input-recherche-ressource {

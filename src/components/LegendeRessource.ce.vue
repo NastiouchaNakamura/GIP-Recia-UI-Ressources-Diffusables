@@ -68,7 +68,6 @@ const m = (key: string): string => t(`legende-ressource.${key}`);
   margin: 10px;
   background-color: #fff;
   border-radius: 12px;
-  box-sizing: border-box;
 }
 
 .liste-legendes-legende-ressource {
