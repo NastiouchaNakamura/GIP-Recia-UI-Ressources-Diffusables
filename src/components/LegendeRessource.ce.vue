@@ -67,7 +67,7 @@ const m = (key: string): string => t(`legende-ressource.${key}`);
   padding: var(--ui-ressources-gar-padding);
   margin: 10px;
   background-color: #fff;
-  border-radius: 12px;
+  border-radius: var(--ui-ressources-gar-card-border-radius);
 }
 
 .liste-legendes-legende-ressource {
