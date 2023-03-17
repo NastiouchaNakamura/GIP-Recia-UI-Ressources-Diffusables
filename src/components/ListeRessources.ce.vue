@@ -47,7 +47,7 @@ const m = (key: string): string => t(`liste-ressources.${key}`);
 
 <style lang="scss" scoped>
 .cadre-liste-ressources {
-  height: calc(100vh - (20px + 77px));
+  height: calc(100vh - (97px + 2 * var(--ui-ressources-gar-padding)));
   padding: 10px;
   overflow-y: scroll;
 }
@@ -69,7 +69,7 @@ const m = (key: string): string => t(`liste-ressources.${key}`);
   background-color: var(--ui-ressources-gar-button-background-color);
   color: var(--ui-ressources-gar-button-text-color);
   border: none;
-  border-radius: 12px;
+  border-radius: var(--ui-ressources-gar-button-border-radius);
   cursor: pointer;
 }
 

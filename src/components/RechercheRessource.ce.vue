@@ -66,7 +66,7 @@ const recommencerRecherche = debounce(
   padding: var(--ui-ressources-gar-padding);
   margin: 10px;
   background-color: #fff;
-  border-radius: 12px;
+  border-radius: var(--ui-ressources-gar-card-border-radius);
 }
 
 .input-recherche-ressource {
@@ -76,7 +76,7 @@ const recommencerRecherche = debounce(
 }
 
 $input-height: 30px;
-$border-radius: 4px;
+$border-radius: var(--ui-ressources-gar-button-border-radius);
 $padding: 8px;
 
 .champ-recherche-ressource {

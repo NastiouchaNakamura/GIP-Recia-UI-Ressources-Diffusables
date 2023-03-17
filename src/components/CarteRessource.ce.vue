@@ -130,7 +130,7 @@ $margin: 10px;
   background-color: #fff;
   padding: var(--ui-ressources-gar-padding);
   margin-bottom: $margin;
-  border-radius: 12px;
+  border-radius: var(--ui-ressources-gar-card-border-radius);
 }
 
 .nom-ressource-carte-ressource {
@@ -173,7 +173,7 @@ $margin: 10px;
   background-color: var(--ui-ressources-gar-button-background-color);
   color: var(--ui-ressources-gar-button-text-color);
   border: none;
-  border-radius: 12px;
+  border-radius: var(--ui-ressources-gar-button-border-radius);
   cursor: pointer;
 }
 
