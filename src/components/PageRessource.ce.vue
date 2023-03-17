@@ -113,6 +113,7 @@ const getPageSuivante = async (): Promise<void> => {
     max-height: 100vh;
     min-width: 20%;
     overflow-y: hidden;
+    margin-right: -10px;
   }
 
   .main-page-ressource {
