@@ -22,6 +22,7 @@ function getBrowserLang(availableLanguages: Array<string>): string {
   ];
 
   const allLangs: Array<string> = browserLanguagePropertyKeys
+    // @ts-ignore
     // merge all values into flattened array
     .flatMap((key: string) => navigator[key])
     // Remove undefined values
