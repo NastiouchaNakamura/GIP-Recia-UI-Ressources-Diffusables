@@ -31,6 +31,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "run-p type-check build-only",
+    "clean": "find . -maxdepth 2 -name node_modules -type d -o -name cache -type d -o -name dist -type d | xargs rm -rf",
     "preview": "vite preview --port 4173",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
