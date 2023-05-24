@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Event, Ressource } from "@/types/types";
-import { onMounted, ref } from "vue";
 import {
   getRessourcesDiffusables,
   getSize,
 } from "../services/serviceRessourcesDiffusables";
+import type { Event, Ressource } from "@/types/types";
+import { onMounted, ref } from "vue";
 
 const ressources = ref<Array<Ressource>>([]);
 const erreur = ref<string>("");
