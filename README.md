@@ -14,5 +14,4 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 - Setup : `npm install`
 - Lancer le serveur : `npm run dev`
-<!-- - Version de développement (pour package NPM) : `npm buildDev` -->
 - Publication sur NPM (changer la version dans [`package.json`](package.json)) : `npm publish`
