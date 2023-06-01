@@ -1,3 +1,1 @@
-<template>
-  <i18n-host-ce />
-</template>
+<template><div></div></template>
