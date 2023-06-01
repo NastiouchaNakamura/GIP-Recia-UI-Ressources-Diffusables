@@ -4,8 +4,20 @@ import { provide } from "vue";
 import { I18nInjectionKey } from "vue-i18n";
 
 provide(I18nInjectionKey, i18n);
+
+defineProps<{
+  baseApiUrl: string;
+  ressourcesDiffusablesApiUri: string;
+  ressourcesDiffusablesSizeApiUri: string;
+  userInfoApiUrl: string;
+}>();
 </script>
 
 <template>
-  <page-ressource-ce />
+  <page-ressource-ce
+    :base-api-url="baseApiUrl"
+    :ressources-diffusables-api-uri="ressourcesDiffusablesApiUri"
+    :ressources-diffusables-size-api-uri="ressourcesDiffusablesSizeApiUri"
+    :user-info-api-url="userInfoApiUrl"
+  />
 </template>

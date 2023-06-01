@@ -6,6 +6,13 @@ import {
 import type { Event, Ressource } from "@/types/types";
 import { onMounted, ref } from "vue";
 
+const props = defineProps<{
+  baseApiUrl: string;
+  ressourcesDiffusablesApiUri: string;
+  ressourcesDiffusablesSizeApiUri: string;
+  userInfoApiUrl: string;
+}>();
+
 const ressources = ref<Array<Ressource>>([]);
 const erreur = ref<string>("");
 const nombreRessourcesTotal = ref<number>(0);
@@ -34,7 +41,11 @@ const recommencerRecherche = async (): Promise<void> => {
   erreur.value = "";
   chargement.value = true;
   try {
-    let response = await getSize(recherche.value);
+    let response = await getSize(
+      props.baseApiUrl + props.ressourcesDiffusablesSizeApiUri,
+      props.userInfoApiUrl,
+      recherche.value
+    );
     nombreRessourcesTotal.value = response.data.payload;
     if (nombreRessourcesTotal.value === 0) {
       lectureTerminee.value = true;
@@ -57,6 +68,8 @@ const getPageSuivante = async (): Promise<void> => {
     chargement.value = true;
     try {
       let response = await getRessourcesDiffusables(
+        props.baseApiUrl + props.ressourcesDiffusablesApiUri,
+        props.userInfoApiUrl,
         pageSuivante.value++,
         recherche.value
       );
@@ -90,7 +103,7 @@ const getPageSuivante = async (): Promise<void> => {
       <liste-ressources-ce
         :ressources="ressources"
         :erreur="erreur"
-        :lectureTerminee="lectureTerminee"
+        :lecture-terminee="lectureTerminee"
         :chargement="chargement"
         @get-page-suivante="getPageSuivante"
         ref="listeRessource"
