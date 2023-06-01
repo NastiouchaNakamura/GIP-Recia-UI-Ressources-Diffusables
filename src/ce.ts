@@ -10,7 +10,7 @@ customElements.define(
   "carte-ressource-ce",
   defineCustomElement(CarteRessource)
 );
-customElements.define("i18n-host-ce", defineCustomElement(I18nHost));
+customElements.define("ui-ressources-gar", defineCustomElement(I18nHost));
 customElements.define(
   "legende-ressource-ce",
   defineCustomElement(LegendeRessource)

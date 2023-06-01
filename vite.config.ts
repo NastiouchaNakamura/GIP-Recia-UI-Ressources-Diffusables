@@ -31,4 +31,13 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: "assets/ui-ressources-gar-[name].[ext]",
+        entryFileNames: "assets/ui-ressources-gar-[name].js",
+        chunkFileNames: "assets/ui-ressources-gar-[name].js",
+      },
+    },
+  },
 });
