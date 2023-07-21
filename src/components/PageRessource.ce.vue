@@ -103,7 +103,7 @@ const getPageSuivante = async (): Promise<void> => {
       <liste-ressources-ce
         :ressources="ressources"
         :erreur="erreur"
-        :lecture-terminee="lectureTerminee"
+        :lectureTerminee="lectureTerminee"
         :chargement="chargement"
         @get-page-suivante="getPageSuivante"
         ref="listeRessource"
