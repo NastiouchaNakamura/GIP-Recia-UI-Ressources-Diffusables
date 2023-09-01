@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { DistributeursCom, Ressource } from "@/types/types";
-import { ref, onMounted } from "vue";
-import { useI18n } from "vue-i18n";
-import { useToast } from "vue-toastification";
+import type { DistributeursCom, Ressource } from '@/types/types';
+import { onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useToast } from 'vue-toastification';
 
 const props = defineProps<{
   ressource: Ressource;
@@ -13,7 +13,7 @@ const distributeursComComputed = ref<Array<DistributeursCom>>([]);
 
 onMounted(() => {
   distributeursComComputed.value = props.ressource.distributeursCom.filter(
-    (distributeurCom: DistributeursCom) => distributeurCom.nom !== ""
+    (distributeurCom: DistributeursCom) => distributeurCom.nom !== '',
   );
 });
 
@@ -27,16 +27,16 @@ const afficherPlusInfos = (): void => {
 };
 
 const copierReferences = (): void => {
-  let string = `${m("nom-ressource")}: ${props.ressource.ressource.nom}
-${m("id-gar")}: ${props.ressource.ressource.id}
-${m("editeur")}: ${props.ressource.editeur.nom}`;
+  let string = `${m('nom-ressource')}: ${props.ressource.ressource.nom}
+${m('id-gar')}: ${props.ressource.ressource.id}
+${m('editeur')}: ${props.ressource.editeur.nom}`;
 
   props.ressource.distributeursCom.forEach((element) => {
-    string += `\n${m("distributeurCom")}: ${element.nom}`;
+    string += `\n${m('distributeurCom')}: ${element.nom}`;
   });
 
   navigator.clipboard.writeText(string);
-  toast.info(m("contenu-copie"));
+  toast.info(m('contenu-copie'));
 };
 </script>
 
@@ -47,46 +47,31 @@ ${m("editeur")}: ${props.ressource.editeur.nom}`;
     </h3>
     <ul class="liste-attributs-ressource-carte-ressource">
       <li class="attribut-ressource-carte-ressource">
-        <span class="intitule-attribut-ressource-carte-ressource">
-          {{ m("id-gar") }} :
-        </span>
+        <span class="intitule-attribut-ressource-carte-ressource"> {{ m('id-gar') }} : </span>
         <span class="id-principal-ressource-carte-ressource">
           {{ ressource.ressource.id }}
         </span>
       </li>
-      <li
-        class="attribut-ressource-carte-ressource"
-        v-if="ressource.editeur.nom !== '' || plusInfos"
-      >
-        <span class="intitule-attribut-ressource-carte-ressource">
-          {{ m("editeur") }} :
-        </span>
+      <li class="attribut-ressource-carte-ressource" v-if="ressource.editeur.nom !== '' || plusInfos">
+        <span class="intitule-attribut-ressource-carte-ressource"> {{ m('editeur') }} : </span>
         <span class="nom-attribut-ressource-carte-ressource">
           {{ ressource.editeur.nom }}
         </span>
-        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos"
-          >&nbsp;{{ ressource.editeur.id }}
-        </span>
+        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">&nbsp;{{ ressource.editeur.id }} </span>
       </li>
       <li
         class="attribut-ressource-carte-ressource"
         v-for="distributeurCom in distributeursComComputed"
         :key="distributeurCom.id"
       >
-        <span class="intitule-attribut-ressource-carte-ressource">
-          {{ m("distributeurCom") }} :
-        </span>
+        <span class="intitule-attribut-ressource-carte-ressource"> {{ m('distributeurCom') }} : </span>
         <span class="nom-attribut-ressource-carte-ressource">
           {{ distributeurCom.nom }}
         </span>
-        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos"
-          >&nbsp;{{ distributeurCom.id }}
-        </span>
+        <span class="id-attribut-ressource-carte-ressource" v-if="plusInfos">&nbsp;{{ distributeurCom.id }} </span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
-        <span class="intitule-attribut-ressource-carte-ressource">
-          {{ m("distributeurTech") }} :
-        </span>
+        <span class="intitule-attribut-ressource-carte-ressource"> {{ m('distributeurTech') }} : </span>
         <span class="nom-attribut-ressource-carte-ressource">
           {{ ressource.distributeurTech.nom }}
         </span>
@@ -95,28 +80,24 @@ ${m("editeur")}: ${props.ressource.editeur.nom}`;
         </span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
-        <span class="intitule-attribut-ressource-carte-ressource">
-          {{ m("affichable") }} :
-        </span>
+        <span class="intitule-attribut-ressource-carte-ressource"> {{ m('affichable') }} : </span>
         <span class="nom-attribut-ressource-carte-ressource">
-          {{ ressource.affichable ? m("oui") : m("non") }}
+          {{ ressource.affichable ? m('oui') : m('non') }}
         </span>
       </li>
       <li class="attribut-ressource-carte-ressource" v-if="plusInfos">
-        <span class="intitule-attribut-ressource-carte-ressource">
-          {{ m("diffusable") }} :
-        </span>
+        <span class="intitule-attribut-ressource-carte-ressource"> {{ m('diffusable') }} : </span>
         <span class="nom-attribut-ressource-carte-ressource">
-          {{ ressource.diffusable ? m("oui") : m("non") }}
+          {{ ressource.diffusable ? m('oui') : m('non') }}
         </span>
       </li>
     </ul>
     <div class="boutons-carte-ressource">
       <button class="" @click="afficherPlusInfos">
-        {{ plusInfos ? m("moins-informations") : m("plus-informations") }}
+        {{ plusInfos ? m('moins-informations') : m('plus-informations') }}
       </button>
       <button class="" @click="copierReferences">
-        {{ m("copier-references") }}
+        {{ m('copier-references') }}
       </button>
     </div>
   </div>
