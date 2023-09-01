@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Ressource } from "@/types/types";
-import { useI18n } from "vue-i18n";
+import type { Ressource } from '@/types/types';
+import { useI18n } from 'vue-i18n';
 
 defineProps<{
   ressources: Array<Ressource>;
@@ -17,29 +17,21 @@ const m = (key: string): string => t(`liste-ressources.${key}`);
 <template>
   <div class="cadre-liste-ressources">
     <main>
-      <carte-ressource-ce
-        v-for="ressource in ressources"
-        :key="ressource.ressource.id"
-        :ressource="ressource"
-      />
+      <carte-ressource-ce v-for="ressource in ressources" :key="ressource.ressource.id" :ressource="ressource" />
     </main>
     <footer>
       <p v-if="chargement" class="chargement-liste-ressources">
-        {{ m("chargement") }}
+        {{ m('chargement') }}
       </p>
       <p v-else-if="erreur !== ''">
-        {{ m("erreur") }}<br />
-        {{ m("detail-erreur") }}: <code>{{ erreur }}</code>
+        {{ m('erreur') }}<br />
+        {{ m('detail-erreur') }}: <code>{{ erreur }}</code>
       </p>
       <p v-else-if="ressources.length === 0">
-        {{ m("aucune-ressource") }}
+        {{ m('aucune-ressource') }}
       </p>
-      <button
-        v-else-if="!lectureTerminee"
-        class="page-suivante-liste-ressources"
-        @click="$emit('getPageSuivante')"
-      >
-        {{ m("charger-plus") }}
+      <button v-else-if="!lectureTerminee" class="page-suivante-liste-ressources" @click="$emit('getPageSuivante')">
+        {{ m('charger-plus') }}
       </button>
     </footer>
   </div>

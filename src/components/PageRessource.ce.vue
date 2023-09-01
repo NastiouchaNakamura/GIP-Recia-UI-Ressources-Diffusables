@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import {
-  getRessourcesDiffusables,
-  getSize,
-} from "../services/serviceRessourcesDiffusables";
-import type { Event, Ressource } from "@/types/types";
-import { onMounted, ref } from "vue";
+import { getRessourcesDiffusables, getSize } from '../services/serviceRessourcesDiffusables';
+import type { Event, Ressource } from '@/types/types';
+import { onMounted, ref } from 'vue';
 
 const props = defineProps<{
   baseApiUrl: string;
@@ -14,19 +11,19 @@ const props = defineProps<{
 }>();
 
 const ressources = ref<Array<Ressource>>([]);
-const erreur = ref<string>("");
+const erreur = ref<string>('');
 const nombreRessourcesTotal = ref<number>(0);
 const pageSuivante = ref<number>(0);
 const lectureTerminee = ref<boolean>(false);
 const chargement = ref<boolean>(false);
-const recherche = ref<string>("");
+const recherche = ref<string>('');
 
 onMounted((): void => {
   recommencerRecherche();
 });
 
 const reinitialiserRecherche = (): void => {
-  recherche.value = "";
+  recherche.value = '';
   recommencerRecherche();
 };
 
@@ -38,13 +35,13 @@ const recommencerRechercheInput = (rechercheInput: Event): void => {
 const recommencerRecherche = async (): Promise<void> => {
   ressources.value = [];
   pageSuivante.value = 0;
-  erreur.value = "";
+  erreur.value = '';
   chargement.value = true;
   try {
     let response = await getSize(
       props.baseApiUrl + props.ressourcesDiffusablesSizeApiUri,
       props.userInfoApiUrl,
-      recherche.value
+      recherche.value,
     );
     nombreRessourcesTotal.value = response.data.payload;
     if (nombreRessourcesTotal.value === 0) {
@@ -55,32 +52,28 @@ const recommencerRecherche = async (): Promise<void> => {
       getPageSuivante();
     }
   } catch (e: any) {
-    erreur.value =
-      e.toString() +
-      (e.response != undefined ? " | " + e.response.data.message : "");
+    erreur.value = e.toString() + (e.response != undefined ? ' | ' + e.response.data.message : '');
     chargement.value = false;
   }
 };
 
 const getPageSuivante = async (): Promise<void> => {
   if (!lectureTerminee.value) {
-    erreur.value = "";
+    erreur.value = '';
     chargement.value = true;
     try {
       let response = await getRessourcesDiffusables(
         props.baseApiUrl + props.ressourcesDiffusablesApiUri,
         props.userInfoApiUrl,
         pageSuivante.value++,
-        recherche.value
+        recherche.value,
       );
       ressources.value = ressources.value.concat(response.data.payload);
       if (ressources.value.length === nombreRessourcesTotal.value) {
         lectureTerminee.value = true;
       }
     } catch (e: any) {
-      erreur.value =
-        e.toString() +
-        (e.response != undefined ? " | " + e.response.data.message : "");
+      erreur.value = e.toString() + (e.response != undefined ? ' | ' + e.response.data.message : '');
     }
     chargement.value = false;
   }

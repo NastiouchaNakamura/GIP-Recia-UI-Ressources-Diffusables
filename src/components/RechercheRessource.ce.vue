@@ -1,34 +1,31 @@
 <script setup lang="ts">
-import "../icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { debounce } from "debounce";
-import { ref } from "vue";
-import { useI18n } from "vue-i18n";
+import '../icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { debounce } from 'debounce';
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
-const emit = defineEmits([
-  "reinitialiserRecherche",
-  "recommencerRechercheInput",
-]);
+const emit = defineEmits(['reinitialiserRecherche', 'recommencerRechercheInput']);
 
 defineProps<{
   nombreRessourcesTotal: number;
   nombreRessourcesAffichees: number;
 }>();
 
-const rechercheInput = ref<string>("");
+const rechercheInput = ref<string>('');
 
 const { t } = useI18n();
 
 const m = (key: string): string => t(`recherche-ressource.${key}`);
 
 const reinitialiserRecherche = (): void => {
-  rechercheInput.value = "";
-  emit("reinitialiserRecherche");
+  rechercheInput.value = '';
+  emit('reinitialiserRecherche');
 };
 
 const recommencerRecherche = debounce(
-  () => emit("recommencerRechercheInput", rechercheInput.value),
-  500 // Buffer de 0,5s après input.
+  () => emit('recommencerRechercheInput', rechercheInput.value),
+  500, // Buffer de 0,5s après input.
 );
 </script>
 
@@ -52,7 +49,7 @@ const recommencerRecherche = debounce(
     </div>
     <small class="elements-affiches-page-ressource">
       {{ nombreRessourcesAffichees }}/{{ nombreRessourcesTotal }}
-      {{ m("elements-affiches").toUpperCase() }}
+      {{ m('elements-affiches').toUpperCase() }}
     </small>
   </div>
 </template>
