@@ -15,21 +15,19 @@ npm install @gip-recia/ui-ressouces-gar
 Dans un module JavaScript :
 
 ```js
-import "@gip-recia/ui-ressouces-gar";
+import '@gip-recia/ui-ressouces-gar';
 ```
 
 Dans une page HTML :
 
 ```html
-<script type="module">
-  import "./path/to/ui-ressouces-gar.js";
-</script>
+<script type="module" crossorigin src="./path/to/ui-ressouces-gar-index.js"></script>
 ```
 
 3. Ajout du composant sur une page HTML :
 
 ```js
-const uiRessourcesGar = document.createElement("ui-ressouces-gar");
+const uiRessourcesGar = document.createElement('ui-ressouces-gar');
 document.body.appendChild(uiRessourcesGar);
 ```
 
