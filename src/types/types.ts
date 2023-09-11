@@ -20,7 +20,3 @@ export type DistributeursCom = {
   id: string;
   nom: string;
 };
-
-export type Event = {
-  detail: Array<any>;
-};

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getRessourcesDiffusables, getSize } from '../services/serviceRessourcesDiffusables';
-import type { Event, Ressource } from '@/types/types';
+import type { Ressource } from '@/types/types';
 import { onMounted, ref } from 'vue';
 
 const props = defineProps<{
@@ -27,7 +27,7 @@ const reinitialiserRecherche = (): void => {
   recommencerRecherche();
 };
 
-const recommencerRechercheInput = (rechercheInput: Event): void => {
+const recommencerRechercheInput = (rechercheInput: CustomEvent): void => {
   recherche.value = rechercheInput.detail[0];
   recommencerRecherche();
 };
