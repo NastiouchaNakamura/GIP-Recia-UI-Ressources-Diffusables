@@ -5,11 +5,14 @@ import { debounce } from 'debounce';
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-const emit = defineEmits(['reinitialiserRecherche', 'recommencerRechercheInput']);
-
 defineProps<{
   nombreRessourcesTotal: number;
   nombreRessourcesAffichees: number;
+}>();
+
+const emit = defineEmits<{
+  (event: 'reinitialiserRecherche'): void;
+  (event: 'recommencerRechercheInput', payload: string): void;
 }>();
 
 const rechercheInput = ref<string>('');
