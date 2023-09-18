@@ -43,13 +43,13 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
-    "vue-i18n": "^9.3.0"
+    "vue-i18n": "^9.4.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/vue-fontawesome": "^3.0.3",
-    "@intlify/unplugin-vue-i18n": "^1.0.1",
+    "@intlify/unplugin-vue-i18n": "^1.2.0",
     "@rushstack/eslint-patch": "^1.4.0",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "@tsconfig/node18": "^18.2.2",
