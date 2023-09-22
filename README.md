@@ -21,7 +21,7 @@ import '@gip-recia/ui-ressouces-gar';
 Dans une page HTML :
 
 ```html
-<script type="module" crossorigin src="./path/to/ui-ressouces-gar-index.js"></script>
+<script src="./path/to/index.js"></script>
 ```
 
 3. Ajout du composant sur une page HTML :
