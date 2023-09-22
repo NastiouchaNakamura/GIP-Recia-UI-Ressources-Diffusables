@@ -1,5 +1,4 @@
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
-import legacy from '@vitejs/plugin-legacy';
 import vue from '@vitejs/plugin-vue';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -20,10 +19,6 @@ export default ({ mode }: { mode: string }) => {
           },
         },
       }),
-      legacy({
-        targets: ['ie >= 11'],
-        additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
-      }),
       VueI18nPlugin({
         include: resolve(dirname(fileURLToPath(import.meta.url)), './src/locales/**'),
       }),
@@ -35,13 +30,14 @@ export default ({ mode }: { mode: string }) => {
       },
     },
     build: {
-      rollupOptions: {
-        output: {
-          assetFileNames: 'assets/ui-ressources-gar-[name].[ext]',
-          entryFileNames: 'assets/ui-ressources-gar-[name].js',
-          chunkFileNames: 'assets/ui-ressources-gar-[name].js',
-        },
+      lib: {
+        entry: './src/main.ts',
+        name: '@gip-recia/ui-ressources-gar',
+        fileName: 'index',
       },
+    },
+    define: {
+      'process.env': process.env,
     },
   });
 };
