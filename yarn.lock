@@ -406,7 +406,7 @@ __metadata:
     "@rushstack/eslint-patch": ^1.5.1
     "@trivago/prettier-plugin-sort-imports": ^4.2.0
     "@tsconfig/node18": ^18.2.2
-    "@types/debounce": ^1.2.1
+    "@types/debounce": ^1.2.2
     "@types/node": ^18.18.3
     "@uportal/open-id-connect": ^1.40.2
     "@vitejs/plugin-vue": ^4.4.0
@@ -721,7 +721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/debounce@npm:^1.2.1":
+"@types/debounce@npm:^1.2.2":
   version: 1.2.2
   resolution: "@types/debounce@npm:1.2.2"
   checksum: 990d856e5b8f721031e13f8a49865af0b3ffde986a469dea7dfc2bb89bbca00d2b8928b22f99ca78544d98266003804d6bd8b578464c792a6bd8f96456030f66
