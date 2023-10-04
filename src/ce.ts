@@ -6,9 +6,9 @@ import PageRessource from './components/PageRessource.ce.vue';
 import RechercheRessource from './components/RechercheRessource.ce.vue';
 import { defineCustomElement } from 'vue';
 
-customElements.define('carte-ressource-ce', defineCustomElement(CarteRessource));
+customElements.define('carte-ressource', defineCustomElement(CarteRessource));
 customElements.define('ui-ressources-gar', defineCustomElement(I18nHost));
-customElements.define('legende-ressource-ce', defineCustomElement(LegendeRessource));
-customElements.define('liste-ressources-ce', defineCustomElement(ListeRessources));
-customElements.define('page-ressource-ce', defineCustomElement(PageRessource));
-customElements.define('recherche-ressource-ce', defineCustomElement(RechercheRessource));
+customElements.define('legende-ressource', defineCustomElement(LegendeRessource));
+customElements.define('liste-ressources', defineCustomElement(ListeRessources));
+customElements.define('page-ressource', defineCustomElement(PageRessource));
+customElements.define('recherche-ressource', defineCustomElement(RechercheRessource));

@@ -2,47 +2,45 @@
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
-
-const m = (key: string): string => t(`legende-ressource.${key}`);
 </script>
 
 <template>
   <div class="cadre-legende-ressource">
     <ul class="liste-legendes-legende-ressource">
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource"> {{ m('id-gar.intitule') }} : </span>
+        <span class="intitule-legende-ressource"> {{ t('legende-ressource.id-gar.intitule') }} : </span>
         <span class="definition-legende-ressource">
-          {{ m('id-gar.definition') }}
+          {{ t('legende-ressource.id-gar.definition') }}
         </span>
       </li>
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource"> {{ m('editeur.intitule') }} : </span>
+        <span class="intitule-legende-ressource"> {{ t('legende-ressource.editeur.intitule') }} : </span>
         <span class="definition-legende-ressource">
-          {{ m('editeur.definition') }}
+          {{ t('legende-ressource.editeur.definition') }}
         </span>
       </li>
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource"> {{ m('distributeurCom.intitule') }} : </span>
+        <span class="intitule-legende-ressource"> {{ t('legende-ressource.distributeurCom.intitule') }} : </span>
         <span class="definition-legende-ressource">
-          {{ m('distributeurCom.definition') }}
+          {{ t('legende-ressource.distributeurCom.definition') }}
         </span>
       </li>
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource"> {{ m('distributeurTech.intitule') }} : </span>
+        <span class="intitule-legende-ressource"> {{ t('legende-ressource.distributeurTech.intitule') }} : </span>
         <span class="definition-legende-ressource">
-          {{ m('distributeurTech.definition') }}
+          {{ t('legende-ressource.distributeurTech.definition') }}
         </span>
       </li>
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource"> {{ m('affichable.intitule') }} : </span>
+        <span class="intitule-legende-ressource"> {{ t('legende-ressource.affichable.intitule') }} : </span>
         <span class="definition-legende-ressource">
-          {{ m('affichable.definition') }}
+          {{ t('legende-ressource.affichable.definition') }}
         </span>
       </li>
       <li class="element-legende-ressource">
-        <span class="intitule-legende-ressource"> {{ m('diffusable.intitule') }} : </span>
+        <span class="intitule-legende-ressource"> {{ t('legende-ressource.diffusable.intitule') }} : </span>
         <span class="definition-legende-ressource">
-          {{ m('diffusable.definition') }}
+          {{ t('legende-ressource.diffusable.definition') }}
         </span>
       </li>
     </ul>

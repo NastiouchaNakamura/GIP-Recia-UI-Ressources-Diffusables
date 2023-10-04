@@ -1,3 +1,5 @@
+import type { DistributeursCom } from '@/types/disctibuteurComType';
+
 export type Ressource = {
   ressource: {
     id: string;
@@ -14,9 +16,4 @@ export type Ressource = {
   };
   affichable: boolean;
   diffusable: boolean;
-};
-
-export type DistributeursCom = {
-  id: string;
-  nom: string;
 };

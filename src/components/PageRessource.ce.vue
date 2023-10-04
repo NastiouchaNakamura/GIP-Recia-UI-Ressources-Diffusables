@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { getRessourcesDiffusables, getSize } from '../services/serviceRessourcesDiffusables';
-import type { Ressource } from '@/types/types';
+import { getRessourcesDiffusables, getSize } from '@/services/serviceRessourcesDiffusables';
+import type { Ressource } from '@/types/ressourceType';
 import { onMounted, ref } from 'vue';
 
 const props = defineProps<{
@@ -83,17 +83,17 @@ const getPageSuivante = async (): Promise<void> => {
 <template>
   <div class="cadre-page-ressource">
     <aside class="aside-page-ressource">
-      <recherche-ressource-ce
+      <recherche-ressource
         :nombre-ressources-total="nombreRessourcesTotal"
         :nombre-ressources-affichees="ressources.length"
         @recommencer-recherche-input="recommencerRechercheInput"
         @reinitialiser-recherche="reinitialiserRecherche"
         ref="rechercheRessource"
       />
-      <legende-ressource-ce class="legende-ressource-page-ressource" />
+      <legende-ressource class="legende-ressource-page-ressource" />
     </aside>
     <main class="main-page-ressource">
-      <liste-ressources-ce
+      <liste-ressources
         :ressources="ressources"
         :erreur="erreur"
         :lectureTerminee="lectureTerminee"
