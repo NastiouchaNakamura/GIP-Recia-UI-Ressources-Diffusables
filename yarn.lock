@@ -424,9 +424,9 @@ __metadata:
     prettier: ^3.0.3
     regenerator-runtime: ^0.14.0
     sass: ^1.68.0
-    terser: ^5.20.0
+    terser: ^5.21.0
     typescript: ^5.2.2
-    vite: ^4.4.9
+    vite: ^4.4.10
     vite-plugin-css-injected-by-js: ^3.3.0
     vue: ^3.3.4
     vue-i18n: ^9.5.0
@@ -2626,11 +2626,9 @@ __metadata:
   linkType: hard
 
 "has@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "has@npm:1.0.3"
-  dependencies:
-    function-bind: ^1.1.1
-  checksum: b9ad53d53be4af90ce5d1c38331e712522417d017d5ef1ebd0507e07c2fbad8686fffb8e12ddecd4c39ca9b9b47431afbb975b8abf7f3c3b82c98e9aad052792
+  version: 1.0.4
+  resolution: "has@npm:1.0.4"
+  checksum: 8a11ba062e0627c9578a1d08285401e39f1d071a9692ddf793199070edb5648b21c774dd733e2a181edd635bf6862731885f476f4ccf67c998d7a5ff7cef2550
   languageName: node
   linkType: hard
 
@@ -4606,9 +4604,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:^5.20.0":
-  version: 5.20.0
-  resolution: "terser@npm:5.20.0"
+"terser@npm:^5.21.0":
+  version: 5.21.0
+  resolution: "terser@npm:5.21.0"
   dependencies:
     "@jridgewell/source-map": ^0.3.3
     acorn: ^8.8.2
@@ -4616,7 +4614,7 @@ __metadata:
     source-map-support: ~0.5.20
   bin:
     terser: bin/terser
-  checksum: 251d1b62d7c651ace29f997cf336ff5d5f8e30c65c8698ab7b831764d9e012ab0640895cb609906fb939a5bdf5143d73b5781c5c8c67b9216c77ce92dafdc0bc
+  checksum: 130f1567af1ffa4ddb067651bb284a01b45b5c83e82b3a072a5ff94b0b00ac35090f89c8714631a4a45972f65187bc149fc7144380611f437e1e3d9e174b136b
   languageName: node
   linkType: hard
 
@@ -4847,9 +4845,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^4.4.9":
-  version: 4.4.9
-  resolution: "vite@npm:4.4.9"
+"vite@npm:^4.4.10":
+  version: 4.4.10
+  resolution: "vite@npm:4.4.10"
   dependencies:
     esbuild: ^0.18.10
     fsevents: ~2.3.2
@@ -4883,7 +4881,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: c511024ceae39c68c7dbf2ac4381ee655cd7bb62cf43867a14798bc835d3320b8fa7867a336143c30825c191c1fb4e9aa3348fce831ab617e96203080d3d2908
+  checksum: b5ab3fff97644321a9efd425d54cd841d619abcc4d3167f2c098253f4ed5d92d532a5c72ea0dad2cde3239b5613558a33c62ee77bb7b0ebce608d8e6d4f8a13d
   languageName: node
   linkType: hard
 
