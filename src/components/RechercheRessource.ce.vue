@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import '../icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { debounce } from 'debounce';
 import { ref } from 'vue';
@@ -18,8 +17,6 @@ const emit = defineEmits<{
 const rechercheInput = ref<string>('');
 
 const { t } = useI18n();
-
-const m = (key: string): string => t(`recherche-ressource.${key}`);
 
 const reinitialiserRecherche = (): void => {
   rechercheInput.value = '';
@@ -40,7 +37,7 @@ const recommencerRecherche = debounce(
         v-model.trim="rechercheInput"
         @input="recommencerRecherche"
         type="text"
-        :placeholder="m('recherche')"
+        :placeholder="t('recherche-ressource.recherche')"
       />
       <button
         class="reinitialiser-recherche-ressource"
@@ -52,7 +49,7 @@ const recommencerRecherche = debounce(
     </div>
     <small class="elements-affiches-page-ressource">
       {{ nombreRessourcesAffichees }}/{{ nombreRessourcesTotal }}
-      {{ m('elements-affiches').toUpperCase() }}
+      {{ t('recherche-ressource.elements-affiches').toUpperCase() }}
     </small>
   </div>
 </template>

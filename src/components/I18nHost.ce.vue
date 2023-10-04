@@ -14,7 +14,7 @@ defineProps<{
 </script>
 
 <template>
-  <page-ressource-ce
+  <page-ressource
     :base-api-url="baseApiUrl"
     :ressources-diffusables-api-uri="ressourcesDiffusablesApiUri"
     :ressources-diffusables-size-api-uri="ressourcesDiffusablesSizeApiUri"

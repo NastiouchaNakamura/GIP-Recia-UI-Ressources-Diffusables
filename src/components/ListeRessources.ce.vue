@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Ressource } from '@/types/types';
+import type { Ressource } from '@/types/ressourceType';
 import { useI18n } from 'vue-i18n';
 
 defineProps<{
@@ -10,28 +10,26 @@ defineProps<{
 }>();
 
 const { t } = useI18n();
-
-const m = (key: string): string => t(`liste-ressources.${key}`);
 </script>
 
 <template>
   <div class="cadre-liste-ressources">
     <main>
-      <carte-ressource-ce v-for="ressource in ressources" :key="ressource.ressource.id" :ressource="ressource" />
+      <carte-ressource v-for="ressource in ressources" :key="ressource.ressource.id" :ressource="ressource" />
     </main>
     <footer>
       <p v-if="chargement" class="chargement-liste-ressources">
-        {{ m('chargement') }}
+        {{ t('liste-ressources.chargement') }}
       </p>
       <p v-else-if="erreur !== ''">
-        {{ m('erreur') }}<br />
-        {{ m('detail-erreur') }}: <code>{{ erreur }}</code>
+        {{ t('liste-ressources.erreur') }}<br />
+        {{ t('liste-ressources.detail-erreur') }}: <code>{{ erreur }}</code>
       </p>
       <p v-else-if="ressources.length === 0">
-        {{ m('aucune-ressource') }}
+        {{ t('liste-ressources.aucune-ressource') }}
       </p>
       <button v-else-if="!lectureTerminee" class="page-suivante-liste-ressources" @click="$emit('getPageSuivante')">
-        {{ m('charger-plus') }}
+        {{ t('liste-ressources.charger-plus') }}
       </button>
     </footer>
   </div>

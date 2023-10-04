@@ -14,7 +14,15 @@ export default ({ mode }: { mode: string }) => {
       vue({
         template: {
           compilerOptions: {
-            isCustomElement: (tag) => tag.includes('-ce'),
+            isCustomElement: (tag) =>
+              [
+                'carte-ressource',
+                'ui-ressources-gar',
+                'legende-ressource',
+                'liste-ressources',
+                'page-ressource',
+                'recherche-ressource',
+              ].includes(tag),
           },
         },
       }),
