@@ -1,14 +1,36 @@
-import CarteRessource from './components/CarteRessource.ce.vue';
-import I18nHost from './components/I18nHost.ce.vue';
-import LegendeRessource from './components/LegendeRessource.ce.vue';
-import ListeRessources from './components/ListeRessources.ce.vue';
-import PageRessource from './components/PageRessource.ce.vue';
-import RechercheRessource from './components/RechercheRessource.ce.vue';
+import CarteRessourceSFC from './components/CarteRessource.ce.vue';
+import I18nHostSFC from './components/I18nHost.ce.vue';
+import LegendeRessourceSFC from './components/LegendeRessource.ce.vue';
+import ListeRessourcesSFC from './components/ListeRessources.ce.vue';
+import PageRessourceSFC from './components/PageRessource.ce.vue';
+import RechercheRessourceSFC from './components/RechercheRessource.ce.vue';
 import { defineCustomElement } from 'vue';
 
-customElements.define('carte-ressource', defineCustomElement(CarteRessource));
-customElements.define('ui-ressources-gar', defineCustomElement(I18nHost));
-customElements.define('legende-ressource', defineCustomElement(LegendeRessource));
-customElements.define('liste-ressources', defineCustomElement(ListeRessources));
-customElements.define('page-ressource', defineCustomElement(PageRessource));
-customElements.define('recherche-ressource', defineCustomElement(RechercheRessource));
+const CarteRessource = defineCustomElement(CarteRessourceSFC);
+const I18nHost = defineCustomElement(I18nHostSFC);
+const LegendeRessource = defineCustomElement(LegendeRessourceSFC);
+const ListeRessources = defineCustomElement(ListeRessourcesSFC);
+const PageRessource = defineCustomElement(PageRessourceSFC);
+const RechercheRessource = defineCustomElement(RechercheRessourceSFC);
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    CarteRessource: typeof CarteRessource;
+    I18nHost: typeof I18nHost;
+    LegendeRessource: typeof LegendeRessource;
+    ListeRessources: typeof ListeRessources;
+    PageRessource: typeof PageRessource;
+    RechercheRessource: typeof RechercheRessource;
+  }
+}
+
+const register = () => {
+  customElements.define('carte-ressource', CarteRessource);
+  customElements.define('ui-ressources-gar', I18nHost);
+  customElements.define('legende-ressource', LegendeRessource);
+  customElements.define('liste-ressources', ListeRessources);
+  customElements.define('page-ressource', PageRessource);
+  customElements.define('recherche-ressource', RechercheRessource);
+};
+
+export { CarteRessource, I18nHost, LegendeRessource, ListeRessources, PageRessource, RechercheRessource, register };

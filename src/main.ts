@@ -2,7 +2,8 @@ import 'regenerator-runtime/runtime.js';
 
 import { createApp } from 'vue';
 
-import './ce';
+import { register } from './ce';
+register();
 
 import i18n from './i18n';
 import Toast from 'vue-toastification';
