@@ -1,16 +1,10 @@
 import oidc from '@uportal/open-id-connect';
 import axios from 'axios';
 
-const getToken = async (userInfoApiUrl: string): Promise<string | undefined> => {
-  try {
-    const { encoded } = await oidc({
-      userInfoApiUrl: userInfoApiUrl,
-    });
+const getToken = async (userInfoApiUrl: string): Promise<string> => {
+  const { encoded } = await oidc({ userInfoApiUrl: userInfoApiUrl });
 
-    return encoded;
-  } catch (e) {
-    console.error(e);
-  }
+  return encoded;
 };
 
 const getUrlParams = (recherche: string): string =>
