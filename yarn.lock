@@ -410,7 +410,7 @@ __metadata:
     "@types/node": "npm:^20"
     "@uportal/open-id-connect": "npm:^1.40.2"
     "@vitejs/plugin-vue": "npm:^4.5.0"
-    "@vue/compiler-sfc": "npm:^3.3.4"
+    "@vue/compiler-sfc": "npm:^3.3.8"
     "@vue/eslint-config-prettier": "npm:^8.0.0"
     "@vue/eslint-config-typescript": "npm:^12.0.0"
     "@vue/tsconfig": "npm:^0.4.0"
@@ -971,7 +971,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/compiler-sfc@npm:3.3.8, @vue/compiler-sfc@npm:^3.2.47, @vue/compiler-sfc@npm:^3.3.4":
+"@vue/compiler-sfc@npm:3.3.8, @vue/compiler-sfc@npm:^3.2.47, @vue/compiler-sfc@npm:^3.3.8":
   version: 3.3.8
   resolution: "@vue/compiler-sfc@npm:3.3.8"
   dependencies:
