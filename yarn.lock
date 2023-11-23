@@ -404,7 +404,7 @@ __metadata:
     "@fortawesome/vue-fontawesome": "npm:^3.0.5"
     "@intlify/unplugin-vue-i18n": "npm:^1.5.0"
     "@rushstack/eslint-patch": "npm:^1.6.0"
-    "@trivago/prettier-plugin-sort-imports": "npm:^4.2.0"
+    "@trivago/prettier-plugin-sort-imports": "npm:^4.3.0"
     "@tsconfig/node20": "npm:^20.1.2"
     "@types/lodash.debounce": "npm:^4"
     "@types/node": "npm:^20"
@@ -700,7 +700,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@trivago/prettier-plugin-sort-imports@npm:^4.2.0":
+"@trivago/prettier-plugin-sort-imports@npm:^4.3.0":
   version: 4.3.0
   resolution: "@trivago/prettier-plugin-sort-imports@npm:4.3.0"
   dependencies:
