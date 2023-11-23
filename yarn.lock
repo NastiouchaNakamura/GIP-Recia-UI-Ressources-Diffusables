@@ -406,8 +406,8 @@ __metadata:
     "@rushstack/eslint-patch": "npm:^1.6.0"
     "@trivago/prettier-plugin-sort-imports": "npm:^4.3.0"
     "@tsconfig/node20": "npm:^20.1.2"
-    "@types/lodash.debounce": "npm:^4"
-    "@types/node": "npm:^20"
+    "@types/lodash.debounce": "npm:^4.0.9"
+    "@types/node": "npm:^20.9.4"
     "@uportal/open-id-connect": "npm:^1.40.2"
     "@vitejs/plugin-vue": "npm:^4.5.0"
     "@vue/compiler-sfc": "npm:^3.3.8"
@@ -741,7 +741,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.debounce@npm:^4":
+"@types/lodash.debounce@npm:^4.0.9":
   version: 4.0.9
   resolution: "@types/lodash.debounce@npm:4.0.9"
   dependencies:
@@ -757,7 +757,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20":
+"@types/node@npm:^20.9.4":
   version: 20.9.4
   resolution: "@types/node@npm:20.9.4"
   dependencies:
