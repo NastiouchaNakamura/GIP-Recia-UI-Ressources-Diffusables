@@ -406,8 +406,8 @@ __metadata:
     "@rushstack/eslint-patch": "npm:^1.5.1"
     "@trivago/prettier-plugin-sort-imports": "npm:^4.2.0"
     "@tsconfig/node20": "npm:^20.1.2"
-    "@types/debounce": "npm:^1.2.2"
-    "@types/node": "npm:^20.9.4"
+    "@types/lodash.debounce": "npm:^4"
+    "@types/node": "npm:^20"
     "@uportal/open-id-connect": "npm:^1.40.2"
     "@vitejs/plugin-vue": "npm:^4.4.0"
     "@vue/compiler-sfc": "npm:^3.3.4"
@@ -415,11 +415,11 @@ __metadata:
     "@vue/eslint-config-typescript": "npm:^12.0.0"
     "@vue/tsconfig": "npm:^0.4.0"
     axios: "npm:^1.5.1"
-    debounce: "npm:^2.0.0"
     eslint: "npm:^8.51.0"
     eslint-plugin-vue: "npm:^9.17.0"
     husky: "npm:^8.0.3"
     lint-staged: "npm:^15.1.0"
+    lodash.debounce: "npm:^4.0.8"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:^3.0.3"
     regenerator-runtime: "npm:^0.14.0"
@@ -428,7 +428,7 @@ __metadata:
     typescript: "npm:^5.2.2"
     vite: "npm:^4.4.11"
     vite-plugin-css-injected-by-js: "npm:^3.3.0"
-    vue: "npm:^3.3.4"
+    vue: "npm:^3.3.8"
     vue-i18n: "npm:^9.5.0"
     vue-toastification: "npm:^2.0.0-rc.5"
     vue-tsc: "npm:^1.8.18"
@@ -727,13 +727,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/debounce@npm:^1.2.2":
-  version: 1.2.4
-  resolution: "@types/debounce@npm:1.2.4"
-  checksum: decef3eee65d681556d50f7fac346f1b33134f6b21f806d41326f9dfb362fa66b0282ff0640ae6791b690694c9dc3dad4e146e909e707e6f96650f3aa325b9da
-  languageName: node
-  linkType: hard
-
 "@types/estree@npm:^1.0.0":
   version: 1.0.5
   resolution: "@types/estree@npm:1.0.5"
@@ -748,7 +741,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.9.4":
+"@types/lodash.debounce@npm:^4":
+  version: 4.0.9
+  resolution: "@types/lodash.debounce@npm:4.0.9"
+  dependencies:
+    "@types/lodash": "npm:*"
+  checksum: 8183a152e01928e3b97ca773f6ae6038b8695e76493ba8bf6b743ec143948a62294fbc9d49fa4a78b52265b3ba4892ef57534e0c13d04aa0f111671b5a944feb
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*":
+  version: 4.14.202
+  resolution: "@types/lodash@npm:4.14.202"
+  checksum: 1bb9760a5b1dda120132c4b987330d67979c95dbc22612678682cd61b00302e190f4207228f3728580059cdab5582362262e3819aea59960c1017bd2b9fb26f6
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20":
   version: 20.9.4
   resolution: "@types/node@npm:20.9.4"
   dependencies:
@@ -1615,13 +1624,6 @@ __metadata:
   version: 1.0.2
   resolution: "de-indent@npm:1.0.2"
   checksum: 30bf43744dca005f9252dbb34ed95dcb3c30dfe52bfed84973b89c29eccff04e27769f222a34c61a93354acf47457785e9032e6184be390ed1d324fb9ab3f427
-  languageName: node
-  linkType: hard
-
-"debounce@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "debounce@npm:2.0.0"
-  checksum: 79d143e0b3c3d15f8ecaf5dd68ad087ed58b0eaf507ee005f9d5b503cafd03acccd69f5341788cca9c82574662da066b0efb1ed5c64282b2cca64fab65af4acf
   languageName: node
   linkType: hard
 
@@ -3210,6 +3212,13 @@ __metadata:
   dependencies:
     p-locate: "npm:^5.0.0"
   checksum: 72eb661788a0368c099a184c59d2fee760b3831c9c1c33955e8a19ae4a21b4116e53fa736dc086cdeb9fce9f7cc508f2f92d2d3aae516f133e16a2bb59a39f5a
+  languageName: node
+  linkType: hard
+
+"lodash.debounce@npm:^4.0.8":
+  version: 4.0.8
+  resolution: "lodash.debounce@npm:4.0.8"
+  checksum: cd0b2819786e6e80cb9f5cda26b1a8fc073daaf04e48d4cb462fa4663ec9adb3a5387aa22d7129e48eed1afa05b482e2a6b79bfc99b86886364449500cbb00fd
   languageName: node
   linkType: hard
 

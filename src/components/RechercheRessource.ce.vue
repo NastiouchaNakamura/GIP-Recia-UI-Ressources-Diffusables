@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { debounce } from 'debounce';
+import debounce from 'lodash.debounce';
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
