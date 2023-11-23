@@ -415,8 +415,8 @@ __metadata:
     "@vue/eslint-config-typescript": "npm:^12.0.0"
     "@vue/tsconfig": "npm:^0.4.0"
     axios: "npm:^1.6.2"
-    eslint: "npm:^8.51.0"
-    eslint-plugin-vue: "npm:^9.17.0"
+    eslint: "npm:^8.54.0"
+    eslint-plugin-vue: "npm:^9.18.1"
     husky: "npm:^8.0.3"
     lint-staged: "npm:^15.1.0"
     lodash.debounce: "npm:^4.0.8"
@@ -1983,7 +1983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:^9.17.0":
+"eslint-plugin-vue@npm:^9.18.1":
   version: 9.18.1
   resolution: "eslint-plugin-vue@npm:9.18.1"
   dependencies:
@@ -2017,7 +2017,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.51.0":
+"eslint@npm:^8.54.0":
   version: 8.54.0
   resolution: "eslint@npm:8.54.0"
   dependencies:
