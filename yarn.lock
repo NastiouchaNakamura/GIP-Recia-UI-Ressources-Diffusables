@@ -424,7 +424,7 @@ __metadata:
     prettier: "npm:^3.1.0"
     regenerator-runtime: "npm:^0.14.0"
     sass: "npm:^1.69.5"
-    terser: "npm:^5.21.0"
+    terser: "npm:^5.24.0"
     typescript: "npm:^5.2.2"
     vite: "npm:^4.4.11"
     vite-plugin-css-injected-by-js: "npm:^3.3.0"
@@ -4542,7 +4542,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:^5.21.0":
+"terser@npm:^5.24.0":
   version: 5.24.0
   resolution: "terser@npm:5.24.0"
   dependencies:
