@@ -429,7 +429,7 @@ __metadata:
     vite: "npm:^4.4.11"
     vite-plugin-css-injected-by-js: "npm:^3.3.0"
     vue: "npm:^3.3.8"
-    vue-i18n: "npm:^9.5.0"
+    vue-i18n: "npm:^9.7.1"
     vue-toastification: "npm:^2.0.0-rc.5"
     vue-tsc: "npm:^1.8.18"
   languageName: unknown
@@ -4847,7 +4847,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-i18n@npm:^9.5.0":
+"vue-i18n@npm:^9.7.1":
   version: 9.7.1
   resolution: "vue-i18n@npm:9.7.1"
   dependencies:
