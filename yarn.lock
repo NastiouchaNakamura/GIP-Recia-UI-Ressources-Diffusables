@@ -409,7 +409,7 @@ __metadata:
     "@types/lodash.debounce": "npm:^4"
     "@types/node": "npm:^20"
     "@uportal/open-id-connect": "npm:^1.40.2"
-    "@vitejs/plugin-vue": "npm:^4.4.0"
+    "@vitejs/plugin-vue": "npm:^4.5.0"
     "@vue/compiler-sfc": "npm:^3.3.4"
     "@vue/eslint-config-prettier": "npm:^8.0.0"
     "@vue/eslint-config-typescript": "npm:^12.0.0"
@@ -911,7 +911,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-vue@npm:^4.4.0":
+"@vitejs/plugin-vue@npm:^4.5.0":
   version: 4.5.0
   resolution: "@vitejs/plugin-vue@npm:4.5.0"
   peerDependencies:
