@@ -431,7 +431,7 @@ __metadata:
     vue: "npm:^3.3.8"
     vue-i18n: "npm:^9.7.1"
     vue-toastification: "npm:^2.0.0-rc.5"
-    vue-tsc: "npm:^1.8.18"
+    vue-tsc: "npm:^1.8.22"
   languageName: unknown
   linkType: soft
 
@@ -4879,7 +4879,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-tsc@npm:^1.8.18":
+"vue-tsc@npm:^1.8.22":
   version: 1.8.22
   resolution: "vue-tsc@npm:1.8.22"
   dependencies:
