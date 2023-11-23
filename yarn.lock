@@ -414,7 +414,7 @@ __metadata:
     "@vue/eslint-config-prettier": "npm:^8.0.0"
     "@vue/eslint-config-typescript": "npm:^12.0.0"
     "@vue/tsconfig": "npm:^0.4.0"
-    axios: "npm:^1.5.1"
+    axios: "npm:^1.6.2"
     eslint: "npm:^8.51.0"
     eslint-plugin-vue: "npm:^9.17.0"
     husky: "npm:^8.0.3"
@@ -1294,7 +1294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.5.1":
+"axios@npm:^1.6.2":
   version: 1.6.2
   resolution: "axios@npm:1.6.2"
   dependencies:
