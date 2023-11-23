@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Ressource } from '@/types/ressourceType';
+import type { Ressource } from '@/types/ressourceType.ts';
 import { useI18n } from 'vue-i18n';
 
 defineProps<{
