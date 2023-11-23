@@ -385,7 +385,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/vue-fontawesome@npm:^3.0.3":
+"@fortawesome/vue-fontawesome@npm:^3.0.5":
   version: 3.0.5
   resolution: "@fortawesome/vue-fontawesome@npm:3.0.5"
   peerDependencies:
@@ -401,7 +401,7 @@ __metadata:
   dependencies:
     "@fortawesome/fontawesome-svg-core": "npm:^6.4.2"
     "@fortawesome/free-solid-svg-icons": "npm:^6.4.2"
-    "@fortawesome/vue-fontawesome": "npm:^3.0.3"
+    "@fortawesome/vue-fontawesome": "npm:^3.0.5"
     "@intlify/unplugin-vue-i18n": "npm:^1.4.0"
     "@rushstack/eslint-patch": "npm:^1.5.1"
     "@trivago/prettier-plugin-sort-imports": "npm:^4.2.0"
