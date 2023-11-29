@@ -106,17 +106,27 @@ const getPageSuivante = async (): Promise<void> => {
 </template>
 
 <style lang="scss" scoped>
+.cadre-page-ressource {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main-page-ressource {
+  height: 100%;
+}
+
 .legende-ressource-page-ressource {
   display: none;
 }
 
 @media (min-width: 1024px) {
   .cadre-page-ressource {
-    display: flex;
+    flex-direction: row;
   }
 
   .aside-page-ressource {
-    max-height: 100vh;
+    max-height: 100%;
     min-width: 20%;
     overflow-y: hidden;
     margin-right: -10px;

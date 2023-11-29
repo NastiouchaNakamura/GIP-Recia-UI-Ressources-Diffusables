@@ -37,7 +37,7 @@ const { t } = useI18n();
 
 <style lang="scss" scoped>
 .cadre-liste-ressources {
-  height: calc(100vh - (97px + 2 * var(--ui-ressources-gar-padding)));
+  height: calc(100% - (97px + 2 * var(--ui-ressources-gar-padding)));
   padding: 10px;
   overflow-y: scroll;
 }
@@ -70,7 +70,7 @@ const { t } = useI18n();
 
 @media (min-width: 1024px) {
   .cadre-liste-ressources {
-    height: calc(100vh - 20px);
+    height: calc(100% - 20px);
   }
 }
 </style>
