@@ -430,7 +430,6 @@ __metadata:
     vite-plugin-css-injected-by-js: "npm:^3.3.0"
     vue: "npm:^3.3.8"
     vue-i18n: "npm:^9.7.1"
-    vue-toastification: "npm:^2.0.0-rc.5"
     vue-tsc: "npm:^1.8.22"
   languageName: unknown
   linkType: soft
@@ -4987,15 +4986,6 @@ __metadata:
     de-indent: "npm:^1.0.2"
     he: "npm:^1.2.0"
   checksum: 450634ed5baf652b1d25f74d13b4ee061d4da83292731406bfbd8a212e286f59def3c762eac05b9fa8769df9ee42a1960ec7c2431ea30999cfc75eb314cc16b9
-  languageName: node
-  linkType: hard
-
-"vue-toastification@npm:^2.0.0-rc.5":
-  version: 2.0.0-rc.5
-  resolution: "vue-toastification@npm:2.0.0-rc.5"
-  peerDependencies:
-    vue: ^3.0.2
-  checksum: da2698e8a24f3de99269d71327879c389236179225dca9112d1de971fcd2e809d83670e1195f3c59a232f8b53c5625b93d573e809da7cb587527b5d339ec9bdb
   languageName: node
   linkType: hard
 

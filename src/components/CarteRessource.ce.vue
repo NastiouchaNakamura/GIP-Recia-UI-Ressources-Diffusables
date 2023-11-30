@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { DistributeursCom } from '@/types/disctibuteurComType.ts';
 import type { Ressource } from '@/types/ressourceType.ts';
+import debounce from 'lodash.debounce';
 import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useToast } from 'vue-toastification';
 
 const props = defineProps<{
   ressource: Ressource;
@@ -19,11 +19,16 @@ onMounted(() => {
 });
 
 const { t } = useI18n();
-const toast = useToast();
 
 const afficherPlusInfos = (): void => {
   plusInfos.value = !plusInfos.value;
 };
+
+const isSuccess = ref<boolean>(false);
+
+const resetSuccess = debounce(() => {
+  isSuccess.value = false;
+}, 1500);
 
 const copierReferences = (): void => {
   let string = `${t('carte-ressource.nom-ressource')}: ${props.ressource.ressource.nom}
@@ -35,7 +40,8 @@ ${t('carte-ressource.editeur')}: ${props.ressource.editeur.nom}`;
   });
 
   navigator.clipboard.writeText(string);
-  toast.info(t('carte-ressource.contenu-copie'));
+  isSuccess.value = true;
+  resetSuccess();
 };
 </script>
 
@@ -92,11 +98,11 @@ ${t('carte-ressource.editeur')}: ${props.ressource.editeur.nom}`;
       </li>
     </ul>
     <div class="boutons-carte-ressource">
-      <button class="" @click="afficherPlusInfos">
+      <button @click="afficherPlusInfos">
         {{ plusInfos ? t('carte-ressource.moins-informations') : t('carte-ressource.plus-informations') }}
       </button>
-      <button class="" @click="copierReferences">
-        {{ t('carte-ressource.copier-references') }}
+      <button :class="[isSuccess ? 'success' : '']" @click="copierReferences">
+        {{ t(isSuccess ? 'carte-ressource.contenu-copie' : 'carte-ressource.copier-references') }}
       </button>
     </div>
   </div>
@@ -167,6 +173,11 @@ $margin: 10px;
 .boutons-carte-ressource > button:disabled {
   background-color: lightgray;
   cursor: not-allowed;
+}
+
+.boutons-carte-ressource > button.success {
+  background-color: var(--ui-ressources-gar-button-background-color-success);
+  color: var(--ui-ressources-gar-button-text-color-success);
 }
 
 @media (min-width: 768px) {

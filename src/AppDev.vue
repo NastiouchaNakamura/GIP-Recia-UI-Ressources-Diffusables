@@ -37,7 +37,9 @@ body {
 
   /* Couleurs des boutons */
   --ui-ressources-gar-button-background-color: #0c9ee1;
+  --ui-ressources-gar-button-background-color-success: #37b61d;
   --ui-ressources-gar-button-text-color: #ffffff;
+  --ui-ressources-gar-button-text-color-success: #ffffff;
 
   /* Mise en forme */
   --ui-ressources-gar-button-border-radius: 24px;
