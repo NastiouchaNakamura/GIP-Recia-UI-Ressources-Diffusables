@@ -59,9 +59,6 @@ Plusieurs variables CSS peuvent être définis pour personnaliser le webcomponen
 
 | Nom                                                   | Description                                                   |
 | ----------------------------------------------------- | ------------------------------------------------------------- |
-| `--ui-ressources-gar-default-text-color`              | Permet de modifier la couleur par défaut des textes           |
-| `--ui-ressources-gar-header-background-color`         | Permet de modifier la couleur de fond du header               |
-| `--ui-ressources-gar-header-text-color`               | Permet de modifier la couleur du texte en header              |
 | `--ui-ressources-gar-ressources-title-color`          | Permet de modifier la couleur des tites des cartes ressources |
 | `--ui-ressources-gar-button-background-color`         | Permet de modifier la couleur de fond des boutons             |
 | `--ui-ressources-gar-button-background-color-success` | Permet de modifier la couleur de fond des boutons de succès   |

@@ -122,7 +122,7 @@ $margin: 10px;
 .nom-ressource-carte-ressource {
   margin-top: 0;
   margin-bottom: $margin;
-  color: var(--ui-ressources-gar-header-background-color);
+  color: var(--ui-ressources-gar-ressources-title-color);
 }
 
 .liste-attributs-ressource-carte-ressource {

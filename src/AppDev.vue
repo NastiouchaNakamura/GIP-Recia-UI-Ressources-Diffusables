@@ -25,13 +25,6 @@ body {
 
 /* Variables */
 :root {
-  /* Couleur par défaut de tout le texte */
-  --ui-ressources-gar-default-text-color: #303030;
-
-  /* Couleurs du header */
-  --ui-ressources-gar-header-background-color: #25b2f3;
-  --ui-ressources-gar-header-text-color: #ffffff;
-
   /* Couleur des titres des cartes de ressources */
   --ui-ressources-gar-ressources-title-color: #25b2f3;
 
