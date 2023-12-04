@@ -384,11 +384,11 @@ __metadata:
   linkType: hard
 
 "@fortawesome/free-solid-svg-icons@npm:^6.4.2":
-  version: 6.5.0
-  resolution: "@fortawesome/free-solid-svg-icons@npm:6.5.0"
+  version: 6.5.1
+  resolution: "@fortawesome/free-solid-svg-icons@npm:6.5.1"
   dependencies:
-    "@fortawesome/fontawesome-common-types": "npm:6.5.0"
-  checksum: d951752b7752b1365e8d09633f6642ff815ff9ab3e4df71ea206771f7d7b49f16493ab3a8273d73b814fca3b12cfc3b9452072c02f256f90ee836a5de5e648d0
+    "@fortawesome/fontawesome-common-types": "npm:6.5.1"
+  checksum: 0d70064bfcde97f62240b58d25cd719c863e09c5b4fce612c26823e006fc09559203eed47ba4e318dcdfbd040cf745cf4186ba0fb79148e2f9db5879c14661bd
   languageName: node
   linkType: hard
 
