@@ -2,17 +2,17 @@ import 'regenerator-runtime/runtime.js';
 
 import { createApp } from 'vue';
 
-import { register } from './ce';
-register();
-
-import i18n from './i18n';
-
-import './icons';
+import { register as registerCustomElements } from './ce';
+import { register as registerFontAwsome } from '@/plugins/fontawsome.ts';
+import i18n from '@/plugins/i18n';
 
 import AppDev from './AppDev.vue';
 import App from './App.vue';
 
 const app = createApp(import.meta.env.DEV ? AppDev : App);
+
+registerCustomElements();
+registerFontAwsome();
 
 app.use(i18n);
 

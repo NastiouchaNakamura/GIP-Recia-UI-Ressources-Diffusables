@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import i18n from '@/i18n.ts';
+import i18n from '@/plugins/i18n.ts';
 import { provide } from 'vue';
 import { I18nInjectionKey } from 'vue-i18n';
 
