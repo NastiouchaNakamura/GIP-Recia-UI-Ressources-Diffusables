@@ -47,7 +47,7 @@ const { t } = useI18n();
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cadre-legende-ressource {
   text-align: left;
   padding: var(--ui-ressources-gar-padding);

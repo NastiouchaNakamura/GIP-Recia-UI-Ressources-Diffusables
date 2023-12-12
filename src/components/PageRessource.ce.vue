@@ -105,7 +105,7 @@ const getPageSuivante = async (): Promise<void> => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cadre-page-ressource {
   display: flex;
   flex-direction: column;

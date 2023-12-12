@@ -54,7 +54,7 @@ const recommencerRecherche = debounce(
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cadre-recherche-ressource {
   display: flex;
   flex-direction: column;

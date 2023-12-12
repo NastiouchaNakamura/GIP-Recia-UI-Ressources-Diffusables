@@ -35,7 +35,7 @@ const { t } = useI18n();
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cadre-liste-ressources {
   height: calc(100% - (97px + 2 * var(--ui-ressources-gar-padding)));
   padding: 10px;

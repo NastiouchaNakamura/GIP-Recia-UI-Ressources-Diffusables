@@ -108,7 +108,7 @@ ${t('carte-ressource.editeur')}: ${props.ressource.editeur.nom}`;
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $margin: 10px;
 
 .cadre-carte-ressource {
