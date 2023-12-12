@@ -21,6 +21,15 @@ html,
 body {
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#app {
+  overflow-y: auto;
 }
 
 /* Variables */
