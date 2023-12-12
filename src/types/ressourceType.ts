@@ -1,4 +1,4 @@
-import type { DistributeursCom } from '@/types/disctibuteurComType';
+import type { DistributeursCom } from '@/types/disctibuteurComType.ts';
 
 export type Ressource = {
   ressource: {

@@ -1,9 +1,9 @@
-import CarteRessourceSFC from './components/CarteRessource.ce.vue';
-import I18nHostSFC from './components/I18nHost.ce.vue';
-import LegendeRessourceSFC from './components/LegendeRessource.ce.vue';
-import ListeRessourcesSFC from './components/ListeRessources.ce.vue';
-import PageRessourceSFC from './components/PageRessource.ce.vue';
-import RechercheRessourceSFC from './components/RechercheRessource.ce.vue';
+import CarteRessourceSFC from '@/components/CarteRessource.ce.vue';
+import I18nHostSFC from '@/components/I18nHost.ce.vue';
+import LegendeRessourceSFC from '@/components/LegendeRessource.ce.vue';
+import ListeRessourcesSFC from '@/components/ListeRessources.ce.vue';
+import PageRessourceSFC from '@/components/PageRessource.ce.vue';
+import RechercheRessourceSFC from '@/components/RechercheRessource.ce.vue';
 import { defineCustomElement } from 'vue';
 
 const CarteRessource = defineCustomElement(CarteRessourceSFC);
