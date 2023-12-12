@@ -38,9 +38,6 @@ export default ({ mode }: { mode: string }) => {
         name: '@gip-recia/ui-ressources-gar',
         fileName: 'index',
       },
-      rollupOptions: {
-        external: ['src/AppDev.vue'],
-      },
     },
     define: {
       'process.env': process.env,
