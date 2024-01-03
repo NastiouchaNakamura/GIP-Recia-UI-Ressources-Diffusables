@@ -412,7 +412,7 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": "npm:^6.5.1"
     "@fortawesome/vue-fontawesome": "npm:^3.0.5"
     "@intlify/unplugin-vue-i18n": "npm:^2.0.0"
-    "@rushstack/eslint-patch": "npm:^1.6.0"
+    "@rushstack/eslint-patch": "npm:^1.6.1"
     "@trivago/prettier-plugin-sort-imports": "npm:^4.3.0"
     "@tsconfig/node20": "npm:^20.1.2"
     "@types/lodash.debounce": "npm:^4.0.9"
@@ -784,7 +784,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/eslint-patch@npm:^1.6.0":
+"@rushstack/eslint-patch@npm:^1.6.1":
   version: 1.6.1
   resolution: "@rushstack/eslint-patch@npm:1.6.1"
   checksum: 4c57775785718c6665bee8daea204bf2fe59c2fec6cabf0d126f01c6c170e11605b7453a089dfd5bf3fb758832b2aa7964d6b9f29007d708a3571e8ff7bcf391
