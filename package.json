@@ -27,12 +27,12 @@
       "url": "https://github.com/Quentin-Guillemin"
     }
   ],
-  "main": "./dist/index.umd.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/ui-ressources-gar.umd.cjs",
+  "module": "./dist/ui-ressources-gar.js",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs"
+      "import": "./dist/ui-ressources-gar.js",
+      "require": "./dist/ui-ressources-gar.umd.cjs"
     }
   },
   "repository": {

@@ -1,8 +1,14 @@
-# **ui-ressouces-gar**
+# ui-ressouces-gar
 
 UI des ressources du GAR en Vue.js.
 
-## **Installation**
+- [ui-ressouces-gar](#ui-ressouces-gar)
+  - [Installation](#installation)
+  - [Paramètres](#paramètres)
+  - [Variables CSS](#variables-css)
+    - [Modification de style](#modification-de-style)
+
+## Installation
 
 1. Installation via npm :
 
@@ -21,7 +27,7 @@ import '@gip-recia/ui-ressouces-gar';
 Dans une page HTML :
 
 ```html
-<script src="./path/to/index.js"></script>
+<script src="./path/to/ui-ressouces-gar.js"></script>
 ```
 
 3. Ajout du composant sur une page HTML :
@@ -31,7 +37,7 @@ const uiRessourcesGar = document.createElement('ui-ressouces-gar');
 document.body.appendChild(uiRessourcesGar);
 ```
 
-## **Paramètres**
+## Paramètres
 
 Propriétés disponibles :
 
@@ -42,6 +48,8 @@ Propriétés disponibles :
 | `ressources-diffusables-size-api-uri` | `string` |    `oui`    |         | URI de la route GET du nombre de ressources diffusables |
 | `user-info-api-url`                   | `string` |    `oui`    |         | URL de l'API des informations utilisateurs              |
 
+<br/>
+
 ```html
 <ui-ressources-gar
   base-api-url=""
@@ -51,9 +59,9 @@ Propriétés disponibles :
 />
 ```
 
-## **Variables CSS**
+## Variables CSS
 
-### **Modification de style**
+### Modification de style
 
 Plusieurs variables CSS peuvent être définis pour personnaliser le webcomponent :
 

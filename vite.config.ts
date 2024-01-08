@@ -1,3 +1,4 @@
+import pkg from './package.json';
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 import vue from '@vitejs/plugin-vue';
 import { fileURLToPath } from 'node:url';
@@ -35,8 +36,7 @@ export default ({ mode }: { mode: string }) => {
     build: {
       lib: {
         entry: './src/main.ts',
-        name: '@gip-recia/ui-ressources-gar',
-        fileName: 'index',
+        name: pkg.name,
       },
     },
     define: {
