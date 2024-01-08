@@ -27,7 +27,7 @@ import '@gip-recia/ui-ressouces-gar';
 Dans une page HTML :
 
 ```html
-<script src="./path/to/ui-ressouces-gar.js"></script>
+<script src="./path/to/ui-ressouces-gar.min.js"></script>
 ```
 
 3. Ajout du composant sur une page HTML :
