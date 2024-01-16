@@ -428,7 +428,7 @@ __metadata:
     lint-staged: "npm:^15.2.0"
     lodash.debounce: "npm:^4.0.8"
     npm-run-all: "npm:^4.1.5"
-    prettier: "npm:^3.1.1"
+    prettier: "npm:^3.2.2"
     regenerator-runtime: "npm:^0.14.1"
     sass: "npm:^1.69.7"
     terser: "npm:^5.26.0"
@@ -3937,7 +3937,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.1.1":
+"prettier@npm:^3.2.2":
   version: 3.2.2
   resolution: "prettier@npm:3.2.2"
   bin:
