@@ -1065,16 +1065,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/compiler-dom@npm:3.4.14, @vue/compiler-dom@npm:^3.3.0":
-  version: 3.4.14
-  resolution: "@vue/compiler-dom@npm:3.4.14"
-  dependencies:
-    "@vue/compiler-core": "npm:3.4.14"
-    "@vue/shared": "npm:3.4.14"
-  checksum: 00d606eff6e0b8a66662f1d9902d1e24f668fa0b5cd64cce744e156795aba6f9ad7ecf68bd8e85128861395912d57377f57d06aa0e97a1271b7c84cfe1d2bea0
-  languageName: node
-  linkType: hard
-
 "@vue/compiler-dom@npm:3.4.15":
   version: 3.4.15
   resolution: "@vue/compiler-dom@npm:3.4.15"
@@ -1085,7 +1075,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/compiler-sfc@npm:3.4.15":
+"@vue/compiler-dom@npm:^3.3.0":
+  version: 3.4.14
+  resolution: "@vue/compiler-dom@npm:3.4.14"
+  dependencies:
+    "@vue/compiler-core": "npm:3.4.14"
+    "@vue/shared": "npm:3.4.14"
+  checksum: 00d606eff6e0b8a66662f1d9902d1e24f668fa0b5cd64cce744e156795aba6f9ad7ecf68bd8e85128861395912d57377f57d06aa0e97a1271b7c84cfe1d2bea0
+  languageName: node
+  linkType: hard
+
+"@vue/compiler-sfc@npm:3.4.15, @vue/compiler-sfc@npm:^3.2.47, @vue/compiler-sfc@npm:^3.4.14":
   version: 3.4.15
   resolution: "@vue/compiler-sfc@npm:3.4.15"
   dependencies:
@@ -1099,33 +1099,6 @@ __metadata:
     postcss: "npm:^8.4.33"
     source-map-js: "npm:^1.0.2"
   checksum: 6e52ea153d0fcd54431b3135166012f76e1f92d67c53c1987e716a834fa15c51a7af02ca392ea1b43ef88884e93d6808c3c68e9c349554bb1425501f7c7b0f63
-  languageName: node
-  linkType: hard
-
-"@vue/compiler-sfc@npm:^3.2.47, @vue/compiler-sfc@npm:^3.4.14":
-  version: 3.4.14
-  resolution: "@vue/compiler-sfc@npm:3.4.14"
-  dependencies:
-    "@babel/parser": "npm:^7.23.6"
-    "@vue/compiler-core": "npm:3.4.14"
-    "@vue/compiler-dom": "npm:3.4.14"
-    "@vue/compiler-ssr": "npm:3.4.14"
-    "@vue/shared": "npm:3.4.14"
-    estree-walker: "npm:^2.0.2"
-    magic-string: "npm:^0.30.5"
-    postcss: "npm:^8.4.33"
-    source-map-js: "npm:^1.0.2"
-  checksum: c45106258040619cc61a467ff58f6a772e287fe5b835d9ffb07313d1e0deedd0d26eb688cf7cf685296bc27a4b93badba9bc9ac120ea93156a5a7bb6f4d494bf
-  languageName: node
-  linkType: hard
-
-"@vue/compiler-ssr@npm:3.4.14":
-  version: 3.4.14
-  resolution: "@vue/compiler-ssr@npm:3.4.14"
-  dependencies:
-    "@vue/compiler-dom": "npm:3.4.14"
-    "@vue/shared": "npm:3.4.14"
-  checksum: e11a91bccb24637ebfb7cc03176a70e96ff180c787133eb9a84f0d0f635d0a0804ac5e7a067c5ee4e34a96348b26ff10232a7835c46b68f064919f67fac0f012
   languageName: node
   linkType: hard
 
