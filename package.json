@@ -54,13 +54,19 @@
     "format:check": "prettier --check src/",
     "format": "prettier --write src/",
     "publish": "npm publish",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
   },
   "dependencies": {
     "vue": "^3.4.14",
     "vue-i18n": "^9.9.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/vue-fontawesome": "^3.0.5",
@@ -86,6 +92,7 @@
     "prettier": "^3.2.2",
     "regenerator-runtime": "^0.14.1",
     "sass": "^1.69.7",
+    "standard-version": "^9.5.0",
     "terser": "^5.26.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.11",
