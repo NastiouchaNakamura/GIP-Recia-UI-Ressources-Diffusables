@@ -619,7 +619,7 @@ __metadata:
     axios: "npm:^1.6.5"
     eslint: "npm:^8.56.0"
     eslint-plugin-vue: "npm:^9.20.1"
-    husky: "npm:^9.0.6"
+    husky: "npm:^8.0.3"
     lint-staged: "npm:^15.2.0"
     lodash.debounce: "npm:^4.0.8"
     npm-run-all: "npm:^4.1.5"
@@ -3506,12 +3506,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^9.0.6":
-  version: 9.0.6
-  resolution: "husky@npm:9.0.6"
+"husky@npm:^8.0.3":
+  version: 8.0.3
+  resolution: "husky@npm:8.0.3"
   bin:
-    husky: bin.js
-  checksum: e198c90a59d460cf860c33e0a4c3927ecfb645d4fd4c2de3fbcd5fb56b858a923af452508d549f6ed020bb48de08290912cd77c006dd2a83e551c24c17340d5b
+    husky: lib/bin.js
+  checksum: b754cf70fdc97c3b60fec5b80056b9c11436464953b1691bf2b5dcf0081fb6685d2c5f47abb8b2b1c49f504aabea5321fdd6496f8b755d9f6e7525a493406abb
   languageName: node
   linkType: hard
 
