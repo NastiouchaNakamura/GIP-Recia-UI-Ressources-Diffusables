@@ -36,14 +36,14 @@ const { t } = useI18n();
 </template>
 
 <style lang="scss">
+@import '@/assets/variables.scss';
+
 .cadre-liste-ressources {
-  height: calc(100% - (97px + 2 * var(--ui-ressources-gar-padding)));
-  padding: 10px;
-  overflow-y: scroll;
+  padding: $margin;
 }
 
 .cadre-liste-ressources > main {
-  margin-bottom: -10px;
+  margin-bottom: -$margin;
 }
 
 .cadre-liste-ressources > footer {
@@ -52,14 +52,13 @@ const { t } = useI18n();
 
 .page-suivante-liste-ressources {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
+  padding: $button-padding;
   font-size: x-large;
   font-weight: bold;
-  background-color: var(--ui-ressources-gar-button-background-color);
-  color: var(--ui-ressources-gar-button-text-color);
+  background-color: $button-background-color;
+  color: $button-text-color;
   border: none;
-  border-radius: var(--ui-ressources-gar-button-border-radius);
+  border-radius: $button-border-radius;
   cursor: pointer;
 }
 
@@ -68,9 +67,17 @@ const { t } = useI18n();
   font-weight: bold;
 }
 
+@media (max-width: 1024px) {
+  .cadre-liste-ressources {
+    padding-top: 0;
+  }
+}
+
 @media (min-width: 1024px) {
   .cadre-liste-ressources {
-    height: calc(100% - 20px);
+    height: calc(100% - 2 * $margin);
+    overflow-y: scroll;
+    padding-left: 0;
   }
 }
 </style>

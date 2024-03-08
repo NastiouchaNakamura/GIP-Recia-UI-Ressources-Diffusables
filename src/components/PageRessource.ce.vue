@@ -106,6 +106,8 @@ const getPageSuivante = async (): Promise<void> => {
 </template>
 
 <style lang="scss">
+@import '@/assets/variables.scss';
+
 .cadre-page-ressource {
   display: flex;
   flex-direction: column;
@@ -129,7 +131,7 @@ const getPageSuivante = async (): Promise<void> => {
     max-height: 100%;
     min-width: 20%;
     overflow-y: hidden;
-    margin-right: -10px;
+    margin-right: -$margin;
   }
 
   .main-page-ressource {

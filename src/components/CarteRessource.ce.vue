@@ -109,20 +109,20 @@ ${t('carte-ressource.editeur')}: ${props.ressource.editeur.nom}`;
 </template>
 
 <style lang="scss">
-$margin: 10px;
+@import '@/assets/variables.scss';
 
 .cadre-carte-ressource {
   text-align: left;
   background-color: #fff;
-  padding: var(--ui-ressources-gar-padding);
+  padding: $padding;
   margin-bottom: $margin;
-  border-radius: var(--ui-ressources-gar-card-border-radius);
+  border-radius: $card-border-radius;
 }
 
 .nom-ressource-carte-ressource {
   margin-top: 0;
   margin-bottom: $margin;
-  color: var(--ui-ressources-gar-ressources-title-color);
+  color: $ressources-title-color;
 }
 
 .liste-attributs-ressource-carte-ressource {
@@ -153,13 +153,13 @@ $margin: 10px;
 
 .boutons-carte-ressource > button {
   min-width: min(200px, 45%);
-  padding: 10px;
+  padding: $button-padding;
   font-size: small;
   font-weight: bold;
-  background-color: var(--ui-ressources-gar-button-background-color);
-  color: var(--ui-ressources-gar-button-text-color);
+  background-color: $button-background-color;
+  color: $button-text-color;
   border: none;
-  border-radius: var(--ui-ressources-gar-button-border-radius);
+  border-radius: $button-border-radius;
   cursor: pointer;
 }
 
@@ -176,8 +176,8 @@ $margin: 10px;
 }
 
 .boutons-carte-ressource > button.success {
-  background-color: var(--ui-ressources-gar-button-background-color-success);
-  color: var(--ui-ressources-gar-button-text-color-success);
+  background-color: $button-background-color-success;
+  color: $button-text-color-success;
 }
 
 @media (min-width: 768px) {

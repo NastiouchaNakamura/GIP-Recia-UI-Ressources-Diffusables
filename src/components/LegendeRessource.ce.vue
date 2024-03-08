@@ -48,16 +48,18 @@ const { t } = useI18n();
 </template>
 
 <style lang="scss">
+@import '@/assets/variables.scss';
+
 .cadre-legende-ressource {
   text-align: left;
-  padding: var(--ui-ressources-gar-padding);
-  margin: 10px;
+  padding: $padding;
+  margin: $margin;
   background-color: #fff;
-  border-radius: var(--ui-ressources-gar-card-border-radius);
+  border-radius: $card-border-radius;
 }
 
 .liste-legendes-legende-ressource {
-  padding: 0px;
+  padding: 0;
   margin: 0;
 }
 
@@ -66,7 +68,7 @@ const { t } = useI18n();
 }
 
 .element-legende-ressource:not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: $margin;
 }
 
 .intitule-legende-ressource {

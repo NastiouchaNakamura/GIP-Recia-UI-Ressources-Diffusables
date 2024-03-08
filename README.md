@@ -74,4 +74,5 @@ Plusieurs variables CSS peuvent être définis pour personnaliser le webcomponen
 | `--ui-ressources-gar-button-text-color-success`       | Permet de modifier la couleur du texte des boutons de succès  |
 | `--ui-ressources-gar-button-border-radius`            | Permet de modifier le radius des boutons                      |
 | `--ui-ressources-gar-card-border-radius`              | Permet de modifier le radius des cartes                       |
+| `--ui-ressources-gar-margin`                          | Permet de modifier le margin global                           |
 | `--ui-ressources-gar-padding`                         | Permet de modifier le padding global                          |

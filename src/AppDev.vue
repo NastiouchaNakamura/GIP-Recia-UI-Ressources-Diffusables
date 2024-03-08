@@ -46,6 +46,7 @@ body {
   /* Mise en forme */
   --ui-ressources-gar-button-border-radius: 24px;
   --ui-ressources-gar-card-border-radius: 16px;
+  --ui-ressources-gar-margin: 10px;
   --ui-ressources-gar-padding: 16px;
 
   background-color: #f3f3f3;

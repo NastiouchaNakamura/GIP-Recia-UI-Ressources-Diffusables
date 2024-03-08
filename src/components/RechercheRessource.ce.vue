@@ -55,37 +55,35 @@ const recommencerRecherche = debounce(
 </template>
 
 <style lang="scss">
+@import '@/assets/variables.scss';
+
 .cadre-recherche-ressource {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--ui-ressources-gar-padding);
-  margin: 10px;
+  padding: $padding;
+  margin: $margin;
   background-color: #fff;
-  border-radius: var(--ui-ressources-gar-card-border-radius);
+  border-radius: $card-border-radius;
 }
 
 .input-recherche-ressource {
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
+  margin-bottom: $margin;
 }
-
-$input-height: 30px;
-$border-radius: var(--ui-ressources-gar-button-border-radius);
-$padding: 8px;
 
 .champ-recherche-ressource {
   box-sizing: border-box;
   width: 100%;
   height: $input-height;
-  padding: 0 $padding 0 $padding;
+  padding: 0 $recherche-ressource-padding 0 $recherche-ressource-padding;
   font-size: small;
   font-weight: bold;
   outline: none;
   border: thin solid lightgrey;
   border-right: none;
-  border-radius: $border-radius 0 0 $border-radius;
+  border-radius: $button-border-radius 0 0 $button-border-radius;
 }
 
 .reinitialiser-recherche-ressource {
@@ -94,11 +92,11 @@ $padding: 8px;
   align-items: center;
   width: $input-height;
   height: $input-height;
-  padding: $padding;
-  background-color: var(--ui-ressources-gar-button-background-color);
-  color: var(--ui-ressources-gar-button-text-color);
+  padding: $recherche-ressource-padding;
+  background-color: $button-background-color;
+  color: $button-text-color;
   border: none;
-  border-radius: 0 $border-radius $border-radius 0;
+  border-radius: 0 $button-border-radius $button-border-radius 0;
   cursor: pointer;
 }
 
