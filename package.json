@@ -59,10 +59,6 @@
     "release:patch": "standard-version --release-as patch",
     "release:major": "standard-version --release-as major"
   },
-  "dependencies": {
-    "vue": "^3.4.21",
-    "vue-i18n": "^9.10.2"
-  },
   "devDependencies": {
     "@commitlint/cli": "^19.2.0",
     "@commitlint/config-conventional": "^19.1.0",
@@ -94,6 +90,8 @@
     "terser": "^5.29.2",
     "typescript": "^5.4.2",
     "vite": "^5.1.6",
+    "vue": "^3.4.21",
+    "vue-i18n": "^9.10.2",
     "vue-tsc": "^2.0.6"
   },
   "packageManager": "yarn@4.1.0"
