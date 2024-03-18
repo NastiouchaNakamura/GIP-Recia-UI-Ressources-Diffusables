@@ -607,8 +607,8 @@ __metadata:
     "@rushstack/eslint-patch": "npm:^1.7.2"
     "@trivago/prettier-plugin-sort-imports": "npm:^4.3.0"
     "@tsconfig/node20": "npm:^20.1.2"
-    "@types/lodash.debounce": "npm:^4.0.9"
-    "@types/node": "npm:^20.11.28"
+    "@types/lodash.debounce": "npm:^4"
+    "@types/node": "npm:^20"
     "@uportal/open-id-connect": "npm:^1.40.2"
     "@vitejs/plugin-vue": "npm:^5.0.4"
     "@vue/eslint-config-prettier": "npm:^9.0.0"
@@ -699,7 +699,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@intlify/message-compiler@npm:9.10.2":
+"@intlify/message-compiler@npm:9.10.2, @intlify/message-compiler@npm:^9.4.0":
   version: 9.10.2
   resolution: "@intlify/message-compiler@npm:9.10.2"
   dependencies:
@@ -709,24 +709,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@intlify/message-compiler@npm:^9.4.0":
-  version: 9.10.1
-  resolution: "@intlify/message-compiler@npm:9.10.1"
-  dependencies:
-    "@intlify/shared": "npm:9.10.1"
-    source-map-js: "npm:^1.0.2"
-  checksum: 10/176a6872c35ebfbcc65a2b4757b5697001a44e5c1084f2adb8db085ae5730efe1b64a89498380b561f43e5bd4c55a089ec97363d7da51985ccd3cbd83541c2c9
-  languageName: node
-  linkType: hard
-
-"@intlify/shared@npm:9.10.1, @intlify/shared@npm:^9.4.0":
-  version: 9.10.1
-  resolution: "@intlify/shared@npm:9.10.1"
-  checksum: 10/d675a93fa913a12b9ee283d32b42ff1c7cc62cc56f7611a68973d8da599d76671992de3698df74b2d3f6363f4c5eb82d9458f24a89c36ce79238e1b2c147792b
-  languageName: node
-  linkType: hard
-
-"@intlify/shared@npm:9.10.2":
+"@intlify/shared@npm:9.10.2, @intlify/shared@npm:^9.4.0":
   version: 9.10.2
   resolution: "@intlify/shared@npm:9.10.2"
   checksum: 10/e74b528269d8ea2031451545cd3e9c46d0380eaab5bbbc88e3fde7410cb76251df1bed3bd8074c39086a25512437a15e0bf112812046abf8d40f2b0041add3a1
@@ -1057,7 +1040,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.debounce@npm:^4.0.9":
+"@types/lodash.debounce@npm:^4":
   version: 4.0.9
   resolution: "@types/lodash.debounce@npm:4.0.9"
   dependencies:
@@ -1080,16 +1063,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 20.11.24
-  resolution: "@types/node@npm:20.11.24"
-  dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 10/7f34bfae5f9b98b9910230af4b4c52dc7fb2d1e96fdebfbc3d7576f8ab3d100076f193f9469add9e7418b455294155e7e6a028498cc5e98f9d49349875a459cf
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^20.11.28":
+"@types/node@npm:*, @types/node@npm:^20":
   version: 20.11.28
   resolution: "@types/node@npm:20.11.28"
   dependencies:
