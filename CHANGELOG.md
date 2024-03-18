@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/GIP-RECIA/Ressources-Diffusables-UI/compare/v2.1.0...v2.1.1) (2024-03-18)
+
+
+### Features
+
+* margin variable + default css variable values ([5b1d487](https://github.com/GIP-RECIA/Ressources-Diffusables-UI/commit/5b1d487e96111b7e6cf71e020edf4e0f930eba3b))
+
+
+### Bug Fixes
+
+* **dev:** hmr ([239ba0d](https://github.com/GIP-RECIA/Ressources-Diffusables-UI/commit/239ba0d92c35e0c845b790eb523a5e174b1dba07))
+
 ## [2.1.0](https://github.com/GIP-RECIA/Ressources-Diffusables-UI/compare/v2.0.0...v2.1.0) (2024-01-08)
 
 
