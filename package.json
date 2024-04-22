@@ -91,7 +91,7 @@
     "typescript": "^5.4.5",
     "vite": "^5.2.10",
     "vue": "^3.4.23",
-    "vue-i18n": "^9.12.1",
+    "vue-i18n": "^9.13.1",
     "vue-tsc": "^2.0.14"
   },
   "packageManager": "yarn@4.1.0"
