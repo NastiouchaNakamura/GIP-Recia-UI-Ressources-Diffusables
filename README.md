@@ -1,5 +1,7 @@
 # ui-ressouces-gar
 
+> ⚠️ migration du projet vers https://github.com/GIP-RECIA/recia-webcomponents/tree/main/packages/ressources-diffusables
+
 UI des ressources du GAR en Vue.js.
 
 - [ui-ressouces-gar](#ui-ressouces-gar)
